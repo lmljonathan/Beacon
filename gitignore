@@ -9,7 +9,7 @@
 ## Build generated
 build/
 DerivedData
-Yelpify/Pods
+Beacon/Pods
 
 ## Various settings
 *.pbxuser
@@ -34,7 +34,8 @@ xcuserdata
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
