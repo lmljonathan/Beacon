@@ -17,6 +17,7 @@
 		900D05361DCE8A0300605D0A /* BeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05351DCE8A0300605D0A /* BeaconUITests.swift */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
 		A3AC69985FD32CDBF9B42653 /* Pods_BeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */; };
+		ED110A4F1DCE925700609730 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED110A4E1DCE925700609730 /* Trip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.debug.xcconfig"; sourceTree = "<group>"; };
 		E39D7E6C29F607DE7F161555 /* Pods-BeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED110A4E1DCE925700609730 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		900D05091DCE8A0200605D0A = {
 			isa = PBXGroup;
 			children = (
+				ED110A4E1DCE925700609730 /* Trip.swift */,
 				900D05141DCE8A0200605D0A /* Beacon */,
 				900D05291DCE8A0300605D0A /* BeaconTests */,
 				900D05341DCE8A0300605D0A /* BeaconUITests */,
@@ -334,7 +337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		82D6C0F2B67D0028F4F8B544 /* [CP] Check Pods Manifest.lock */ = {
@@ -349,7 +352,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		83242476DFEB411AA429315E /* [CP] Check Pods Manifest.lock */ = {
@@ -364,7 +367,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9985377D43AF4C11ED136639 /* [CP] Copy Pods Resources */ = {
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D05181DCE8A0200605D0A /* ViewController.swift in Sources */,
+				ED110A4F1DCE925700609730 /* Trip.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +709,7 @@
 				900D053C1DCE8A0300605D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		900D053D1DCE8A0300605D0A /* Build configuration list for PBXNativeTarget "BeaconTests" */ = {
 			isa = XCConfigurationList;
@@ -713,6 +718,7 @@
 				900D053F1DCE8A0300605D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		900D05401DCE8A0300605D0A /* Build configuration list for PBXNativeTarget "BeaconUITests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +727,7 @@
 				900D05421DCE8A0300605D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
