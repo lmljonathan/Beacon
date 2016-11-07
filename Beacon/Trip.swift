@@ -77,26 +77,33 @@ class Trip{
     func sortedPlaces(key:([Place]) -> Place) -> [Place]{
         return self.places.sorted(key)
     }
-    struct createTrips{
-        func randomStr(length: Int)-> String{
-            let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            let len = UInt32(letters.length)
-            
-            var randomString = ""
-            
-            for _ in 0 ..< length {
-                let rand = arc4random_uniform(len)
-                var nextChar = letters.character(at: Int(rand))
-                randomString += NSString(characters: &nextChar, length: 1) as String
-            }
-            
-            return randomString
-        }
+    
+    func createRandomTrip()->Trip {
+        var array: [String]
         
-        func randomInt(max: Int)-> Int{
-            return arc4random_uniform(max)
-        
+        for _ in 0 < 5{
+            array += [randomStr(5)]
         }
+        return Trip(name: randomStr(5), desc: randomStr(5), createdBy: randomStr(5), timeCreated: randomStr(5), timeUpdated: randomStr(5), priceLevel: randomInt(50), numPlaces: randomInt(50), numViews: randomInt(50), placeIDs: array, places: <#T##[Place]#>)
+    }
+
 }
 
+func randomStr(length: Int)-> String{
+    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let len = UInt32(letters.length)
+    
+    var randomString = ""
+    
+    for _ in 0 ..< length {
+        let rand = arc4random_uniform(len)
+        var nextChar = letters.character(at: Int(rand))
+        randomString += NSString(characters: &nextChar, length: 1) as String
+    }
+    
+    return randomString
+}
 
+func randomInt(max: Int)-> Int{
+    return arc4random_uniform(max)
+}
