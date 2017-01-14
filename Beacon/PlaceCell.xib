@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="129"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6ro-66-9Xw" id="xp5-Wz-efQ">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="128.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaJ-6M-PlA">
@@ -178,7 +178,7 @@
                 <outlet property="mainView" destination="XaJ-6M-PlA" id="yy9-Jk-YoJ"/>
                 <outlet property="moreButton" destination="vVT-hq-Qlq" id="zQc-Fj-arA"/>
                 <outlet property="placeTitleLabel" destination="uu2-eA-gBO" id="CEB-Td-TzG"/>
-                <outlet property="ratingView" destination="Fgm-SL-aq5" id="ma0-PB-1iT"/>
+                <outlet property="ratingView" destination="Fgm-SL-aq5" id="vQd-WZ-jaY"/>
             </connections>
             <point key="canvasLocation" x="315" y="-139.5"/>
         </tableViewCell>

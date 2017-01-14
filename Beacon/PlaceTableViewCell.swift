@@ -40,7 +40,7 @@ class PlaceTableViewCell: MGSwipeTableCell {
     
     func loadData(id: String){
         let apiClient = APIDataHandler()
-        apiClient.getPlaceDetailed(id: id, completion: { (detailedPlace) in
+        apiClient.performDetailedSearch(id, completion: { (detailedPlace) in
             let place = detailedPlace.convertToPlace()
             self.configure(with: place, mode: .more, completion: {
                 // finish configuring
@@ -56,10 +56,10 @@ class PlaceTableViewCell: MGSwipeTableCell {
             actionButtonView.addGestureRecognizer(tapRec)
 
         case .more:
-            self.configureButton(UIImage(named: "more_icon")!)
+            self.configureButton(UIImage())
             self.moreButton.isHidden = true
         default:
-            self.configureButton(UIImage(named: "more_icon")!)
+            self.configureButton(UIImage())
         }
         
         //Set Icon

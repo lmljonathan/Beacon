@@ -219,10 +219,5 @@ class APIDataHandler {
             }
         }
     }
-    
-    // new functions
-    
-    func getPlaceDetailed(id: String, completion: (GooglePlaceDetail) -> Void){
-        // completion()
-    }
+
 }
