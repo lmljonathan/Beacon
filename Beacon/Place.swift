@@ -36,6 +36,8 @@ class Place{
         self._desc = desc
     }
     
+    
+    
     var getName:String{
         return self._name
     }
@@ -77,6 +79,7 @@ class Place{
     }
     
     static func ==(left: Place, right: Place) -> Bool{
+        print("hello")
         return left._ID == right._ID
     }
     
