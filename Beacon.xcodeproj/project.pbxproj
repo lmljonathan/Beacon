@@ -19,6 +19,7 @@
 		90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */; };
 		90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */; };
 		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
+		9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
@@ -67,6 +68,7 @@
 		90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIClient.swift; sourceTree = "<group>"; };
 		90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
+		9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGesturesHelper.swift; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
@@ -192,6 +194,16 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		9052B4351E2AE0C400DBCF98 /* List Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */,
+				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
+				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+			);
+			name = "List Helpers";
+			sourceTree = "<group>";
+		};
 		907670141DD11ECF003C3B89 /* CoreStructures */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +235,7 @@
 		907670171DD11FB3003C3B89 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
-				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+				9052B4351E2AE0C400DBCF98 /* List Helpers */,
 				90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */,
 				907670181DD1215A003C3B89 /* APIDataHandler.swift */,
 				90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */,
@@ -541,6 +552,7 @@
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
+				9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
 				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
 				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,

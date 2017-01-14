@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
     
     @IBOutlet var addPlaceButton: UIButton!
     
-    @IBOutlet var bottomViewHeight: NSLayoutConstraint!
+    // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
     
     
     let topMapProportion: CGFloat = 1/5
@@ -63,6 +63,8 @@ class ListViewController: UIViewController {
     
     var mode: ListMode! = .view
     var mapScroll: Bool! = false
+    
+     var originalFrame: CGRect!
     
     
 //    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
@@ -103,11 +105,13 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureRecognizers()
+        
         // Register Nibs
         self.listTableView.register(UINib(nibName: "PlaceCell", bundle: .main), forCellReuseIdentifier: "placeCell")
         
         //self.listTableView.scrollEnabled = false
-        var googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "33.672354,-117.798607", "rankby": "distance", "keyword": "food"]
+        let googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "33.672354,-117.798607", "rankby": "distance", "keyword": "food"]
         
         apiClient.performAPISearch(googleParameters) { (results) in
             self.placeIDs = results.map({$0.id})
@@ -146,15 +150,15 @@ class ListViewController: UIViewController {
             self.listTableView.reloadData()
         }
         
-//        func getCities(){
-//            let coordArray = self.placeArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
-//            self.mapView.getCitiesFromCoordinates(coordArray) { (cities) in
-//                let sortedCities = cities.sorted(by: {$0 < $1})
-//                let citiesString = sortedCities.map({$0.0}).joined(separator: ", ")
-//                self.citiesLabel.fadeIn(citiesString, beginScale: 1)
-//            }
-//        }
-//        
+        func getCities(){
+            let coordArray = self.placeArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
+            self.mapView.getCitiesFromCoordinates(coordArray) { (cities) in
+                let sortedCities = cities.sorted(by: {$0 < $1})
+                let citiesString = sortedCities.map({$0.0}).joined(separator: ", ")
+                self.citiesLabel.fadeIn(citiesString, beginScale: 1)
+            }
+        }
+//
 //        func updateBusinessesFromIDs(_ ids:[String], reloadIndex: Int = 0){
 //            if ids.count > 0{
 //                apiClient.performDetailedSearch(ids[0]) { (detailedGPlace) in
@@ -228,41 +232,41 @@ class ListViewController: UIViewController {
     //    }
     
     
-//    func activateEditMode() {
-//        
-//        //configureReorderControl()
-//        
-//        // Make Title Text Editable
-//        self.titleTextField.enable()
-//        self.titleTextField.delegate = self
-//        
-//        // Show Change BG Image Button
-//        //self.changePlaylistImageButton.hidden = false
-//        
-//        // Replace More Button With Cancel Button
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
-//        
-//        // Animate and Show Add Place Button
-//        self.addPlaceButton.isHidden = false
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState,animations: {
-//            self.addPlaceButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)},
-//                                   completion: { finish in
-//                                    UIView.animate(withDuration: 0.6){self.addPlaceButton.transform = CGAffineTransform.identity}
-//        })
-//        
-//        // Set Editing to True
-//        self.listTableView.setEditing(true, animated: true)
-//        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
-//        self.bottomView.removeGestureRecognizer(bottomPanGR)
-//        
-//        // Set Edit Mode
-//        self.mode = .edit
-//        
+    func activateEditMode() {
+        
+        //configureReorderControl()
+        
+        // Make Title Text Editable
+        self.titleTextField.enable()
+        self.titleTextField.delegate = self
+        
+        // Show Change BG Image Button
+        //self.changePlaylistImageButton.hidden = false
+        
+        // Replace More Button With Cancel Button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
+        
+        // Animate and Show Add Place Button
+        self.addPlaceButton.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState,animations: {
+            self.addPlaceButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)},
+                                   completion: { finish in
+                                    UIView.animate(withDuration: 0.6){self.addPlaceButton.transform = CGAffineTransform.identity}
+        })
+        
+        // Set Editing to True
+        self.listTableView.setEditing(true, animated: true)
+        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
+        self.bottomView.removeGestureRecognizer(bottomPanGR)
+        
+        // Set Edit Mode
+        self.mode = .edit
+        
 //        // Replace Back Button with Done
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 //        let backButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.savePlaylistToParse(_:)))
 //        self.navigationItem.leftBarButtonItem = backButton
-//    }
+    }
     
     func deactivateEditMode() {
         
@@ -291,50 +295,50 @@ class ListViewController: UIViewController {
         self.mode = .view
     }
     
-//    func configureSwipeButtons(_ cell: MGSwipeTableCell, mode: ListMode){
-//        if mode == .view{
-//            let routeButton = MGSwipeButton(title: "ROUTE", icon: UIImage(named: "swipe_route")!.imageWithColor(appDefaults.color),backgroundColor: UIColor.clear, padding: 25)
-//            routeButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
-//            routeButton.centerIconOverText()
-//            routeButton.titleLabel?.font = appDefaults.font
-//            routeButton.titleLabel?.textColor = appDefaults.color
-//            
-//            let addButton = MGSwipeButton(title: "ADD", icon: UIImage(named: "swipe_add")!.imageWithColor(appDefaults.color) ,backgroundColor: UIColor.clear, padding: 25)
-//            addButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 15))
-//            addButton.centerIconOverText()
-//            addButton.titleLabel?.font = appDefaults.font
-//            addButton.titleLabel?.textColor = appDefaults.color
-//            
-//            cell.rightButtons = [addButton]
-//            cell.rightSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.rightExpansion.buttonIndex = 0
-//            cell.rightExpansion.fillOnTrigger = false
-//            cell.rightExpansion.threshold = 1
-//            
-//            cell.leftButtons = [routeButton]
-//            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.leftExpansion.buttonIndex = 0
-//            cell.leftExpansion.fillOnTrigger = true
-//            cell.leftExpansion.threshold = 1
-//            
-//        }else if mode == .edit{
-//            cell.rightButtons.removeAll()
-//            cell.leftButtons.removeAll()
-//            let deleteButton = MGSwipeButton(title: "Delete",icon: UIImage(named: "location_icon"),backgroundColor: UIColor.red,padding: 25)
-//            deleteButton.centerIconOverText()
-//            cell.leftButtons = [deleteButton]
-//            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.leftExpansion.buttonIndex = 0
-//            cell.leftExpansion.fillOnTrigger = true
-//            cell.leftExpansion.threshold = 1
-//        }
-//    }
+    func configureSwipeButtons(_ cell: MGSwipeTableCell, mode: ListMode){
+        if mode == .view{
+            let routeButton = MGSwipeButton(title: "ROUTE", icon: UIImage(named: "swipe_route")!.imageWithColor(appDefaults.color),backgroundColor: UIColor.clear, padding: 25)
+            routeButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
+            routeButton.centerIconOverText()
+            routeButton.titleLabel?.font = appDefaults.font
+            routeButton.titleLabel?.textColor = appDefaults.color
+            
+            let addButton = MGSwipeButton(title: "ADD", icon: UIImage(named: "swipe_add")!.imageWithColor(appDefaults.color) ,backgroundColor: UIColor.clear, padding: 25)
+            addButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 15))
+            addButton.centerIconOverText()
+            addButton.titleLabel?.font = appDefaults.font
+            addButton.titleLabel?.textColor = appDefaults.color
+            
+            cell.rightButtons = [addButton]
+            cell.rightSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.rightExpansion.buttonIndex = 0
+            cell.rightExpansion.fillOnTrigger = false
+            cell.rightExpansion.threshold = 1
+            
+            cell.leftButtons = [routeButton]
+            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.leftExpansion.buttonIndex = 0
+            cell.leftExpansion.fillOnTrigger = true
+            cell.leftExpansion.threshold = 1
+            
+        }else if mode == .edit{
+            cell.rightButtons.removeAll()
+            cell.leftButtons.removeAll()
+            let deleteButton = MGSwipeButton(title: "Delete",icon: UIImage(named: "location_icon"),backgroundColor: UIColor.red,padding: 25)
+            deleteButton.centerIconOverText()
+            cell.leftButtons = [deleteButton]
+            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.leftExpansion.buttonIndex = 0
+            cell.leftExpansion.fillOnTrigger = true
+            cell.leftExpansion.threshold = 1
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if (segue.identifier == "showBusinessDetail"){
 //            let upcoming: BusinessDetailViewController = segue.destination as! BusinessDetailViewController
 //            
-//            let index = (listTableView.indexPathForSelectedRow! as NSIndexPath).row
+//            let index = (listTableView.indexPathForSelectedRow! as IndexPath).row
 //            print(index)
 //            
 //            // IF NO NEW PLACE IS ADDED
