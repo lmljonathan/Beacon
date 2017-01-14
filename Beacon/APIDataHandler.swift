@@ -32,6 +32,7 @@ class APIDataHandler {
         
         gpClient.searchPlacesWithParameters(googleParameters) { (result) -> Void in
             self.parseGPlacesJSON(result, completion: { (businessArray) -> Void in
+                //print(businessArray[0].photoReference)
                 completion(businessArray)
             })
         }
@@ -41,6 +42,7 @@ class APIDataHandler {
     func performDetailedSearch(_ googleID: String, completion: @escaping (_ detailedGPlace: GooglePlaceDetail) -> Void){
         self.gpClient.searchPlaceWithID(googleID) { (JSONdata) in
             self.parseGoogleDetailedData(JSONdata, completion: { (detailedGPlace) in
+                //print("HELLLLLLLOOOOOOO", detailedGPlace.photoReference)
                 completion(detailedGPlace)
             })
         }
@@ -102,7 +104,12 @@ class APIDataHandler {
                                 DetailedObject.photos.add(ref)
                             }
                         }
+                        if let photoReference = photoArray[0]["photo_reference"].string{
+                            //print(photoReference)
+                            DetailedObject.photoReference = photoReference
+                        }
                     }
+                        
                     
                     if let placePrice = place["price_level"]?.int{
                         DetailedObject.priceRating = placePrice
@@ -165,7 +172,7 @@ class APIDataHandler {
     // Regular Search
     func parseGPlacesJSON(_ data: Data, completion: (_ businessArray: [Place]) -> Void){
         let json = JSON(data: data)
-        print(json)
+        //print(json)
         if let places = json["results"].array{
             if places.count > 0{
                 

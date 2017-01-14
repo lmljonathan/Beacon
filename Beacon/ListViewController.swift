@@ -44,7 +44,7 @@ class ListViewController: UIViewController {
 //    var object: PFObject!
     //var trip = [Business]()
     
-//     var trip: [Place] = []
+    var placesLoaded: [Place] = []
     
     var itemReceived: Array<AnyObject> = []
     var sortMethod:String!
