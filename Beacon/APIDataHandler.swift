@@ -173,20 +173,20 @@ class APIDataHandler {
                 for place in places{
                     var businessObject = Place()
                     
-                    if let id = place["place_id"].string{
-                        businessObject.gPlaceID = id
+                    if let id = place["place_id"].int{
+                        businessObject.id = id
                     }
                     if let name = place["name"].string{
-                        businessObject.businessName = name
+                        businessObject.name = name
                     }
                     if let address = place["vicinity"].string{
-                        businessObject.businessAddress = address
+                        businessObject.address = address
                     }
                     if let photoRef = place["photos"][0]["photo_reference"].string{
                         businessObject.businessPhotoReference = photoRef
                     }
-                    if let rating = place["rating"].double{
-                        businessObject.businessRating = rating
+                    if let rating = place["rating"].float{
+                        businessObject.rating = rating
                     }
                     
                     if let placeLocation = place["geometry"]["location"].dictionary{

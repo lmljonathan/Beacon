@@ -9,106 +9,109 @@
 import Foundation
 import UIKit
 
-class Place{
+struct Place{
     
-    private var _name:String!
-    private var _id:String!
-    private var _address:String!
-    private var _coor:(Float,Float)!
-    private var _rating:Float!
-    private var _isOpen:Bool!
-    private var _reviews:NSArray!
-    private var _phone:String!
-    private var _website:String!
-    private var _desc:String!
-
+    var name:String!
+    var id:Int!
+    var address:String!
+    var coor:(Float,Float)!
+    var rating:Float!
+    var isOpen:Bool!
+    var reviews:NSMutableArray
+    var phone:String!
+    var website:String!
+    var desc:String!
+    var photoReference:String!
+    var photos:NSMutableArray!
     
-    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
-    {
-        self._name = name
-        self._address = address
-        self._coor = coor
-        self._rating = rating
-        self._isOpen = isOpen
-        self._reviews = reviews
-        self._phone = phone
-        self._website = website
-        self._desc = desc
-    }
+//    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
+//    {
+//        self._name = name
+//        self._address = address
+//        self._coor = coor
+//        self._rating = rating
+//        self._isOpen = isOpen
+//        self._reviews = reviews
+//        self._phone = phone
+//        self._website = website
+//        self._desc = desc
+//    }
     
-    init(){
-        
-    }
-    
-    
-    
-    var getName:String{
-        return self._name
-    }
-    
-    var getID:String{
-        return self._ID
-    }
-    
-    var getAddress:String{
-        return self._address
-    }
-    
-    var getCoor:(Float,Float){
-        return self._coor
-    }
-    
-    var getRating:Float{
-        return self._rating
-    }
-    
-    var isOpen:Bool{
-        return self._isOpen
-    }
-    
-    var getReviews:NSArray{
-        return self._reviews
-    }
-    
-    var getPhone:String{
-        return self._phone
-    }
-    
-    var getWebsite:String{
-        return self._website
-    }
-    
-    var getDesc:String{
-        return self._desc
-    }
+//    var getName:String{
+//        return self._name
+//    }
+//    
+//    var getID:String{
+//        return self._ID
+//    }
+//    
+//    var getAddress:String{
+//        return self._address
+//    }
+//    
+//    var getCoor:(Float,Float){
+//        return self._coor
+//    }
+//    
+//    var getRating:Float{
+//        return self._rating
+//    }
+//    
+//    var isOpen:Bool{
+//        return self._isOpen
+//    }
+//    
+//    var getReviews:NSArray{
+//        return self._reviews
+//    }
+//    
+//    var getPhone:String{
+//        return self._phone
+//    }
+//    
+//    var getWebsite:String{
+//        return self._website
+//    }
+//    
+//    var getDesc:String{
+//        return self._desc
+//    }
     
     static func ==(left: Place, right: Place) -> Bool{
         print("hello")
-        return left._id == right._id
+        return left.id == right.id
     }
     
 }
 
 
 struct GooglePlaceDetail {
+    
+    var id:Int! = 0
+    var isOpen:Bool = true
+    var desc:String! = ""
     var name: String! = ""
+    var coor: (Float, Float) = (0.0, 0.0)
     var address: String! = ""
     var formattedAddress: String! = ""
     var phone: String! = ""
     var website: String! = ""
     var hours: NSMutableArray! = []
     var priceRating: Int! = 0
-    var rating: Double! = 0
+    var rating: Float! = 0
     var reviews: NSMutableArray! = []
     var photos: NSMutableArray! = []
     var types: NSMutableArray! = []
     var status: Bool! = nil
-    
+    var photoReference: String! = ""
     var longitude: Double! = -1 //
     var latitude: Double! = -1 //
     
     func convertToPlace() -> Place{
-        // var place = Place(id: <#T##String#>, name: <#T##String#>, address: <#T##String#>, coor: <#T##(Float, Float)#>, rating: <#T##Float#>, isOpen: <#T##Bool#>, reviews: <#T##NSArray#>, phone: <#T##String#>, website: <#T##String#>, desc: <#T##String#>)
+        var place = Place(name: name, id: id, address: address, coor: coor, rating: rating, isOpen: isOpen, reviews: reviews, phone: phone, website: website, desc: desc, photoReference: photoReference, photos: photos)
+        
+
+        
 //        var business = Place()
 //        business.businessName = self.name
 //        business.businessAddress = self.address
@@ -125,7 +128,7 @@ struct GooglePlaceDetail {
 //        }
 //        business.businessTypes = self.types
         
-        return business
+        return place
     }
 }
 
