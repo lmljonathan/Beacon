@@ -84,3 +84,43 @@ class Place{
     }
     
 }
+
+
+struct GooglePlaceDetail {
+    var name: String! = ""
+    var address: String! = ""
+    var formattedAddress: String! = ""
+    var phone: String! = ""
+    var website: String! = ""
+    var hours: NSMutableArray! = []
+    var priceRating: Int! = 0
+    var rating: Double! = 0
+    var reviews: NSMutableArray! = []
+    var photos: NSMutableArray! = []
+    var types: NSMutableArray! = []
+    var status: Bool! = nil
+    
+    var longitude: Double! = -1 //
+    var latitude: Double! = -1 //
+    
+    func convertToBusiness() -> Place{
+//        var business = Place()
+//        business.businessName = self.name
+//        business.businessAddress = self.address
+//        business.businessLatitude = self.latitude
+//        business.businessLongitude = self.longitude
+//        business.businessName = self.name
+//        business.businessAddress = self.address
+//        business.businessPhone = self.phone
+//        business.businessRating = self.rating
+//        business.businessStatus = self.status
+//        
+//        if self.photos.count > 0 {
+//            business.businessPhotoReference = self.photos[0] as! String
+//        }
+//        business.businessTypes = self.types
+        
+        return business
+    }
+}
+
