@@ -13,6 +13,10 @@ import Kingfisher
 
 class PlaceTableViewCell: MGSwipeTableCell {
     
+    enum cellMode {
+        case add, more
+    }
+    
     @IBOutlet weak var ratingView: CosmosView!
   
 //    let cache = Shared.imageCache
@@ -42,7 +46,7 @@ class PlaceTableViewCell: MGSwipeTableCell {
         })
     }
     
-    private func configure(with place: Place, mode: BusinessCellMode, completion:() -> Void){
+    private func configure(with place: Place, mode: cellMode, completion:() -> Void){
         switch mode {
         case .add:
             self.configureButton(UIImage(named: "checkMark")!)

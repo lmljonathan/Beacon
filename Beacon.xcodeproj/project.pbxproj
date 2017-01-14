@@ -16,11 +16,12 @@
 		900D05361DCE8A0300605D0A /* BeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05351DCE8A0300605D0A /* BeaconUITests.swift */; };
 		90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */; };
 		90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */; };
-		90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */; };
+		90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */; };
 		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
+		90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
 		A3AC69985FD32CDBF9B42653 /* Pods_BeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */; };
 		ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11209D1DD10E7700B9E2A4 /* Place.swift */; };
@@ -62,11 +63,12 @@
 		900D05371DCE8A0300605D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIClient.swift; sourceTree = "<group>"; };
-		90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.release.xcconfig"; sourceTree = "<group>"; };
 		BBF502BBFC60F1B7AF5C3A6D /* Pods-BeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
+				90A9B43D1E2AC058004E97F5 /* XIB */,
 				90101BA61E2AAD4000037B3F /* Cell */,
 				907670171DD11FB3003C3B89 /* Helpers */,
 				907670141DD11ECF003C3B89 /* CoreStructures */,
@@ -182,7 +185,7 @@
 		90101BA61E2AAD4000037B3F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */,
+				90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -225,6 +228,14 @@
 				90927E501DCE906E008726BB /* UIExtensions.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		90A9B43D1E2AC058004E97F5 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */,
+			);
+			name = XIB;
 			sourceTree = "<group>";
 		};
 		C1F1E4402EC4FB07BBD6319B /* Frameworks */ = {
@@ -357,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */,
+				90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */,
 				900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */,
 				900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */,
 			);
@@ -527,7 +539,7 @@
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
-				90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */,
+				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,

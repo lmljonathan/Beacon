@@ -21,66 +21,68 @@ class Place{
     private var _phone:String!
     private var _website:String!
     private var _desc:String!
+    
+    var name: String!
+    var id: Int!
+    
 
     
-    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
-    {
-        self._name = name
-        self._address = address
-        self._coor = coor
-        self._rating = rating
-        self._isOpen = isOpen
-        self._reviews = reviews
-        self._phone = phone
-        self._website = website
-        self._desc = desc
-    }
+//    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
+//    {
+//        self._name = name
+//        self._address = address
+//        self._coor = coor
+//        self._rating = rating
+//        self._isOpen = isOpen
+//        self._reviews = reviews
+//        self._phone = phone
+//        self._website = website
+//        self._desc = desc
+//    }
     
     init(){
         
     }
     
-    
-    
-    var getName:String{
-        return self._name
-    }
-    
-    var getID:String{
-        return self._ID
-    }
-    
-    var getAddress:String{
-        return self._address
-    }
-    
-    var getCoor:(Float,Float){
-        return self._coor
-    }
-    
-    var getRating:Float{
-        return self._rating
-    }
-    
-    var isOpen:Bool{
-        return self._isOpen
-    }
-    
-    var getReviews:NSArray{
-        return self._reviews
-    }
-    
-    var getPhone:String{
-        return self._phone
-    }
-    
-    var getWebsite:String{
-        return self._website
-    }
-    
-    var getDesc:String{
-        return self._desc
-    }
+//    var getName:String{
+//        return self._name
+//    }
+//    
+//    var getID:String{
+//        return self._id
+//    }
+//    
+//    var getAddress:String{
+//        return self._address
+//    }
+//    
+//    var getCoor:(Float,Float){
+//        return self._coor
+//    }
+//    
+//    var getRating:Float{
+//        return self._rating
+//    }
+//    
+//    var isOpen:Bool{
+//        return self._isOpen
+//    }
+//    
+//    var getReviews:NSArray{
+//        return self._reviews
+//    }
+//    
+//    var getPhone:String{
+//        return self._phone
+//    }
+//    
+//    var getWebsite:String{
+//        return self._website
+//    }
+//    
+//    var getDesc:String{
+//        return self._desc
+//    }
     
     static func ==(left: Place, right: Place) -> Bool{
         print("hello")

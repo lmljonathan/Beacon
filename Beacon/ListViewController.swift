@@ -25,7 +25,6 @@ class ListViewController: UIViewController {
     
     @IBOutlet var bannerView: UIView!
     @IBOutlet var bannerImageView: UIImageView!
-    @IBOutlet var listTypeLabel: UILabel!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var numPlacesLabel: UILabel!
     @IBOutlet var citiesLabel: UILabel!
@@ -190,10 +189,10 @@ class ListViewController: UIViewController {
     // MARK: - Set Up Header View With Info
     func configureHeader() {
         
-        let pushAlpha: Double = 1.0
-        let pushDuration: Double = 0.7
-        let pushBeginScale: CGFloat = 1.0
-        let pushAllScale: CGFloat = 1.1
+//        let pushAlpha: Double = 1.0
+//        let pushDuration: Double = 0.7
+//        let pushBeginScale: CGFloat = 1.0
+//        let pushAllScale: CGFloat = 1.1
         
         // Set List Name
 //        if let name = object["playlistName"] as? String{
@@ -379,8 +378,6 @@ class ListViewController: UIViewController {
 //        return sortedBusinesses
 //        
 //    }
-    
-    
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
