@@ -8,13 +8,11 @@
 
 import UIKit
 import MapKit
-import Parse
-import Async
 import MGSwipeTableCell
 import XLActionController
 import CZPicker
 
-class ListViewController: UIViewController, Dimmable {
+class ListViewController: UIViewController {
     
     enum ListMode{
         case view, edit
@@ -44,57 +42,64 @@ class ListViewController: UIViewController, Dimmable {
     let topMapProportion: CGFloat = 1/5
     let bottomMapProportion: CGFloat = 7/10
     
-    var object: PFObject!
-    var playlistArray = [Business]()
+//    var object: PFObject!
+    //var trip = [Business]()
+    
+//     var trip: [Place] = []
     
     var itemReceived: Array<AnyObject> = []
     var sortMethod:String!
-    var addToOwnPlaylists: [PFObject]!
+//    var addToOwnPlaylists: [PFObject]!
     var playlist_swiped: String!
     
-    var placeArray = [GooglePlaceDetail]()
-    var placeIDs = [String]()
+    var placeArray: [GooglePlaceDetail] = []
+    var placeIDs: [String] = []
+    
+    
+    // Clients
     var apiClient = APIDataHandler()
+    let fbClient = FirebaseHandler()
     
     let imagePicker = UIImagePickerController()
     
     var mode: ListMode! = .view
     var mapScroll: Bool! = false
     
-    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
-    {
-        print(segue.identifier)
-        if(segue.identifier != nil) {
-            if(segue.identifier == "unwindToPlaylist") {
-                if let sourceVC = segue.source as? SearchBusinessViewController
-                {
-                    playlistArray.append(contentsOf: sourceVC.businessArray)
-                    placeIDs.append(contentsOf: sourceVC.placeIDs)
-                    
-                    // Appends empty GooglePlaceDetail Objects to make list parallel to placeIDs and playlistArray
-                    for _ in 0..<(placeIDs.count - placeArray.count){
-                        placeArray.append(GooglePlaceDetail())
-                    }
-                    
-                    // Update Info
-                    //                    self.numOfPlacesLabel.text = "\(placeIDs.count)"
-                    //                    self.getAveragePrice({ (avg) in
-                    //                        self.setPriceRating(avg)
-                    //                    })
-                    self.listTableView.reloadData()
-                }
-            }
-        }
-    }
+    
+//    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
+//    {
+//        print(segue.identifier)
+//        if(segue.identifier != nil) {
+//            if(segue.identifier == "unwindToPlaylist") {
+//                if let sourceVC = segue.source as? SearchBusinessViewController
+//                {
+//                    playlistArray.append(contentsOf: sourceVC.businessArray)
+//                    placeIDs.append(contentsOf: sourceVC.placeIDs)
+//                    
+//                    // Appends empty GooglePlaceDetail Objects to make list parallel to placeIDs and playlistArray
+//                    for _ in 0..<(placeIDs.count - placeArray.count){
+//                        placeArray.append(GooglePlaceDetail())
+//                    }
+//                    
+//                    // Update Info
+//                    //                    self.numOfPlacesLabel.text = "\(placeIDs.count)"
+//                    //                    self.getAveragePrice({ (avg) in
+//                    //                        self.setPriceRating(avg)
+//                    //                    })
+//                    self.listTableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     
     
-    @IBAction func pressedAddPlacesButton(_ sender: AnyObject) {
-        performSegue(withIdentifier: "tapImageButton", sender: self)
-    }
+//    @IBAction func pressedAddPlacesButton(_ sender: AnyObject) {
+//        performSegue(withIdentifier: "tapImageButton", sender: self)
+//    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.resetTopBars(0)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        self.navigationController?.resetTopBars(0)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +115,12 @@ class ListViewController: UIViewController, Dimmable {
         self.pullDownBar.layer.cornerRadius = 3
         self.pullDownBar.addShadow()
         
-        self.loadData()
+        // change
+        self.fbClient.getPlaceIDs(tripID: 000) { (placeIDs) in
+            self.placeIDs = placeIDs
+            self.listTableView.reloadData()
+        }
+        // self.loadData()
         
         configureRecognizers()
         
@@ -142,7 +152,7 @@ class ListViewController: UIViewController, Dimmable {
                     self.mapView.addMarker(detailedGPlace.latitude, long: detailedGPlace.longitude, title: detailedGPlace.name, row: reloadIndex)
                     
                     self.placeArray[reloadIndex] = detailedGPlace
-                    self.playlistArray[reloadIndex] = detailedGPlace.convertToBusiness()
+                    self.trip[reloadIndex] = detailedGPlace.convertToBusiness()
                     
                     if reloadIndex == self.placeArray.count - 1 {
                         self.mapView.initializeMap()
@@ -162,20 +172,20 @@ class ListViewController: UIViewController, Dimmable {
         // Register Nibs
         self.listTableView.register(UINib(nibName: "BusinessCell", bundle: Bundle.main), forCellReuseIdentifier: "businessCell")
         
-        Async.main{
-            let placeIDs = self.object["place_id_list"] as! [String]
-            self.placeIDs = placeIDs
-            self.configureHeader()
-            }.main{
-                // Get Array of IDs from Parse
-                for _ in 0..<self.placeIDs.count{
-                    self.placeArray.append(GooglePlaceDetail())
-                    self.playlistArray.append(Business())
-                }
-                self.listTableView.reloadData()
-            }.main{
-                updateBusinessesFromIDs(self.placeIDs)
-        }
+//        Async.main{
+//            let placeIDs = self.object["place_id_list"] as! [String]
+//            self.placeIDs = placeIDs
+//            self.configureHeader()
+//            }.main{
+//                // Get Array of IDs from Parse
+//                for _ in 0..<self.placeIDs.count{
+//                    self.placeArray.append(GooglePlaceDetail())
+//                    self.trip.append(Business())
+//                }
+//                self.listTableView.reloadData()
+//            }.main{
+//                updateBusinessesFromIDs(self.placeIDs)
+//        }
     }
     
     // MARK: - Set Up Header View With Info
@@ -187,28 +197,28 @@ class ListViewController: UIViewController, Dimmable {
         let pushAllScale: CGFloat = 1.1
         
         // Set List Name
-        if let name = object["playlistName"] as? String{
-            self.titleTextField.fadeIn(name, duration: pushDuration, beginScale: pushBeginScale)
-        }
+//        if let name = object["playlistName"] as? String{
+//            self.titleTextField.fadeIn(name, duration: pushDuration, beginScale: pushBeginScale)
+//        }
         
         // Set BG if custom BG exists in Parse
-        if let bg = object["custom_bg"] as? PFFile{
-            bg.getDataInBackground(block: { (data, error) in
-                if error == nil{
-                    let image = UIImage(data: data!)
-                    self.bannerImageView.fadeIn(image!, endAlpha: 0.5, beginScale: 1.2)
-                }
-            })
-        }else{
-            self.bannerImageView.fadeIn(UIImage(named: "default_list_bg")!, endAlpha: 0.5, beginScale: 1.2)
-        }
+//        if let bg = object["custom_bg"] as? PFFile{
+//            bg.getDataInBackground(block: { (data, error) in
+//                if error == nil{
+//                    let image = UIImage(data: data!)
+//                    self.bannerImageView.fadeIn(image!, endAlpha: 0.5, beginScale: 1.2)
+//                }
+//            })
+//        }else{
+//            self.bannerImageView.fadeIn(UIImage(named: "default_list_bg")!, endAlpha: 0.5, beginScale: 1.2)
+//        }
         
         // Set Number of Places
         self.numPlacesLabel.text = String(self.placeIDs.count) + " Places"
     }
     
     //    func configureReorderControl(){
-    //        self.reorderControlHandler = ReorderControl(tableView: self.listTableView, arrayToReorder: self.playlistArray, outerView: self.view)
+    //        self.reorderControlHandler = ReorderControl(tableView: self.listTableView, arrayToReorder: self.trip, outerView: self.view)
     //    }
     
     
@@ -320,9 +330,9 @@ class ListViewController: UIViewController, Dimmable {
             if self.placeIDs.count > 0{
                 
                 // Save Location of First Object
-                if let lat = self.playlistArray[0].businessLatitude
+                if let lat = self.trip[0].businessLatitude
                 {
-                    if let long = self.playlistArray[0].businessLongitude
+                    if let long = self.trip[0].businessLongitude
                     {
                         saveobject?["location"] = PFGeoPoint(latitude: lat, longitude: long)
                     }
@@ -488,7 +498,7 @@ class ListViewController: UIViewController, Dimmable {
                 upcoming.index = index
             }else{
                 // IF NEW PLACES ARE ADDED
-                let businessObject = playlistArray[index]
+                let businessObject = trip[index]
                 upcoming.object = businessObject
                 upcoming.index = index
             }
@@ -541,7 +551,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlistArray.count
+        return self.placeIDs.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -549,18 +559,18 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let businessCell = tableView.dequeueReusableCell(withIdentifier: "businessCell", for: indexPath) as! BusinessTableViewCell
-        businessCell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
+        cell.selectionStyle = .none
         
+        cell.loadData(id: Int(self.placeIDs[indexPath.row])!)
         //businessCell.delegate = self
-        configureSwipeButtons(businessCell, mode: .view)
+        // configureSwipeButtons(cell, mode: .view)
         
-        DispatchQueue.main.async(execute: {
-            businessCell.configure(with: self.playlistArray[indexPath.row], mode: .more) {
-                return businessCell
-            }
-        })
-        return businessCell
+        
+//            businessCell.configure(with: self.trip[indexPath.row], mode: .more) {
+//                return businessCell
+//            }
+        return cell
         
     }
     
@@ -569,14 +579,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath) as! BusinessTableViewCell
+        let cell  = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
         cell.mainView.backgroundColor = UIColor.selectedGray()
         cell.businessBackgroundImage.alpha = 0.8
         cell.BusinessRating.backgroundColor = UIColor.selectedGray()
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath) as! BusinessTableViewCell
+        let cell  = tableView.cellForRow(at: indexPath) as! PlaceTableViewCellBusinessTableViewCel
         cell.mainView.backgroundColor = UIColor.white
         cell.businessBackgroundImage.alpha = 1
         cell.BusinessRating.backgroundColor = UIColor.clear
@@ -590,19 +600,19 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        let itemToMove = playlistArray[(fromIndexPath as NSIndexPath).row]
-        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]
-        let idOfItemToMove = placeIDs[(fromIndexPath as NSIndexPath).row]
-        
-        playlistArray.remove(at: (fromIndexPath as NSIndexPath).row)
-        placeArray.remove(at: (fromIndexPath as NSIndexPath).row)
-        placeIDs.remove(at: (fromIndexPath as NSIndexPath).row)
-        
-        playlistArray.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
-        placeArray.insert(placeItemToMove, at: (toIndexPath as NSIndexPath).row)
-        placeIDs.insert(idOfItemToMove, at: (toIndexPath as NSIndexPath).row)
-    }
+//    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
+//        let itemToMove = trip[(fromIndexPath as NSIndexPath).row]
+//        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]
+//        let idOfItemToMove = placeIDs[(fromIndexPath as NSIndexPath).row]
+//        
+//        trip.remove(at: (fromIndexPath as NSIndexPath).row)
+//        placeArray.remove(at: (fromIndexPath as NSIndexPath).row)
+//        placeIDs.remove(at: (fromIndexPath as NSIndexPath).row)
+//        
+//        trip.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
+//        placeArray.insert(placeItemToMove, at: (toIndexPath as NSIndexPath).row)
+//        placeIDs.insert(idOfItemToMove, at: (toIndexPath as NSIndexPath).row)
+//    }
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -612,16 +622,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return .delete
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            playlistArray.remove(at: (indexPath as NSIndexPath).row)
-            placeArray.remove(at: (indexPath as NSIndexPath).row)
-            placeIDs.remove(at: (indexPath as NSIndexPath).row)
-            self.listTableView.deleteRows(at: [indexPath], with: .fade)
-            self.listTableView.reloadData()
-        }
-        
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//            trip.remove(at: (indexPath as NSIndexPath).row)
+//            placeArray.remove(at: (indexPath as NSIndexPath).row)
+//            placeIDs.remove(at: (indexPath as NSIndexPath).row)
+//            self.listTableView.deleteRows(at: [indexPath], with: .fade)
+//            self.listTableView.reloadData()
+//        }
+//        
+//    }
 }
 
 extension ListViewController: UIScrollViewDelegate {
@@ -718,16 +728,16 @@ extension ListViewController: ModalViewControllerDelegate{
         
         for item in itemReceived{
             if (item as! NSObject) as! String == "Alphabetical"{
-                self.playlistArray = self.sortMethods(self.playlistArray, type: "name")
-                getIDsFromArrayOfBusiness(self.playlistArray, completion: { (result) in
+                self.trip = self.sortMethods(self.trip, type: "name")
+                getIDsFromArrayOfBusiness(self.trip, completion: { (result) in
                     self.placeIDs = result
                     self.placeArray = self.sortGooglePlaces(self.placeArray, type: "name")
                     print("sorting")
                     self.listTableView.reloadData()
                 })
             }else if (item as! NSObject) as! String == "Rating"{
-                self.playlistArray = self.sortMethods(self.playlistArray, type: "rating")
-                getIDsFromArrayOfBusiness(self.playlistArray, completion: { (result) in
+                self.trip = self.sortMethods(self.trip, type: "rating")
+                getIDsFromArrayOfBusiness(self.trip, completion: { (result) in
                     self.placeIDs = result
                     self.placeArray = self.sortGooglePlaces(self.placeArray, type: "rating")
                     self.listTableView.reloadData()
@@ -761,7 +771,7 @@ extension ListViewController: ModalViewControllerDelegate{
         //let randomController = RandomPlaceController()
         
         //        actionController.addAction(Action(ActionData(title: "Randomize", image: UIImage(named: "action_random")!), style: .Default, handler: { action in
-        //            if self.playlistArray.count != 0{
+        //            if self.trip.count != 0{
         //                self.performSegueWithIdentifier("randomPlace", sender: self)
         //            }
         //

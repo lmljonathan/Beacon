@@ -74,29 +74,31 @@ class Trip{
         return (left._name == right._name && left._createdBy == right._createdBy)
     }
     
-    func sortedPlaces(key:([Place]) -> Place) -> [Place]{
-        return self.places.sorted(key)
-    }
-    struct createTrips{
-        func randomStr(length: Int)-> String{
-            let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            let len = UInt32(letters.length)
-            
-            var randomString = ""
-            
-            for _ in 0 ..< length {
-                let rand = arc4random_uniform(len)
-                var nextChar = letters.character(at: Int(rand))
-                randomString += NSString(characters: &nextChar, length: 1) as String
-            }
-            
-            return randomString
-        }
-        
-        func randomInt(max: Int)-> Int{
-            return arc4random_uniform(max)
-        
-        }
+//    func sortedPlaces(key:([Place]) -> Place) -> [Place]{
+//        return self.places.sorted(by: key)
+//    }
+    
+//    struct createTrips{
+//        func randomStr(length: Int)-> String{
+//            let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//            let len = UInt32(letters.length)
+//            
+//            var randomString = ""
+//            
+//            for _ in 0 ..< length {
+//                let rand = arc4random_uniform(len)
+//                var nextChar = letters.character(at: Int(rand))
+//                randomString += NSString(characters: &nextChar, length: 1) as String
+//            }
+//            
+//            return randomString
+//        }
+//        
+//        func randomInt(max: Int)-> Int{
+//            return arc4random_uniform(max)
+//        
+//        }
+//    }
 }
 
 

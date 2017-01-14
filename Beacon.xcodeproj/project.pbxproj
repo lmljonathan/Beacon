@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */; };
 		900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05151DCE8A0200605D0A /* AppDelegate.swift */; };
-		900D05181DCE8A0200605D0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05171DCE8A0200605D0A /* ViewController.swift */; };
 		900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900D05191DCE8A0200605D0A /* Main.storyboard */; };
 		900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D051C1DCE8A0200605D0A /* Assets.xcassets */; };
 		900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900D051E1DCE8A0200605D0A /* LaunchScreen.storyboard */; };
 		900D052B1DCE8A0300605D0A /* BeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D052A1DCE8A0300605D0A /* BeaconTests.swift */; };
 		900D05361DCE8A0300605D0A /* BeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05351DCE8A0300605D0A /* BeaconUITests.swift */; };
+		90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */; };
+		90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */; };
+		90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */; };
+		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
+		90101BAA1E2AB32B00037B3F /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA91E2AB32B00037B3F /* DataHelper.swift */; };
+		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
@@ -46,7 +51,6 @@
 		6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		900D05121DCE8A0200605D0A /* Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D05151DCE8A0200605D0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		900D05171DCE8A0200605D0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		900D051A1DCE8A0200605D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		900D051C1DCE8A0200605D0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		900D051F1DCE8A0200605D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,12 @@
 		900D05311DCE8A0300605D0A /* BeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D05351DCE8A0300605D0A /* BeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconUITests.swift; sourceTree = "<group>"; };
 		900D05371DCE8A0300605D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
+		90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIClient.swift; sourceTree = "<group>"; };
+		90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
+		90101BA91E2AB32B00037B3F /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,16 +145,12 @@
 		900D05141DCE8A0200605D0A /* Beacon */ = {
 			isa = PBXGroup;
 			children = (
-				90927E501DCE906E008726BB /* UIExtensions.swift */,
-				900D05151DCE8A0200605D0A /* AppDelegate.swift */,
-				900D05171DCE8A0200605D0A /* ViewController.swift */,
-				900D05191DCE8A0200605D0A /* Main.storyboard */,
-				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
-				900D051C1DCE8A0200605D0A /* Assets.xcassets */,
-				900D051E1DCE8A0200605D0A /* LaunchScreen.storyboard */,
-				900D05211DCE8A0200605D0A /* Info.plist */,
-				EDE7047A1DD11B7C005DC778 /* Trip.swift */,
-				ED11209D1DD10E7700B9E2A4 /* Place.swift */,
+				90101BA61E2AAD4000037B3F /* Cell */,
+				907670171DD11FB3003C3B89 /* Helpers */,
+				907670141DD11ECF003C3B89 /* CoreStructures */,
+				90101B9F1E2AA93100037B3F /* ViewControllers */,
+				907670151DD11F87003C3B89 /* Storyboard */,
+				907670161DD11F93003C3B89 /* Properties */,
 			);
 			path = Beacon;
 			sourceTree = "<group>";
@@ -165,6 +171,63 @@
 				900D05371DCE8A0300605D0A /* Info.plist */,
 			);
 			path = BeaconUITests;
+			sourceTree = "<group>";
+		};
+		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
+				90101BA91E2AB32B00037B3F /* DataHelper.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		90101BA61E2AAD4000037B3F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		907670141DD11ECF003C3B89 /* CoreStructures */ = {
+			isa = PBXGroup;
+			children = (
+				EDE7047A1DD11B7C005DC778 /* Trip.swift */,
+				ED11209D1DD10E7700B9E2A4 /* Place.swift */,
+			);
+			name = CoreStructures;
+			sourceTree = "<group>";
+		};
+		907670151DD11F87003C3B89 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				900D05191DCE8A0200605D0A /* Main.storyboard */,
+				900D051E1DCE8A0200605D0A /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		907670161DD11F93003C3B89 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				900D05151DCE8A0200605D0A /* AppDelegate.swift */,
+				900D051C1DCE8A0200605D0A /* Assets.xcassets */,
+				900D05211DCE8A0200605D0A /* Info.plist */,
+			);
+			name = Properties;
+			sourceTree = "<group>";
+		};
+		907670171DD11FB3003C3B89 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+				90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */,
+				907670181DD1215A003C3B89 /* APIDataHandler.swift */,
+				90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */,
+				90927E501DCE906E008726BB /* UIExtensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		C1F1E4402EC4FB07BBD6319B /* Frameworks */ = {
@@ -462,11 +525,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
-				900D05181DCE8A0200605D0A /* ViewController.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
+				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
+				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
+				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
+				90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */,
+				90101BAA1E2AB32B00037B3F /* DataHelper.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
+				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
