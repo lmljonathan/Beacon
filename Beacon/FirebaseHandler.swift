@@ -14,6 +14,7 @@ class FirebaseHandler: NSObject {
         
         
         // completion()
+        
     }
     
     func saveToFirebase(id: Int, trip: Trip){

@@ -108,7 +108,7 @@ struct GooglePlaceDetail {
     var latitude: Double! = -1 //
     
     func convertToPlace() -> Place{
-        var place = Place(id: <#T##String#>, name: <#T##String#>, address: <#T##String#>, coor: <#T##(Float, Float)#>, rating: <#T##Float#>, isOpen: <#T##Bool#>, reviews: <#T##NSArray#>, phone: <#T##String#>, website: <#T##String#>, desc: <#T##String#>)
+        // var place = Place(id: <#T##String#>, name: <#T##String#>, address: <#T##String#>, coor: <#T##(Float, Float)#>, rating: <#T##Float#>, isOpen: <#T##Bool#>, reviews: <#T##NSArray#>, phone: <#T##String#>, website: <#T##String#>, desc: <#T##String#>)
 //        var business = Place()
 //        business.businessName = self.name
 //        business.businessAddress = self.address
