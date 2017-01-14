@@ -98,7 +98,7 @@
                                     <constraint firstAttribute="height" constant="24" id="dTn-gr-VDu"/>
                                 </constraints>
                                 <color key="tintColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="checkMark">
+                                <state key="normal">
                                     <color key="titleColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -183,7 +183,4 @@
             <point key="canvasLocation" x="315" y="-139.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="checkMark" width="24" height="24"/>
-    </resources>
 </document>

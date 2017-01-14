@@ -38,20 +38,46 @@ class PlaceTableViewCell: MGSwipeTableCell {
         mainView.addShadow(4, opacity: 0.2, offset: CGSize(width: 0, height: 4), path: true)
     }
     
-    func loadData(id: String){
+    func loadData(id: String, completion: (Place) -> Void){
         let apiClient = APIDataHandler()
         apiClient.performDetailedSearch(id, completion: { (detailedPlace) in
             let place = detailedPlace.convertToPlace()
-            self.configure(with: place, mode: .more, completion: {
-                // finish configuring
-            })
+            print("PHOTOREFERENCE",place.photoReference)
+            DispatchQueue.main.async {
+                self.configure(with: place, mode: .more, completion: {
+                    print("CONFIGURING")
+                    func buildPlacePhotoURLString(_ photoReference: String) -> String{
+                        let photoParameters = [
+                            "key" : "AIzaSyDkxzICx5QqztP8ARvq9z0DxNOF_1Em8Qc",
+                            "photoreference" : photoReference,
+                            "maxheight" : "800"
+                        ]
+                        var result = "https://maps.googleapis.com/maps/api/place/photo?"
+                        for (key, value) in photoParameters{
+                            let addString = key + "=" + value + "&"
+                            result += addString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                        }
+                        return result
+                    }
+                    print(place.photoReference)
+                    if place.photoReference != ""{
+                        print("THERE IS A PHOTO")
+                        let PhotoURL = buildPlacePhotoURLString(place.photoReference)
+                        let URL = Foundation.URL(string:PhotoURL)!
+                        
+                        self.businessBackgroundImage.kf.setImage(with: URL)
+                    }
+                    
+                })
+            }
+            
         })
     }
     
-    private func configure(with place: Place, mode: cellMode, completion:() -> Void){
+    func configure(with place: Place, mode: cellMode, completion:() -> Void){
         switch mode {
         case .add:
-            self.configureButton(UIImage(named: "checkMark")!)
+            self.configureButton(UIImage())
             let tapRec = UITapGestureRecognizer(target: self, action: #selector(self.actionButtonPressed(_:)))
             actionButtonView.addGestureRecognizer(tapRec)
 

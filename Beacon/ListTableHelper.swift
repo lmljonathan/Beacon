@@ -26,8 +26,21 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
         cell.selectionStyle = .none
+        if indexPath.row < self.placesLoaded.count{
+            cell.configure(with: self.placesLoaded[indexPath.row], mode: .more, completion: {
+                
+            })
+        }else{
+            cell.loadData(id: self.placeIDs[indexPath.row]) { (place) in
+                self.placesLoaded.append(place)
+            }
+        }
         
-        cell.loadData(id: self.placeIDs[indexPath.row])
+      
+            
+        
+        
+
         //businessCell.delegate = self
         // configureSwipeButtons(cell, mode: .view)
         

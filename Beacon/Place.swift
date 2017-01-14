@@ -150,7 +150,7 @@ struct GooglePlaceDetail {
     func convertToPlace() -> Place{
         var place = Place(name: name, id: id, address: address, coor: coor, rating: rating, isOpen: isOpen, reviews: reviews, phone: phone, website: website, desc: desc, photoReference: photoReference, photos: photos)
         
-
+        print("FROM CONVERTTOPLACE:", place.photoReference)
         
 //        var business = Place()
 //        business.businessName = self.name
