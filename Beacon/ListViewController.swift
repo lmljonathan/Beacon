@@ -45,7 +45,7 @@ class ListViewController: UIViewController {
 //    var object: PFObject!
     //var trip = [Business]()
     
-    var trip: [Place] = []
+//     var trip: [Place] = []
     
     var itemReceived: Array<AnyObject> = []
     var sortMethod:String!
@@ -54,12 +54,17 @@ class ListViewController: UIViewController {
     
     var placeArray: [GooglePlaceDetail] = []
     var placeIDs: [String] = []
+    
+    
+    // Clients
     var apiClient = APIDataHandler()
+    let fbClient = FirebaseHandler()
     
     let imagePicker = UIImagePickerController()
     
     var mode: ListMode! = .view
     var mapScroll: Bool! = false
+    
     
 //    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
 //    {
@@ -110,7 +115,12 @@ class ListViewController: UIViewController {
         self.pullDownBar.layer.cornerRadius = 3
         self.pullDownBar.addShadow()
         
-        self.loadData()
+        // change
+        self.fbClient.getPlaceIDs(tripID: 000) { (placeIDs) in
+            self.placeIDs = placeIDs
+            self.listTableView.reloadData()
+        }
+        // self.loadData()
         
         configureRecognizers()
         
@@ -541,7 +551,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trip.count
+        return self.placeIDs.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -549,18 +559,18 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let businessCell = tableView.dequeueReusableCell(withIdentifier: "businessCell", for: indexPath) as! BusinessTableViewCell
-        businessCell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
+        cell.selectionStyle = .none
         
+        cell.loadData(id: Int(self.placeIDs[indexPath.row])!)
         //businessCell.delegate = self
-        configureSwipeButtons(businessCell, mode: .view)
+        // configureSwipeButtons(cell, mode: .view)
         
-        DispatchQueue.main.async(execute: {
-            businessCell.configure(with: self.trip[indexPath.row], mode: .more) {
-                return businessCell
-            }
-        })
-        return businessCell
+        
+//            businessCell.configure(with: self.trip[indexPath.row], mode: .more) {
+//                return businessCell
+//            }
+        return cell
         
     }
     
@@ -569,14 +579,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath) as! BusinessTableViewCell
+        let cell  = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
         cell.mainView.backgroundColor = UIColor.selectedGray()
         cell.businessBackgroundImage.alpha = 0.8
         cell.BusinessRating.backgroundColor = UIColor.selectedGray()
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath) as! BusinessTableViewCell
+        let cell  = tableView.cellForRow(at: indexPath) as! PlaceTableViewCellBusinessTableViewCel
         cell.mainView.backgroundColor = UIColor.white
         cell.businessBackgroundImage.alpha = 1
         cell.BusinessRating.backgroundColor = UIColor.clear
@@ -590,19 +600,19 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        let itemToMove = trip[(fromIndexPath as NSIndexPath).row]
-        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]
-        let idOfItemToMove = placeIDs[(fromIndexPath as NSIndexPath).row]
-        
-        trip.remove(at: (fromIndexPath as NSIndexPath).row)
-        placeArray.remove(at: (fromIndexPath as NSIndexPath).row)
-        placeIDs.remove(at: (fromIndexPath as NSIndexPath).row)
-        
-        trip.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
-        placeArray.insert(placeItemToMove, at: (toIndexPath as NSIndexPath).row)
-        placeIDs.insert(idOfItemToMove, at: (toIndexPath as NSIndexPath).row)
-    }
+//    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
+//        let itemToMove = trip[(fromIndexPath as NSIndexPath).row]
+//        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]
+//        let idOfItemToMove = placeIDs[(fromIndexPath as NSIndexPath).row]
+//        
+//        trip.remove(at: (fromIndexPath as NSIndexPath).row)
+//        placeArray.remove(at: (fromIndexPath as NSIndexPath).row)
+//        placeIDs.remove(at: (fromIndexPath as NSIndexPath).row)
+//        
+//        trip.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
+//        placeArray.insert(placeItemToMove, at: (toIndexPath as NSIndexPath).row)
+//        placeIDs.insert(idOfItemToMove, at: (toIndexPath as NSIndexPath).row)
+//    }
     
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -612,16 +622,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return .delete
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            trip.remove(at: (indexPath as NSIndexPath).row)
-            placeArray.remove(at: (indexPath as NSIndexPath).row)
-            placeIDs.remove(at: (indexPath as NSIndexPath).row)
-            self.listTableView.deleteRows(at: [indexPath], with: .fade)
-            self.listTableView.reloadData()
-        }
-        
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//            trip.remove(at: (indexPath as NSIndexPath).row)
+//            placeArray.remove(at: (indexPath as NSIndexPath).row)
+//            placeIDs.remove(at: (indexPath as NSIndexPath).row)
+//            self.listTableView.deleteRows(at: [indexPath], with: .fade)
+//            self.listTableView.reloadData()
+//        }
+//        
+//    }
 }
 
 extension ListViewController: UIScrollViewDelegate {

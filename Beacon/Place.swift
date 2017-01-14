@@ -12,7 +12,7 @@ import UIKit
 class Place{
     
     private var _name:String!
-    private var _ID:String!
+    private var _id:String!
     private var _address:String!
     private var _coor:(Float,Float)!
     private var _rating:Float!
@@ -23,7 +23,7 @@ class Place{
     private var _desc:String!
 
     
-    init(name:String,address:String,coor:(Float,Float),ID:String,rating:Float,isOpen:Bool,reviews:NSArray, phone:String,website:String,desc:String)
+    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
     {
         self._name = name
         self._address = address
@@ -34,6 +34,10 @@ class Place{
         self._phone = phone
         self._website = website
         self._desc = desc
+    }
+    
+    init(){
+        
     }
     
     
@@ -80,7 +84,7 @@ class Place{
     
     static func ==(left: Place, right: Place) -> Bool{
         print("hello")
-        return left._ID == right._ID
+        return left._id == right._id
     }
     
 }
@@ -103,7 +107,8 @@ struct GooglePlaceDetail {
     var longitude: Double! = -1 //
     var latitude: Double! = -1 //
     
-    func convertToBusiness() -> Place{
+    func convertToPlace() -> Place{
+        var place = Place(id: <#T##String#>, name: <#T##String#>, address: <#T##String#>, coor: <#T##(Float, Float)#>, rating: <#T##Float#>, isOpen: <#T##Bool#>, reviews: <#T##NSArray#>, phone: <#T##String#>, website: <#T##String#>, desc: <#T##String#>)
 //        var business = Place()
 //        business.businessName = self.name
 //        business.businessAddress = self.address

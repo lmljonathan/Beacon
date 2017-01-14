@@ -171,7 +171,7 @@ class APIDataHandler {
                 var arrayOfBusinesses: [Place] = []
                 
                 for place in places{
-                    var businessObject = Business()
+                    var businessObject = Place()
                     
                     if let id = place["place_id"].string{
                         businessObject.gPlaceID = id
@@ -217,4 +217,10 @@ class APIDataHandler {
             }
         }
     }
-  }
+    
+    // new functions
+    
+    func getPlaceDetailed(id: Int, completion: (GooglePlaceDetail) -> Void){
+        // completion()
+    }
+}

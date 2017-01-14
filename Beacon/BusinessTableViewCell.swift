@@ -1,5 +1,5 @@
 //
-//  BusinessTableViewCell.swift
+//  PlaceTableViewCell.swift
 //  Yelpify
 //
 //  Created by Jonathan Lam on 2/17/16.
@@ -11,15 +11,15 @@ import Cosmos
 import MGSwipeTableCell
 import Kingfisher
 
-class BusinessTableViewCell: MGSwipeTableCell {
+class PlaceTableViewCell: MGSwipeTableCell {
     
-    @IBOutlet weak var BusinessRating: CosmosView!
+    @IBOutlet weak var ratingView: CosmosView!
   
 //    let cache = Shared.imageCache
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var moreButton: UIButton!
-    @IBOutlet weak var businessTitleLabel: UILabel!
+    @IBOutlet weak var placeTitleLabel: UILabel!
     
     @IBOutlet weak var categoryIcon: UIImageView!
     @IBOutlet weak var businessBackgroundImage: UIImageView!
@@ -28,22 +28,25 @@ class BusinessTableViewCell: MGSwipeTableCell {
     @IBOutlet weak var businessOpenLabel: UILabel!
     
     @IBOutlet weak var actionButton: UIButton!
-    
-    let googlePlacesClient = GooglePlacesAPIClient()
-        
-    
     @IBOutlet weak var actionButtonView: UIView!
     
     override func draw(_ rect: CGRect) {
         mainView.addShadow(4, opacity: 0.2, offset: CGSize(width: 0, height: 4), path: true)
     }
     
-    func configure(with business: Business, mode: BusinessCellMode, completion:() -> Void){
-        
+    func loadData(id: Int){
+        let apiClient = APIDataHandler()
+        apiClient.getPlaceDetailed(id: id, completion: { (detailedPlace) in
+            let place = detailedPlace.convertToPlace()
+            self.configure(with: place)
+        })
+    }
+    
+    private func configure(with place: Place, mode: BusinessCellMode, completion:() -> Void){
         switch mode {
         case .add:
             self.configureButton(UIImage(named: "checkMark")!)
-            let tapRec = UITapGestureRecognizer(target: self, action: #selector(BusinessTableViewCell.actionButtonPressed(_:)))
+            let tapRec = UITapGestureRecognizer(target: self, action: #selector(self.actionButtonPressed(_:)))
             actionButtonView.addGestureRecognizer(tapRec)
 
         case .more:
@@ -56,7 +59,7 @@ class BusinessTableViewCell: MGSwipeTableCell {
         //Set Icon
         let businessList = ["restaurant","food","amusement","bakery","bar","beauty_salon","bowling_alley","cafe","car_rental","car_repair","clothing_store","department_store","grocery_or_supermarket","gym","hospital","liquor_store","lodging","meal_takeaway","movie_theater","night_club","police","shopping_mall"]
         
-        if business.businessTypes.count != 0 && businessList.contains(String(describing: business.businessTypes[0])){
+        if place.businessTypes.count != 0 && businessList.contains(String(describing: business.businessTypes[0])){
             categoryIcon.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
             let origImage = UIImage(named: String(describing: business.businessTypes[0]) + "_Icon")!
             let tintedImage = origImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -80,7 +83,7 @@ class BusinessTableViewCell: MGSwipeTableCell {
         // Set Rating
         //print("\(business.businessName): \(business.businessRating)")
         if business.businessRating != -1{
-            self.BusinessRating.isHidden = false
+            self.rating.isHidden = false
             if let ratingValue2 = business.businessRating{
                 self.BusinessRating.rating = ratingValue2
             }

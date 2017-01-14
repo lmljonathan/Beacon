@@ -9,17 +9,9 @@
 import Foundation
 
 class FirebaseHandler: NSObject {
-    func getTripList(id: Int, completion: ([Business]) -> Void){
-        let places: [Business] = []
+    func getPlaceIDs(tripID: Int, completion: ([Int]) -> Void){
         
-        completion(places)
-    }
-    
-    func getUsersTrips(userID: Int, completion: ([Trip]) -> Void){
-        let trips: [Trip]! = []
-        
-        
-        completion(trips)
+        // completion()
     }
     
     func saveToFirebase(id: Int, trip: Trip){
