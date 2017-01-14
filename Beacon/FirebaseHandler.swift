@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Firebase
 
 class FirebaseHandler: NSObject {
     func getPlaceIDs(tripID: Int, completion: ([Int]) -> Void){
+        
         
         // completion()
     }

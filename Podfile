@@ -12,6 +12,7 @@ target 'Beacon' do
   pod 'XLActionController'
   pod 'CZPicker'
   pod ‘Firebase/Core’
+  pod ‘SwiftyJSON’
 
   # Pods for Beacon
 
