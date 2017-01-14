@@ -10,8 +10,8 @@ import Foundation
 
 class FirebaseHandler: NSObject {
     func getPlaceIDs(tripID: Int, completion: ([Int]) -> Void){
-        
         // completion()
+        
     }
     
     func saveToFirebase(id: Int, trip: Trip){
