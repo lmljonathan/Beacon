@@ -42,7 +42,9 @@ class PlaceTableViewCell: MGSwipeTableCell {
         let apiClient = APIDataHandler()
         apiClient.getPlaceDetailed(id: id, completion: { (detailedPlace) in
             let place = detailedPlace.convertToPlace()
-            self.configure(with: place)
+            self.configure(with: place, mode: .more, completion: {
+                // finish configuring
+            })
         })
     }
     
@@ -63,41 +65,41 @@ class PlaceTableViewCell: MGSwipeTableCell {
         //Set Icon
         let businessList = ["restaurant","food","amusement","bakery","bar","beauty_salon","bowling_alley","cafe","car_rental","car_repair","clothing_store","department_store","grocery_or_supermarket","gym","hospital","liquor_store","lodging","meal_takeaway","movie_theater","night_club","police","shopping_mall"]
         
-        if place.businessTypes.count != 0 && businessList.contains(String(describing: business.businessTypes[0])){
-            categoryIcon.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
-            let origImage = UIImage(named: String(describing: business.businessTypes[0]) + "_Icon")!
-            let tintedImage = origImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-            categoryIcon.image = tintedImage
-            categoryIcon.tintColor = appDefaults.color_darker
-            
-        }else{
-            categoryIcon.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
-            let origImage = UIImage(named: "default_Icon")!
-            let tintedImage = origImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-            categoryIcon.image = tintedImage
-            categoryIcon.tintColor = appDefaults.color_darker
-        }
-        
+//        if place.businessTypes.count != 0 && businessList.contains(String(describing: place.businessTypes[0])){
+//            categoryIcon.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
+//            let origImage = UIImage(named: String(describing: place.businessTypes[0]) + "_Icon")!
+//            let tintedImage = origImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+//            categoryIcon.image = tintedImage
+//            categoryIcon.tintColor = appDefaults.color_darker
+//            
+//        }else{
+//            categoryIcon.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
+//            let origImage = UIImage(named: "default_Icon")!
+//            let tintedImage = origImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+//            categoryIcon.image = tintedImage
+//            categoryIcon.tintColor = appDefaults.color_darker
+//        }
+//        
         // Set Name
-        businessTitleLabel.text = business.businessName
+        placeTitleLabel.text = place.name
         
         // Set Address
-        businessAddressLabel.text = business.businessAddress
+        businessAddressLabel.text = place.address
         
         // Set Rating
         //print("\(business.businessName): \(business.businessRating)")
-        if business.businessRating != -1{
-            self.rating.isHidden = false
-            if let ratingValue2 = business.businessRating{
-                self.BusinessRating.rating = ratingValue2
+        if place.rating != -1{
+            self.ratingView.isHidden = false
+            if let ratingValue2 = place.rating{
+                self.ratingView.rating = Double(ratingValue2)
             }
         }else{
-            self.BusinessRating.isHidden = true
+            self.ratingView.isHidden = true
         }
         
         // Set Status
-        if business.businessStatus != nil{
-            if business.businessStatus == true{
+        if place.isOpen != nil{
+            if place.isOpen == true{
                 businessOpenLabel.text = "Open Now"
             }else{
                 businessOpenLabel.text = "Closed"
@@ -124,8 +126,8 @@ class PlaceTableViewCell: MGSwipeTableCell {
             return result
         }
         
-        if business.businessPhotoReference != ""{
-            let PhotoURL = buildPlacePhotoURLString(business.businessPhotoReference)
+        if place.photoReference != ""{
+            let PhotoURL = buildPlacePhotoURLString(place.photoReference)
             //let URLString = self.items[indexPath.row]
             let URL = Foundation.URL(string:PhotoURL)!
             //businessBackgroundImage.hnk_setImageFromURL(URL: URL as NSURL)

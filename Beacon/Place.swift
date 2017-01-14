@@ -9,23 +9,20 @@
 import Foundation
 import UIKit
 
-class Place{
+struct Place{
     
-    private var _name:String!
-    private var _id:String!
-    private var _address:String!
-    private var _coor:(Float,Float)!
-    private var _rating:Float!
-    private var _isOpen:Bool!
-    private var _reviews:NSArray!
-    private var _phone:String!
-    private var _website:String!
-    private var _desc:String!
-    
-    var name: String!
-    var id: Int!
-    
-
+    var name: String! = ""
+    var id: Int! = -1
+    var address: String! = ""
+    var coor: (Float,Float)! = (0, 0)
+    var rating: Float! = 0
+    var isOpen: Bool! = false
+    var reviews: NSMutableArray = []
+    var phone: String! = ""
+    var website: String! = ""
+    var desc: String! =  ""
+    var photoReference: String! = ""
+    var photos: NSMutableArray! = []
     
 //    init(id: String, name: String, address: String, coor: (Float,Float), rating:Float, isOpen: Bool, reviews: NSArray, phone:String, website:String, desc:String)
 //    {
@@ -40,9 +37,45 @@ class Place{
 //        self._desc = desc
 //    }
     
-    init(){
-        
-    }
+//    var getName:String{
+//        return self._name
+//    }
+//    
+//    var getID:String{
+//        return self._ID
+//    }
+//    
+//    var getAddress:String{
+//        return self._address
+//    }
+//    
+//    var getCoor:(Float,Float){
+//        return self._coor
+//    }
+//    
+//    var getRating:Float{
+//        return self._rating
+//    }
+//    
+//    var isOpen:Bool{
+//        return self._isOpen
+//    }
+//    
+//    var getReviews:NSArray{
+//        return self._reviews
+//    }
+//    
+//    var getPhone:String{
+//        return self._phone
+//    }
+//    
+//    var getWebsite:String{
+//        return self._website
+//    }
+//    
+//    var getDesc:String{
+//        return self._desc
+//    }
     
 //    var getName:String{
 //        return self._name
