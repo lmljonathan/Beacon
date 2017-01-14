@@ -10,6 +10,7 @@ target 'Beacon' do
   pod 'MGSwipeTableCell'
   pod 'XLActionController'
   pod 'CZPicker'
+  pod ‘Firebase/Core’
 
   # Pods for Beacon
 
