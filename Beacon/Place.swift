@@ -12,7 +12,7 @@ import UIKit
 struct Place{
     
     var name: String! = ""
-    var id: Int! = -1
+    var id: String! = ""
     var address: String! = ""
     var coor: (Float,Float)! = (0, 0)
     var rating: Float! = 0
@@ -127,7 +127,7 @@ struct Place{
 
 struct GooglePlaceDetail {
     
-    var id:Int! = 0
+    var id: String! = ""
     var isOpen:Bool = true
     var desc:String! = ""
     var name: String! = ""

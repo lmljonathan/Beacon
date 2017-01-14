@@ -38,7 +38,7 @@ class PlaceTableViewCell: MGSwipeTableCell {
         mainView.addShadow(4, opacity: 0.2, offset: CGSize(width: 0, height: 4), path: true)
     }
     
-    func loadData(id: Int){
+    func loadData(id: String){
         let apiClient = APIDataHandler()
         apiClient.getPlaceDetailed(id: id, completion: { (detailedPlace) in
             let place = detailedPlace.convertToPlace()

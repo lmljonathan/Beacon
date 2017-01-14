@@ -63,18 +63,18 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cup of Fruit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu2-eA-gBO">
-                                <rect key="frame" x="181" y="14" width="178" height="19"/>
+                                <rect key="frame" x="181" y="13" width="178" height="19"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Open Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPl-BP-Rgz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPl-BP-Rgz">
                                 <rect key="frame" x="159" y="78" width="57.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fgm-SL-aq5" customClass="CosmosView" customModule="Cosmos">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgm-SL-aq5" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="159" y="33" width="90" height="18"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -110,7 +110,7 @@
                                     <color key="titleColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="123 Health Street, Irvine CA 92134" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roP-Ec-1in">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Health Street, Irvine CA 92134" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roP-Ec-1in">
                                 <rect key="frame" x="159" y="59" width="193" height="14"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -177,7 +177,6 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
-                <outlet property="BusinessRating" destination="Fgm-SL-aq5" id="h2T-Gd-vrq"/>
                 <outlet property="actionButton" destination="vVT-hq-Qlq" id="yCl-tp-DJD"/>
                 <outlet property="actionButtonView" destination="9FX-Rz-nD1" id="QoK-MO-f79"/>
                 <outlet property="businessAddressLabel" destination="roP-Ec-1in" id="kk5-1Z-bBH"/>
@@ -187,6 +186,7 @@
                 <outlet property="mainView" destination="XaJ-6M-PlA" id="yy9-Jk-YoJ"/>
                 <outlet property="moreButton" destination="vVT-hq-Qlq" id="zQc-Fj-arA"/>
                 <outlet property="placeTitleLabel" destination="uu2-eA-gBO" id="CEB-Td-TzG"/>
+                <outlet property="ratingView" destination="Fgm-SL-aq5" id="ma0-PB-1iT"/>
             </connections>
             <point key="canvasLocation" x="315" y="-139.5"/>
         </tableViewCell>

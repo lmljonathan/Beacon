@@ -52,7 +52,7 @@ class ListViewController: UIViewController {
     var playlist_swiped: String!
     
     var placeArray: [GooglePlaceDetail] = []
-    var placeIDs: [Int] = []
+    var placeIDs: [String] = []
     
     
     // Clients
@@ -103,7 +103,18 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register Nibs
+        self.listTableView.register(UINib(nibName: "PlaceCell", bundle: .main), forCellReuseIdentifier: "placeCell")
+        
         //self.listTableView.scrollEnabled = false
+        var googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "33.672354,-117.798607", "rankby": "distance", "keyword": "food"]
+        
+        apiClient.performAPISearch(googleParameters) { (results) in
+            self.placeIDs = results.map({$0.id})
+            print(self.placeIDs)
+            self.loadData()
+            self.listTableView.reloadData()
+        }
         
         self.mapView.delegate = self
         self.bannerView.addShadow()
@@ -113,8 +124,7 @@ class ListViewController: UIViewController {
         self.indicatorView.hideShadow()
         self.pullDownBar.layer.cornerRadius = 3
         self.pullDownBar.addShadow()
-        
-        // self.loadData()
+    
         
         self.listTableView.delegate = self
         self.listTableView.dataSource = self
@@ -130,20 +140,21 @@ class ListViewController: UIViewController {
     
     func loadData(){
         
+        // self.listTableView.reloadData()
         self.fbClient.getPlaceIDs(tripID: 000) { (placeIDs) in
-            self.placeIDs = placeIDs
+            // self.placeIDs = placeIDs
             self.listTableView.reloadData()
         }
         
-        func getCities(){
-            let coordArray = self.placeArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
-            self.mapView.getCitiesFromCoordinates(coordArray) { (cities) in
-                let sortedCities = cities.sorted(by: {$0 < $1})
-                let citiesString = sortedCities.map({$0.0}).joined(separator: ", ")
-                self.citiesLabel.fadeIn(citiesString, beginScale: 1)
-            }
-        }
-        
+//        func getCities(){
+//            let coordArray = self.placeArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
+//            self.mapView.getCitiesFromCoordinates(coordArray) { (cities) in
+//                let sortedCities = cities.sorted(by: {$0 < $1})
+//                let citiesString = sortedCities.map({$0.0}).joined(separator: ", ")
+//                self.citiesLabel.fadeIn(citiesString, beginScale: 1)
+//            }
+//        }
+//        
 //        func updateBusinessesFromIDs(_ ids:[String], reloadIndex: Int = 0){
 //            if ids.count > 0{
 //                apiClient.performDetailedSearch(ids[0]) { (detailedGPlace) in
@@ -166,9 +177,6 @@ class ListViewController: UIViewController {
 //            }
 //        }
         
-        
-        // Register Nibs
-        self.listTableView.register(UINib(nibName: "BusinessCell", bundle: Bundle.main), forCellReuseIdentifier: "businessCell")
         
 //        Async.main{
 //            let placeIDs = self.object["place_id_list"] as! [String]

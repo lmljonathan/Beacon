@@ -165,6 +165,7 @@ class APIDataHandler {
     // Regular Search
     func parseGPlacesJSON(_ data: Data, completion: (_ businessArray: [Place]) -> Void){
         let json = JSON(data: data)
+        print(json)
         if let places = json["results"].array{
             if places.count > 0{
                 
@@ -173,7 +174,7 @@ class APIDataHandler {
                 for place in places{
                     var businessObject = Place()
                     
-                    if let id = place["place_id"].int{
+                    if let id = place["place_id"].string{
                         businessObject.id = id
                     }
                     if let name = place["name"].string{
@@ -188,7 +189,7 @@ class APIDataHandler {
                     if let rating = place["rating"].float{
                         businessObject.rating = rating
                     }
-                    
+                     
                     if let placeLocation = place["geometry"]["location"].dictionary{
                         if let placeLat = placeLocation["lat"]!.float{
                             businessObject.coor.0 = placeLat
@@ -221,7 +222,7 @@ class APIDataHandler {
     
     // new functions
     
-    func getPlaceDetailed(id: Int, completion: (GooglePlaceDetail) -> Void){
+    func getPlaceDetailed(id: String, completion: (GooglePlaceDetail) -> Void){
         // completion()
     }
 }
