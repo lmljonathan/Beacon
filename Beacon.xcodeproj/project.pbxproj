@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */; };
 		81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */; };
 		900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05151DCE8A0200605D0A /* AppDelegate.swift */; };
 		900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900D05191DCE8A0200605D0A /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableHelper.swift; sourceTree = "<group>"; };
 		401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		900D05121DCE8A0200605D0A /* Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 		907670171DD11FB3003C3B89 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
 				90101BA71E2AB05200037B3F /* MapMethods.swift */,
 				90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */,
 				907670181DD1215A003C3B89 /* APIDataHandler.swift */,
@@ -540,6 +543,7 @@
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
 				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
+				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
