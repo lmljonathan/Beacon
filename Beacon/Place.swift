@@ -86,31 +86,39 @@ class Place{
     
     static func ==(left: Place, right: Place) -> Bool{
         print("hello")
-        return left._id == right._id
+        return left.id == right.id
     }
     
 }
 
 
 struct GooglePlaceDetail {
+    
+    var id:Int! = 0
+    var isOpen:Bool = true
+    var desc:String! = ""
     var name: String! = ""
+    var coor: (Float, Float) = (0.0, 0.0)
     var address: String! = ""
     var formattedAddress: String! = ""
     var phone: String! = ""
     var website: String! = ""
     var hours: NSMutableArray! = []
     var priceRating: Int! = 0
-    var rating: Double! = 0
+    var rating: Float! = 0
     var reviews: NSMutableArray! = []
     var photos: NSMutableArray! = []
     var types: NSMutableArray! = []
     var status: Bool! = nil
-    
+    var photoReference: String! = ""
     var longitude: Double! = -1 //
     var latitude: Double! = -1 //
     
     func convertToPlace() -> Place{
-        // var place = Place(id: <#T##String#>, name: <#T##String#>, address: <#T##String#>, coor: <#T##(Float, Float)#>, rating: <#T##Float#>, isOpen: <#T##Bool#>, reviews: <#T##NSArray#>, phone: <#T##String#>, website: <#T##String#>, desc: <#T##String#>)
+        var place = Place(name: name, id: id, address: address, coor: coor, rating: rating, isOpen: isOpen, reviews: reviews, phone: phone, website: website, desc: desc, photoReference: photoReference, photos: photos)
+        
+
+        
 //        var business = Place()
 //        business.businessName = self.name
 //        business.businessAddress = self.address
@@ -127,7 +135,7 @@ struct GooglePlaceDetail {
 //        }
 //        business.businessTypes = self.types
         
-        return business
+        return place
     }
 }
 

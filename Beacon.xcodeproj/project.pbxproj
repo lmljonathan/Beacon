@@ -325,7 +325,7 @@
 				TargetAttributes = {
 					900D05111DCE8A0200605D0A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = CQD8Z7UVJ4;
+						DevelopmentTeam = 3K6Q37NEBQ;
 						ProvisioningStyle = Automatic;
 					};
 					900D05251DCE8A0300605D0A = {
@@ -695,10 +695,10 @@
 			baseConfigurationReference = BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
+				DEVELOPMENT_TEAM = 3K6Q37NEBQ;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamGo.Beacon;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -709,10 +709,10 @@
 			baseConfigurationReference = BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
+				DEVELOPMENT_TEAM = 3K6Q37NEBQ;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamGo.Beacon;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
