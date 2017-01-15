@@ -297,13 +297,15 @@ class ListViewController: UIViewController {
     
     func configureSwipeButtons(_ cell: MGSwipeTableCell, mode: ListMode){
         if mode == .view{
-            let routeButton = MGSwipeButton(title: "ROUTE", icon: UIImage(),backgroundColor: UIColor.clear, padding: 25)
+            let routeButton = MGSwipeButton(title: "ROUTE", icon: #imageLiteral(resourceName: "route"),backgroundColor: UIColor.clear, padding: 25)
             routeButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
             routeButton.centerIconOverText()
             routeButton.titleLabel?.font = appDefaults.font
-            routeButton.titleLabel?.textColor = appDefaults.color
+            routeButton.titleLabel?.textColor = UIColor.black
+            routeButton.setTitleColor(UIColor.black, for: .normal)
+            //routeButton.tintColor = appDefaults.color
             
-            let addButton = MGSwipeButton(title: "ADD", icon: UIImage() ,backgroundColor: UIColor.clear, padding: 25)
+            let addButton = MGSwipeButton(title: "ADD", icon: #imageLiteral(resourceName: "add") ,backgroundColor: UIColor.clear, padding: 25)
             addButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 15))
             addButton.centerIconOverText()
             addButton.titleLabel?.font = appDefaults.font
