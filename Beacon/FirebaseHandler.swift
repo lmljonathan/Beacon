@@ -12,29 +12,26 @@ class FirebaseHandler: NSObject {
     
     /*
      JSON
-    
-    {users:
-        {username: 
-            {password: ...(STRING),
-             trips: 
-                {tripID: ...(STRING),
-                    {   name: ... (STRING),
-                        placeIDs: ... [array of STRING]
-                    }
-                }
-                ... more trips
      
-     
+     trips:
+        {tripID: ...(STRING),
+            {   name: ... (STRING),
+                create_by: 
+                placeIDs: ... [array of STRING]
             }
         }
+        ... more trips
+     
+     
+     
+     
     }
  
     */
     
     func getUserTrips(username: String, completion: (_: [Trip]) -> Void){
-        var trip: [Trip]! = []
         
-        completion(trip)
+        completion()
     }
     
     func saveTripToFirebase(id: String, username: String, trip: Trip){
