@@ -35,6 +35,11 @@
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
 		90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */; };
+		90DBEE0A1E2B3A7D00130C58 /* SearchBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */; };
+		90DBEE0E1E2B3BFE00130C58 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */; };
+		90DBEE111E2B3C7300130C58 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */; };
+		90DBEE151E2B3DFD00130C58 /* DataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */; };
+		90DBEE171E2B421800130C58 /* PlaceActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE161E2B421800130C58 /* PlaceActions.swift */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
 		A3AC69985FD32CDBF9B42653 /* Pods_BeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */; };
 		ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11209D1DD10E7700B9E2A4 /* Place.swift */; };
@@ -95,6 +100,11 @@
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewController.swift; sourceTree = "<group>"; };
+		90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFunctions.swift; sourceTree = "<group>"; };
+		90DBEE161E2B421800130C58 /* PlaceActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceActions.swift; sourceTree = "<group>"; };
 		BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.release.xcconfig"; sourceTree = "<group>"; };
 		BBF502BBFC60F1B7AF5C3A6D /* Pods-BeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +183,9 @@
 			children = (
 				2ED1A5331E2B0B7700227693 /* Animations.swift */,
 				90927E501DCE906E008726BB /* UIExtensions.swift */,
+				90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */,
+				90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */,
+				90DBEE161E2B421800130C58 /* PlaceActions.swift */,
 				9052B43D1E2B330C00DBCF98 /* Modal */,
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
 				90A9B43D1E2AC058004E97F5 /* XIB */,
@@ -206,6 +219,7 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				90DBEE0F1E2B3C0400130C58 /* Search */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
 				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 			);
@@ -291,6 +305,15 @@
 				2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */,
 			);
 			name = XIB;
+			sourceTree = "<group>";
+		};
+		90DBEE0F1E2B3C0400130C58 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */,
+				90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		C1F1E4402EC4FB07BBD6319B /* Frameworks */ = {
@@ -592,12 +615,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DBEE151E2B3DFD00130C58 /* DataFunctions.swift in Sources */,
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
 				2E80A5E31E2B10A10029FB4D /* Animations.swift in Sources */,
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
 				9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */,
+				90DBEE111E2B3C7300130C58 /* ViewController+Extensions.swift in Sources */,
+				90DBEE0E1E2B3BFE00130C58 /* LocationSearchViewController.swift in Sources */,
 				2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */,
+				90DBEE0A1E2B3A7D00130C58 /* SearchBusinessViewController.swift in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
 				9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */,
@@ -607,6 +634,7 @@
 				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */,
+				90DBEE171E2B421800130C58 /* PlaceActions.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,

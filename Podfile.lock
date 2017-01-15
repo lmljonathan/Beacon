@@ -2,7 +2,6 @@ PODS:
   - Alamofire (4.2.0)
   - Async (0.2.0)
   - BetterSegmentedControl (0.7)
-  - Bolts/Tasks (1.8.4)
   - Cosmos (7.0.0)
   - CZPicker (0.4.3)
   - GoogleMaps (2.1.1):
@@ -10,14 +9,16 @@ PODS:
   - GoogleMaps/Base (2.1.1)
   - GoogleMaps/Maps (2.1.1):
     - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - Kingfisher (3.2.4)
   - MGSwipeTableCell (1.5.6)
-  - Parse (1.14.2):
-    - Bolts/Tasks (~> 1.8)
+  - SwiftLocation (1.1.1)
   - SwiftyJSON (3.1.4)
   - XLActionController (3.0.1):
     - XLActionController/Core (= 3.0.1)
   - XLActionController/Core (3.0.1)
+  - XLPagerTabStrip (6.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -26,26 +27,29 @@ DEPENDENCIES:
   - Cosmos
   - CZPicker
   - GoogleMaps
+  - GooglePlaces
   - Kingfisher
   - MGSwipeTableCell
-  - Parse
+  - SwiftLocation
   - SwiftyJSON
   - XLActionController
+  - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Async: d80205f1a1b4eea24de8ddc62cf5197ff3025330
   BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
-  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  SwiftLocation: aac16955b508c46b82bf07fcceb7e2a3b382b8d5
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
+  XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 8c019b8af2459923aefd0accc735ee6e95e8289c
+PODFILE CHECKSUM: d8cbe7b6efa8fcb4dbd1bcc53edc8150c0a59500
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

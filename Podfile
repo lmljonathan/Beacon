@@ -6,15 +6,17 @@ target 'Beacon' do
   use_frameworks!
   pod 'Alamofire'
   pod 'GoogleMaps'
-  pod 'Parse'
+  pod 'GooglePlaces'
   pod 'Async'
   pod 'MGSwipeTableCell'
   pod 'XLActionController'
+  pod 'XLPagerTabStrip'
   pod 'CZPicker'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'Cosmos'
-  pod 'BetterSegmentedControl'  
+  pod 'BetterSegmentedControl'
+  pod 'SwiftLocation'
 
   # Pods for Beacon
 
