@@ -279,8 +279,8 @@
                                 <exclude reference="1lh-qb-nQH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DoK-hD-WxW"/>
                                 <exclude reference="FQT-TH-uur"/>
+                                <exclude reference="DoK-hD-WxW"/>
                                 <exclude reference="gZv-Hb-vXU"/>
                             </mask>
                         </variation>
@@ -289,8 +289,8 @@
                                 <include reference="1lh-qb-nQH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DoK-hD-WxW"/>
                                 <include reference="FQT-TH-uur"/>
+                                <exclude reference="DoK-hD-WxW"/>
                                 <include reference="gZv-Hb-vXU"/>
                             </mask>
                         </variation>
