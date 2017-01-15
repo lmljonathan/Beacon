@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
-    @IBOutlet var listTableView: UITableView!
+    @IBOutlet var listTableView: LPRTableView!
     
     @IBOutlet var addPlaceButton: UIButton!
     
@@ -244,7 +244,9 @@ class ListViewController: UIViewController {
         })
         
         // Set Editing to True
-        self.listTableView.setEditing(true, animated: true)
+        // self.listTableView.setEditing(true, animated: true)
+        self.listTableView.longPressReorderEnabled = true
+        
         if (self.bottomView.gestureRecognizers != nil && self.bottomView.gestureRecognizers?.count != 0){
             if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
                 self.bottomView.removeGestureRecognizer(bottomPanGR)
@@ -280,8 +282,9 @@ class ListViewController: UIViewController {
         self.navigationItem.setHidesBackButton(false, animated: true)
         self.navigationItem.leftBarButtonItem = nil
         
-        // Set Editing to False
-        self.listTableView.setEditing(false, animated: true)
+        // Set Editing to Fals
+        self.listTableView.longPressReorderEnabled = false
+        // self.listTableView.setEditing(false, animated: true)
         // self.addPanGR()
         
         // Hide Add Place Button

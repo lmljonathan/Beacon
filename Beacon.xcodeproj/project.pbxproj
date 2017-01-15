@@ -32,6 +32,7 @@
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
 		90A9B43C1E2AC055004E97F5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		90BBB7D51E2B915B00F7E193 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BBB7D41E2B915B00F7E193 /* PlaceCell.xib */; };
+		90BBB7D71E2B981500F7E193 /* LPRTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BBB7D61E2B981500F7E193 /* LPRTableView.swift */; };
 		90DBEE0A1E2B3A7D00130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		90DBEE0E1E2B3BFE00130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		90DBEE111E2B3C7300130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -106,6 +107,7 @@
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		90BBB7D41E2B915B00F7E193 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		90BBB7D61E2B981500F7E193 /* LPRTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPRTableView.swift; sourceTree = "<group>"; };
 		90DBEE181E2B599600130C58 /* SearchBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewController.swift; sourceTree = "<group>"; };
 		90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		907670141DD11ECF003C3B89 /* CoreStructures */ = {
 			isa = PBXGroup;
 			children = (
+				90BBB7D61E2B981500F7E193 /* LPRTableView.swift */,
 				EDE7047A1DD11B7C005DC778 /* Trip.swift */,
 				ED11209D1DD10E7700B9E2A4 /* Place.swift */,
 			);
@@ -544,6 +547,7 @@
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
+				90BBB7D71E2B981500F7E193 /* LPRTableView.swift in Sources */,
 				90DBEE1E1E2B59CD00130C58 /* BusinessDetailViewController.swift in Sources */,
 				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
 				2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */,

@@ -22,7 +22,7 @@ protocol ModalViewControllerDelegate
 }
 
 
-class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate, IndicatorInfoProvider, UITextFieldDelegate, MGSwipeTableCellDelegate, ModalViewControllerDelegate, Dimmable {
+class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, MGSwipeTableCellDelegate, ModalViewControllerDelegate, Dimmable {
     // var addToOwnPlaylists: [PFObject]!
     var itemInfo: IndicatorInfo = "Places"
     var playlist_swiped: String!
@@ -43,7 +43,6 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
     var currentView: CurrentView = .searchPlace
 
     var searchTextField: UITextField!
-
     
     // MARK: - TABLEVIEW VARIABLES
     fileprivate var businessObjects: [Place] = []
@@ -57,16 +56,31 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
     
     // MARK: - TABLEVIEW FUNCTIONS
     
+    @IBOutlet var topView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addPlaceSearchTextField: UITextField!
+    @IBOutlet var cancelButton: UIButton!
     
-    // MARK: - OUTLETS
-    
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
+    @IBAction func cancelPressed(_ sender: Any) {
+        
+        let listVC = self.presentingViewController as! ListViewController
+        listVC.placeArray.append(contentsOf: self.businessArray)
+        listVC.placeIDs.append(contentsOf: self.placeIDs)
+        
+        // Appends empty GooglePlaceDetail Objects to make list parallel to placeIDs and playlistArray
+        for _ in 0..<(listVC.placeIDs.count - listVC.gPlaceArray.count){
+            listVC.gPlaceArray.append(GooglePlaceDetail())
+            
+        }
+        listVC.listTableView.reloadData()
+        
+        self.dismiss(animated: true) {
+            
+        }
     }
     
+    // MARK: - OUTLETS
     fileprivate let dimLevel: CGFloat = 0.8
     fileprivate let dimSpeed: Double = 0.5
     
@@ -143,6 +157,7 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
             for _ in businessObjectArray{
                 self.businessShown.append(false)
             }
+            
             self.businessObjects = businessObjectArray
             self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
         }
@@ -308,8 +323,10 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
     // MARK: - VIEWDIDLOAD
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        self.topView.addShadow()
 
-        self.navigationController?.resetNavigationBar(1)
+        // self.navigationController?.resetNavigationBar(1)
         
         if true{//((self.parent as? SearchPagerTabStrip) == nil){
             let rightButton = UIBarButtonItem(image: UIImage(named: "location_icon"), style: .plain, target: self, action: #selector(SearchBusinessViewController.pressedLocation(_:)))
@@ -528,16 +545,19 @@ extension SearchBusinessViewController: UITableViewDelegate, UITableViewDataSour
         
         // configureSwipeButtons(cell)
         
-        if self.currentView == .searchPlace{
-            cell.actionButton.isHidden = true
-        }else{
-            cell.actionButton.isHidden = false
-        }
+//        if self.currentView == .searchPlace{
+//            cell.actionButton.isHidden = true
+//        }else{
+//            cell.actionButton.isHidden = false
+//        }
         
-        let business = self.businessObjects[(indexPath as NSIndexPath).row]
         
-        cell.configure(with: business, mode: .add) { (place) -> Void in
-            
+        DispatchQueue.main.async{
+            let business = self.businessObjects[indexPath.row]
+    
+            cell.configure(with: business, mode: .add) { (place) -> Void in
+                
+            }
         }
         
         cell.moreButton.tag = (indexPath as NSIndexPath).row

@@ -68,6 +68,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //self.resultsTableView.tableHeaderView?.transform = CGAffineTransformMakeScale(0, 0)
         
         self.mainSearchTextField.text = currentCity

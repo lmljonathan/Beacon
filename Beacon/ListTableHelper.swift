@@ -62,6 +62,15 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // Modify this code as needed to support more advanced reordering, such as between sections.
+        let source = self.placeIDs[sourceIndexPath.row]
+        let destination = self.placeIDs[destinationIndexPath.row]
+        self.placeIDs[sourceIndexPath.row] = destination
+        self.placeIDs[destinationIndexPath.row] = source
+    }
+
+    
     //    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
     //        let itemToMove = trip[(fromIndexPath as NSIndexPath).row]
     //        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kIH-4I-EJE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kIH-4I-EJE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -140,7 +140,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-ih-BIR">
                                 <rect key="frame" x="-4" y="113" width="383" height="554"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-m7-RfP">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-m7-RfP" customClass="LPRTableView" customModule="Beacon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="25" width="383" height="529"/>
                                         <color key="backgroundColor" red="0.89543876259999999" green="0.89543876259999999" blue="0.89543876259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
@@ -279,8 +279,8 @@
                                 <exclude reference="1lh-qb-nQH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="FQT-TH-uur"/>
                                 <exclude reference="DoK-hD-WxW"/>
+                                <exclude reference="FQT-TH-uur"/>
                                 <exclude reference="gZv-Hb-vXU"/>
                             </mask>
                         </variation>
@@ -289,8 +289,8 @@
                                 <include reference="1lh-qb-nQH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="FQT-TH-uur"/>
                                 <exclude reference="DoK-hD-WxW"/>
+                                <include reference="FQT-TH-uur"/>
                                 <include reference="gZv-Hb-vXU"/>
                             </mask>
                         </variation>
@@ -1019,50 +1019,54 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-Gp-vrZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Food, Tacos, Pho, etc..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMw-jd-g1M">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Food, Tacos, Pho, etc..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMw-jd-g1M">
                                         <rect key="frame" x="66" y="28" width="243" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="243" id="93Q-ow-KuX"/>
                                             <constraint firstAttribute="height" constant="30" id="gUe-wA-IaJ"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrX-Gc-LwH">
-                                        <rect key="frame" x="20" y="33" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="DDz-7o-Jdm"/>
-                                            <constraint firstAttribute="width" constant="20" id="DJV-Zc-1k7"/>
-                                        </constraints>
-                                        <state key="normal" image="nav_cancel"/>
                                         <connections>
-                                            <segue destination="oNf-Zv-LG5" kind="unwind" unwindAction="unwindToSearchBusinessVCWithSearch:" id="h1K-ba-iIb"/>
+                                            <outlet property="delegate" destination="HJq-Ks-s6Y" id="yio-0k-nCS"/>
                                         </connections>
-                                    </button>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-nH-mIq">
-                                        <rect key="frame" x="336" y="33" width="20" height="20"/>
+                                        <rect key="frame" x="333" y="31" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="am0-E5-CeN"/>
-                                            <constraint firstAttribute="height" constant="20" id="yFO-Yh-gqW"/>
+                                            <constraint firstAttribute="width" constant="24" id="am0-E5-CeN"/>
+                                            <constraint firstAttribute="height" constant="24" id="yFO-Yh-gqW"/>
                                         </constraints>
                                         <state key="normal" image="location_icon"/>
                                         <connections>
                                             <segue destination="Rch-Ge-B6E" kind="presentation" identifier="showLocationVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="zTt-Sa-yX3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrX-Gc-LwH">
+                                        <rect key="frame" x="21" y="31" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="DDz-7o-Jdm"/>
+                                            <constraint firstAttribute="width" constant="24" id="DJV-Zc-1k7"/>
+                                        </constraints>
+                                        <state key="normal" image="nav_cancel"/>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="HJq-Ks-s6Y" eventType="touchUpInside" id="F1x-1k-EGh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.32156862749999998" green="0.6705882353" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="GrX-Gc-LwH" firstAttribute="top" secondItem="Jb0-Gp-vrZ" secondAttribute="top" constant="33" id="13s-Hl-4ce"/>
-                                    <constraint firstAttribute="trailing" secondItem="eOm-nH-mIq" secondAttribute="trailing" constant="19" id="3Mc-lr-J0K"/>
+                                    <constraint firstItem="GrX-Gc-LwH" firstAttribute="top" secondItem="Jb0-Gp-vrZ" secondAttribute="top" constant="31" id="13s-Hl-4ce"/>
+                                    <constraint firstAttribute="trailing" secondItem="eOm-nH-mIq" secondAttribute="trailing" constant="18" id="3Mc-lr-J0K"/>
                                     <constraint firstItem="oMw-jd-g1M" firstAttribute="centerY" secondItem="Jb0-Gp-vrZ" secondAttribute="centerY" constant="8" id="ADI-dQ-DHA"/>
                                     <constraint firstAttribute="height" constant="70" id="UXI-1y-1hv"/>
-                                    <constraint firstAttribute="bottom" secondItem="eOm-nH-mIq" secondAttribute="bottom" constant="17" id="VJ9-OW-ROT"/>
-                                    <constraint firstAttribute="bottom" secondItem="GrX-Gc-LwH" secondAttribute="bottom" constant="17" id="g2F-bQ-5Gf"/>
-                                    <constraint firstItem="GrX-Gc-LwH" firstAttribute="leading" secondItem="Jb0-Gp-vrZ" secondAttribute="leading" constant="20" id="iBS-s4-wze"/>
+                                    <constraint firstAttribute="bottom" secondItem="eOm-nH-mIq" secondAttribute="bottom" constant="15" id="VJ9-OW-ROT"/>
+                                    <constraint firstAttribute="bottom" secondItem="GrX-Gc-LwH" secondAttribute="bottom" constant="15" id="g2F-bQ-5Gf"/>
+                                    <constraint firstItem="GrX-Gc-LwH" firstAttribute="leading" secondItem="Jb0-Gp-vrZ" secondAttribute="leading" constant="21" id="iBS-s4-wze"/>
                                     <constraint firstItem="oMw-jd-g1M" firstAttribute="centerX" secondItem="Jb0-Gp-vrZ" secondAttribute="centerX" id="pci-l6-5Qr"/>
-                                    <constraint firstItem="eOm-nH-mIq" firstAttribute="top" secondItem="Jb0-Gp-vrZ" secondAttribute="top" constant="33" id="xjb-5M-xOD"/>
+                                    <constraint firstItem="eOm-nH-mIq" firstAttribute="top" secondItem="Jb0-Gp-vrZ" secondAttribute="top" constant="31" id="xjb-5M-xOD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1079,13 +1083,14 @@
                     </view>
                     <connections>
                         <outlet property="addPlaceSearchTextField" destination="oMw-jd-g1M" id="BtD-pg-lgx"/>
+                        <outlet property="cancelButton" destination="GrX-Gc-LwH" id="Pe2-oV-jRH"/>
                         <outlet property="tableView" destination="Ph0-54-isA" id="edQ-kI-Ybq"/>
+                        <outlet property="topView" destination="Jb0-Gp-vrZ" id="g3y-fw-6Uv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzz-qW-Bt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="oNf-Zv-LG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="949"/>
+            <point key="canvasLocation" x="1150" y="921"/>
         </scene>
         <!--Location Search View Controller-->
         <scene sceneID="3gp-Yv-9eb">
@@ -1148,6 +1153,7 @@
                                                 <connections>
                                                     <action selector="mainSearchEditingDidChange:" destination="Rch-Ge-B6E" eventType="editingChanged" id="TYQ-6a-oSC"/>
                                                     <action selector="mainSearchEditingDidEnd:" destination="Rch-Ge-B6E" eventType="editingDidEnd" id="lJ0-Zc-SiU"/>
+                                                    <outlet property="delegate" destination="Rch-Ge-B6E" id="k5g-EW-5zn"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
