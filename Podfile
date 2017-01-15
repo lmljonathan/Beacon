@@ -11,19 +11,13 @@ target 'Beacon' do
   pod 'MGSwipeTableCell'
   pod 'XLActionController'
   pod 'CZPicker'
-  pod ‘Firebase/Core’
   pod ‘SwiftyJSON’
+  pod 'Cosmos'
+  pod ‘Kingfisher’
+  pod ‘Firebase/Core’
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   # Pods for Beacon
-
-  target 'BeaconTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BeaconUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end
