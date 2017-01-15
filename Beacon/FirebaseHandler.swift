@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 struct FirebaseHandler{
-    let ref = FIRDatabase.database().reference().child("places")
+    //let ref = FIRDatabase.database().reference().child("places")
 
     //var trips: [Trip] = []
     //var tripToSave:Trip
@@ -74,10 +74,20 @@ struct FirebaseHandler{
     }
     
     func saveTripToDataBase(trip: Trip) {
+        let ref = FIRDatabase.database().reference().child("places")
         var tripDict:[String:String] = [:]
         tripDict[trip.id] = trip.name
         ref.childByAutoId().setValue(tripDict)
     }
+    func retrieveTripDetails(ref: FIRDatabaseReference){
+        //let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+        
+
+        })}
+    
     
     
 }

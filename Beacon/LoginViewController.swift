@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //        return button
     //    }()
     
-    
+    let test = FirebaseHandler()
     @IBOutlet weak var usernameField: UITextField!
 
     @IBOutlet weak var passwordField: UITextField!
@@ -34,16 +34,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if user != nil {
                 self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 let exTrip = Trip(id: "adsfs", name: "sdfd", placeIDs: ["sdfa","safe", "sdafds"])
-                let test = FirebaseHandler()
-                test.saveTripToDataBase(trip: exTrip)
                 
-            }
+                self.test.saveTripToDataBase(trip: exTrip)
+                let userID = FIRAuth.auth()?.currentUser?.uid
+                ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    let value = snapshot.value as? NSDictionary
+                print("****************", value, "*********")
+                
+                
+            })
             
                 
             
         }
     }
-    
+    }
     @IBAction func login(_ sender: Any){
         FIRAuth.auth()!.signIn(withEmail: usernameField.text!,
                                password: passwordField.text!)
