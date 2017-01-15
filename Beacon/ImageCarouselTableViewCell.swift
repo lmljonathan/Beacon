@@ -15,32 +15,32 @@ class ImageCarouselTableViewCell: UITableViewCell {
     @IBOutlet weak var imageThree: UIImageView!
     @IBOutlet weak var morePhotosButton: UIButton!
     
-    func setImages(_ place: GooglePlaceDetail){
-        
-        let gPlacesClient = GooglePlacesAPIClient()
-        let imageRefArray = place.photos
-        
-        for (index, ref) in (imageRefArray?.enumerated())!{
-            if index < 3{
-                gPlacesClient.getImage(ref as! String) { (image) in
-                    switch index{
-                    case 0:
-                        Animations.fadeInImageView(self.imageOne, imageToAdd: image, beginScale: 1)
-                        //self.imageOne.image = image
-                    case 1:
-                        Animations.fadeInImageView(self.imageTwo, imageToAdd: image, beginScale: 1)
-                        //self.imageTwo.image = image
-                    case 2:
-                        Animations.fadeInImageView(self.imageThree, imageToAdd: image, beginScale: 1)
-                    default:
-                        break
-                    }
-                }
-            }else{
-                break
-            }
-        }
-    }
+//    func setImages(_ place: GooglePlaceDetail){
+//        
+//        let gPlacesClient = GooglePlacesAPIClient()
+//        let imageRefArray = place.photos
+//        
+//        for (index, ref) in (imageRefArray?.enumerated())!{
+//            if index < 3{
+//                gPlacesClient.getImage(ref as! String) { (image) in
+//                    switch index{
+//                    case 0:
+//                        Animations.fadeInImageView(self.imageOne, imageToAdd: image, beginScale: 1)
+//                        //self.imageOne.image = image
+//                    case 1:
+//                        Animations.fadeInImageView(self.imageTwo, imageToAdd: image, beginScale: 1)
+//                        //self.imageTwo.image = image
+//                    case 2:
+//                        Animations.fadeInImageView(self.imageThree, imageToAdd: image, beginScale: 1)
+//                    default:
+//                        break
+//                    }
+//                }
+//            }else{
+//                break
+//            }
+//        }
+//    }
     
     
 //    // MARK: - SwiftPhotoGallery Delegate Methods

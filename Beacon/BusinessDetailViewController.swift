@@ -13,6 +13,9 @@ import Cosmos
 import BetterSegmentedControl
 import Async
 //import SwiftPhotoGallery
+
+
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -35,6 +38,9 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    enum contentTypes{
+        case places, comments
+    }
 
     @IBOutlet weak var cosmosRating: CosmosView!
     @IBOutlet weak var headerView: UIView!
@@ -58,11 +64,11 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
     var loadedStatusBar = false
     var loadedNavBar = false
     
-    var contentToDisplay: ContentTypes = .places
+    var contentToDisplay: contentTypes = .places
     
     //var placePhoto: UIImage? = UIImage(named: "default_restaurant")
     //let cache = Shared.dataCache
-    var object: Places!
+    var object: Place!
     var gPlaceObject: GooglePlaceDetail!
     
     var index: Int!
@@ -117,7 +123,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         // IF SEGUEING FROM SEARCHBUSINESSCONTROLLER
         if object != nil{
-            APIClient.performDetailedSearch(object.gPlaceID!) { (detailedGPlace) in
+            APIClient.performDetailedSearch(object.id!) { (detailedGPlace) in
                 
                 self.gPlaceObject = detailedGPlace
         
@@ -125,10 +131,10 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
                 self.setInfo(detailedGPlace)
                 
                 // Set Icon
-                self.setTypeIcon(self.object.businessTypes)
+                //self.setTypeIcon(self.object.businessTypes)
                 
                 // Set Name
-                self.nameLabel.text = self.object.businessName
+                self.nameLabel.text = self.object.name
                 
                 // Set Address
                 //self.addressLabel.text = detailedGPlace.address
@@ -137,12 +143,12 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
                 self.reviewArray = detailedGPlace.reviews!
                 
                 // Set Phone
-                self.object.businessPhone = detailedGPlace.phone!
+                self.object.phone = detailedGPlace.phone!
                 
                 // Set Rating
                 if let ratingValue = detailedGPlace.rating{
                     if ratingValue != -1{
-                        self.cosmosRating.rating = ratingValue
+                        self.cosmosRating.rating = Double(ratingValue)
                     }else{
                         self.cosmosRating.isHidden = true
                         //self.cosmosRating.addSubview(UILabel)
@@ -195,7 +201,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
             self.nameLabel.text = gPlaceObject.name
             
             // Set Rating
-            self.cosmosRating.rating = gPlaceObject.rating
+            self.cosmosRating.rating = Double(gPlaceObject.rating)
             
             // Set Price Rating
             setPriceRating(gPlaceObject.priceRating)
@@ -369,7 +375,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.white.withAlphaComponent(showWhenScrollDownAlpha) ]
         if object != nil{
-            self.navigationItem.title = object.businessName
+            self.navigationItem.title = object.name
         }else if gPlaceObject != nil{
             self.navigationItem.title = gPlaceObject.name
         }else{
@@ -636,7 +642,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 if gPlaceObject != nil{
                     if gPlaceObject.photos.count > 0{
-                        imageCarouselCell.setImages(gPlaceObject)
+                        //imageCarouselCell.setImages(gPlaceObject)
                     }else{
                         //return UITableViewCell()
                     }
