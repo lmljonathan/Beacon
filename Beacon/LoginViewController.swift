@@ -37,7 +37,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 self.test.saveTripToDataBase(trip: exTrip)
                 let userID = FIRAuth.auth()?.currentUser?.uid
-                ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
+                ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
                     let value = snapshot.value as? NSDictionary
                 print("****************", value, "*********")
