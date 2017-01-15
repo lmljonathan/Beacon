@@ -12,7 +12,7 @@ import MGSwipeTableCell
 import XLActionController
 import CZPicker
 
-class ListViewController: UIViewController, MKMapViewDelegate {
+class ListViewController: UIViewController {
     
     enum ListMode{
         case view, edit
@@ -341,17 +341,17 @@ class ListViewController: UIViewController, MKMapViewDelegate {
             
             // IF NO NEW PLACE IS ADDED
             if placeArray[index].name != ""{
-                let gPlaceObject = placeArray[index]
+                let gPlaceObject = gPlaceArray[index]
                 upcoming.gPlaceObject = gPlaceObject
                 upcoming.index = index
             }else{
                 // IF NEW PLACES ARE ADDED
-                let businessObject = self.gPlaceArray[index]
+                let businessObject = self.placeArray[index]
                 upcoming.object = businessObject
                 upcoming.index = index
             }
             
-            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)
+            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)}
 //        }else if (segue.identifier == "tapImageButton"){
 //            let nav = segue.destination as! UINavigationController
 //            let upcoming = nav.childViewControllers[0] as! SearchBusinessViewController

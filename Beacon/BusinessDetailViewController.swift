@@ -105,7 +105,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.register(UINib(nibName: "InfoCell", bundle: Bundle.main), forCellReuseIdentifier: "infoCell")
         self.tableView.register(UINib(nibName: "ImageCarousel", bundle: Bundle.main), forCellReuseIdentifier: "imageCarousel")
         
-        self.navigationController?.configureTopBar()
+        //self.navigationController?.configureTopBar()
     
         self.tableView.separatorStyle = .none
         
@@ -295,7 +295,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
         if fromSearchTab == true{
             
         }
-        handleNavigationBarOnScroll()
+        // handleNavigationBarOnScroll()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -347,10 +347,10 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if businessTypes.count != 0 && businessList.contains(String(describing: businessTypes[0])){
             self.typeIconImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            self.typeIconImageView.image = UIImage(named: String(describing: businessTypes[0]) + "_Icon")!
+            self.typeIconImageView.image = UIImage() //UIImage(named: String(describing: businessTypes[0]) + "_Icon")!
         }else{
             self.typeIconImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            self.typeIconImageView.image = UIImage(named: "default_Icon")!
+            self.typeIconImageView.image = UIImage()
         }
 
     }
@@ -360,7 +360,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.fadeBG()
         self.updateHeaderView()
-        self.handleNavigationBarOnScroll()
+        // self.handleNavigationBarOnScroll()
     }
     
     func fadeBG(){
@@ -469,7 +469,7 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
             selectedTitleColor: .white)
         control.autoresizingMask = [.flexibleWidth]
         control.panningDisabled = true
-        control.titleFont = UIFont(name: "Montserrat", size: 12.0)!
+        // control.titleFont = UIFont(name: "Montserrat", size: 12.0)!
         control.addTarget(self, action: #selector(BusinessDetailViewController.switchContentType), for: .valueChanged)
         control.alpha = 0
         self.segmentedView.addSubview(control)
@@ -633,7 +633,9 @@ class BusinessDetailViewController: UIViewController, UITableViewDelegate, UITab
             if (indexPath as NSIndexPath).row == 0 || (indexPath as NSIndexPath).row == 1 || (indexPath as NSIndexPath).row == 2{
                 let infoCell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfoTableViewCell
                 
-                infoCell.configureCell(UIImage(named: self.infoArray[(indexPath as NSIndexPath).row].0)!, label: self.infoArray[(indexPath as NSIndexPath).row].1)
+//                infoCell.configureCell(UIImage(named: self.infoArray[(indexPath as NSIndexPath).row].0)!, label: self.infoArray[(indexPath as NSIndexPath).row].1)
+                
+                infoCell.configureCell(UIImage(), label: self.infoArray[(indexPath as NSIndexPath).row].1)
                 
                 return infoCell
             }else{
