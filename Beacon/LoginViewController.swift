@@ -29,13 +29,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         //self.usernameField.delegate = self
         //self.passwordField.delegate = self
-        let ref = FIRDatabase.database().reference(fromURL: "https://beacon-80d39.firebaseio.com/")
+        // let ref = FIRDatabase.database().reference(fromURL: "https://beacon-80d39.firebaseio.com/")
+        let ref = FIRDatabase.database().reference(withPath: "trips")
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 let exTrip = Trip(id: "adsfs", name: "sdfd", placeIDs: ["sdfa","safe", "sdafds"])
                 let test = FirebaseHandler()
                 test.saveTripToDataBase(trip: exTrip)
+                ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    print("GGGGGGGG",value)
+                })
+                
                 
             }
             

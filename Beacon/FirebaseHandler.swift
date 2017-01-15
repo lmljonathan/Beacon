@@ -76,6 +76,15 @@ struct FirebaseHandler{
         tripDict[trip.id] = trip.name
         ref.childByAutoId().setValue(tripDict)
     }
+    func retrieveTripDetails(ref: FIRDatabaseReference){
+        //let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            
+            
+        })}
+
     
     
 }
