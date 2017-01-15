@@ -12,7 +12,7 @@ import MGSwipeTableCell
 import XLActionController
 import CZPicker
 
-class ListViewController: UIViewController {
+class ListViewController: UIViewController, MKMapViewDelegate {
     
     enum ListMode{
         case view, edit
@@ -331,31 +331,30 @@ class ListViewController: UIViewController {
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "showBusinessDetail"){
-//            let upcoming: BusinessDetailViewController = segue.destination as! BusinessDetailViewController
-//            
-//            let index = (listTableView.indexPathForSelectedRow! as NSIndexPath).row
-//            print(index)
-//            
-//            // IF NO NEW PLACE IS ADDED
-//            if placeArray[index].name != ""{
-//                let gPlaceObject = placeArray[index]
-//                upcoming.gPlaceObject = gPlaceObject
-//                upcoming.index = index
-//            }else{
-//                // IF NEW PLACES ARE ADDED
-//                let businessObject = trip[index]
-//                upcoming.object = businessObject
-//                upcoming.index = index
-//            }
-//            
-//            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)
+        if (segue.identifier == "showBusinessDetail"){
+            let upcoming: BusinessDetailViewController = segue.destination as! BusinessDetailViewController
+            
+            let index = (listTableView.indexPathForSelectedRow! as NSIndexPath).row
+            print(index)
+            
+            // IF NO NEW PLACE IS ADDED
+            if placeArray[index].name != ""{
+                let gPlaceObject = placeArray[index]
+                upcoming.gPlaceObject = gPlaceObject
+                upcoming.index = index
+            }else{
+                // IF NEW PLACES ARE ADDED
+                let businessObject = self.gPlaceArray[index]
+                upcoming.object = businessObject
+                upcoming.index = index
+            }
+            
+            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)
 //        }else if (segue.identifier == "tapImageButton"){
 //            let nav = segue.destination as! UINavigationController
 //            let upcoming = nav.childViewControllers[0] as! SearchBusinessViewController
 //            upcoming.currentView = .addPlace
-//            upcoming.searchTextField = upcoming.addPlaceSearchTextField
-//        }
+//            upcoming.searchTextField = upcoming.addPlaceSearchTextField        }
     }
 //    
 //    func getIDsFromArrayOfBusiness(_ business: [Place], completion: (_ result:[String])->Void){
