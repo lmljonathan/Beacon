@@ -69,6 +69,8 @@
 		2E05B47D1E2B07DA009817A6 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
+		2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
 				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 				90DBEE0F1E2B3C0400130C58 /* Search */,
@@ -268,6 +271,7 @@
 			children = (
 				900D05151DCE8A0200605D0A /* AppDelegate.swift */,
 				900D051C1DCE8A0200605D0A /* Assets.xcassets */,
+				2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */,
 				900D05211DCE8A0200605D0A /* Info.plist */,
 			);
 			name = Properties;
@@ -533,6 +537,7 @@
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 				90DBEE1E1E2B59CD00130C58 /* BusinessDetailViewController.swift in Sources */,
 				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
+				2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
