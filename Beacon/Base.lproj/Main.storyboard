@@ -306,7 +306,7 @@
                         <outlet property="indicatorView" destination="Cb4-wz-1gm" id="UFz-Ng-cJU"/>
                         <outlet property="listTableView" destination="bqT-m7-RfP" id="7a3-IH-zvq"/>
                         <outlet property="mapView" destination="fdz-VW-BjX" id="I0q-kP-m0N"/>
-                        <outlet property="moreButton" destination="fdz-VW-BjX" id="ouk-cn-WrD"/>
+                        <outlet property="moreButton" destination="zy7-bO-LHY" id="EMP-ke-gIp"/>
                         <outlet property="pullDownBar" destination="5YW-ZG-6qk" id="Zl5-bU-u7j"/>
                         <outlet property="titleTextField" destination="r8f-7K-y9i" id="gcv-TY-4Nq"/>
                         <outlet property="topView" destination="AhR-ID-qyr" id="Dtq-YH-kH7"/>
@@ -1208,8 +1208,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRf-7s-vWj">
-                                                <rect key="frame" x="136" y="9" width="74" height="18"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                                <rect key="frame" x="135.5" y="9" width="74" height="18"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1374,7 +1374,7 @@
                 <exit id="QOu-RU-ujg" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtW-HC-MGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="949"/>
+            <point key="canvasLocation" x="1928.8" y="948.57571214392806"/>
         </scene>
     </scenes>
     <resources>
