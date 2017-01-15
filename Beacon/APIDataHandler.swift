@@ -32,6 +32,7 @@ class APIDataHandler {
         
         gpClient.searchPlacesWithParameters(googleParameters) { (result) -> Void in
             self.parseGPlacesJSON(result, completion: { (businessArray) -> Void in
+                //print(businessArray[0].photoReference)
                 completion(businessArray)
             })
         }
@@ -41,6 +42,7 @@ class APIDataHandler {
     func performDetailedSearch(_ googleID: String, completion: @escaping (_ detailedGPlace: GooglePlaceDetail) -> Void){
         self.gpClient.searchPlaceWithID(googleID) { (JSONdata) in
             self.parseGoogleDetailedData(JSONdata, completion: { (detailedGPlace) in
+                //print("HELLLLLLLOOOOOOO", detailedGPlace.photoReference)
                 completion(detailedGPlace)
             })
         }
@@ -102,13 +104,18 @@ class APIDataHandler {
                                 DetailedObject.photos.add(ref)
                             }
                         }
+                        if let photoReference = photoArray[0]["photo_reference"].string{
+                            //print(photoReference)
+                            DetailedObject.photoReference = photoReference
+                        }
                     }
+                        
                     
                     if let placePrice = place["price_level"]?.int{
                         DetailedObject.priceRating = placePrice
                     }
                     
-                    if let rating = place["rating"]?.double{
+                    if let rating = place["rating"]?.float{
                         DetailedObject.rating = rating
                     }
                     
@@ -165,6 +172,7 @@ class APIDataHandler {
     // Regular Search
     func parseGPlacesJSON(_ data: Data, completion: (_ businessArray: [Place]) -> Void){
         let json = JSON(data: data)
+        //print(json)
         if let places = json["results"].array{
             if places.count > 0{
                 
@@ -174,40 +182,41 @@ class APIDataHandler {
                     var businessObject = Place()
                     
                     if let id = place["place_id"].string{
-                        businessObject.gPlaceID = id
+                        businessObject.id = id
                     }
                     if let name = place["name"].string{
-                        businessObject.businessName = name
+                        businessObject.name = name
                     }
                     if let address = place["vicinity"].string{
-                        businessObject.businessAddress = address
+                        businessObject.address = address
                     }
                     if let photoRef = place["photos"][0]["photo_reference"].string{
-                        businessObject.businessPhotoReference = photoRef
+                        businessObject.photoReference = photoRef
                     }
-                    if let rating = place["rating"].double{
-                        businessObject.businessRating = rating
+                    if let rating = place["rating"].float{
+                        businessObject.rating = rating
                     }
-                    
+                     
                     if let placeLocation = place["geometry"]["location"].dictionary{
-                        if let placeLat = placeLocation["lat"]!.double{
-                            businessObject.businessLatitude = placeLat
+                        if let placeLat = placeLocation["lat"]!.float{
+                            businessObject.coor.0 = placeLat
                         }
-                        if let placeLng = placeLocation["lng"]!.double{
-                            businessObject.businessLongitude = placeLng
+                        
+                        if let placeLng = placeLocation["lng"]!.float{
+                            businessObject.coor.1 = placeLng
                         }
                     }
                     
-                    if let types = place["types"].array{
-                        for type in types{
-                            if let t = type.string{
-                                businessObject.businessTypes.add(t)
-                            }
-                        }
-                    }
+//                    if let types = place["types"].array{
+//                        for type in types{
+//                            if let t = type.string{
+//                                businessObject.businessTypes.add(t)
+//                            }
+//                        }
+//                    }
                     
                     if let status = place["opening_hours"]["open_now"].bool{
-                        businessObject.businessStatus = status
+                        businessObject.isOpen = status
                     }
                     
                     arrayOfBusinesses.append(businessObject)
@@ -217,10 +226,5 @@ class APIDataHandler {
             }
         }
     }
-    
-    // new functions
-    
-    func getPlaceDetailed(id: Int, completion: (GooglePlaceDetail) -> Void){
-        // completion()
-    }
+
 }

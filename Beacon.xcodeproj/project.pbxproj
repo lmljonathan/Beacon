@@ -15,11 +15,17 @@
 		900D05361DCE8A0300605D0A /* BeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05351DCE8A0300605D0A /* BeaconUITests.swift */; };
 		90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */; };
 		90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */; };
-		90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */; };
+		90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */; };
 		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
+		9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */; };
+		9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */; };
+		9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4381E2B113600DBCF98 /* ActionData.swift */; };
+		9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */; };
+		9052B43C1E2B330700DBCF98 /* YoutubeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9052B43B1E2B330700DBCF98 /* YoutubeCell.xib */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
+		90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
 		ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11209D1DD10E7700B9E2A4 /* Place.swift */; };
 		EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7047A1DD11B7C005DC778 /* Trip.swift */; };
@@ -44,6 +50,15 @@
 
 /* Begin PBXFileReference section */
 		08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E05B47B1E2B07D0009817A6 /* ImageCarousel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCarousel.xib; sourceTree = "<group>"; };
+		2E05B47D1E2B07DA009817A6 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
+		2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselTableViewCell.swift; sourceTree = "<group>"; };
+		2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		2ED1A5331E2B0B7700227693 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableHelper.swift; sourceTree = "<group>"; };
 		401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D05121DCE8A0200605D0A /* Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D05151DCE8A0200605D0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +74,12 @@
 		900D05371DCE8A0300605D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIClient.swift; sourceTree = "<group>"; };
-		90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
+		9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGesturesHelper.swift; sourceTree = "<group>"; };
+		9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeActionController.swift; sourceTree = "<group>"; };
+		9052B4381E2B113600DBCF98 /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
+		9052B43B1E2B330700DBCF98 /* YoutubeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubeCell.xib; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
@@ -131,7 +150,11 @@
 		900D05141DCE8A0200605D0A /* Beacon */ = {
 			isa = PBXGroup;
 			children = (
+				2ED1A5331E2B0B7700227693 /* Animations.swift */,
+				90927E501DCE906E008726BB /* UIExtensions.swift */,
+				9052B43D1E2B330C00DBCF98 /* Modal */,
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
+				90A9B43D1E2AC058004E97F5 /* XIB */,
 				90101BA61E2AAD4000037B3F /* Cell */,
 				907670171DD11FB3003C3B89 /* Helpers */,
 				907670141DD11ECF003C3B89 /* CoreStructures */,
@@ -163,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
+				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -170,9 +194,32 @@
 		90101BA61E2AAD4000037B3F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				90101BA41E2AAD3A00037B3F /* BusinessTableViewCell.swift */,
+				2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */,
+				2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */,
+				2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */,
+				90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		9052B4351E2AE0C400DBCF98 /* List Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */,
+				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
+				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+			);
+			name = "List Helpers";
+			sourceTree = "<group>";
+		};
+		9052B43D1E2B330C00DBCF98 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */,
+				9052B4381E2B113600DBCF98 /* ActionData.swift */,
+				9052B43B1E2B330700DBCF98 /* YoutubeCell.xib */,
+			);
+			name = Modal;
 			sourceTree = "<group>";
 		};
 		907670141DD11ECF003C3B89 /* CoreStructures */ = {
@@ -206,13 +253,23 @@
 		907670171DD11FB3003C3B89 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+				9052B4351E2AE0C400DBCF98 /* List Helpers */,
 				90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */,
 				907670181DD1215A003C3B89 /* APIDataHandler.swift */,
 				90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */,
-				90927E501DCE906E008726BB /* UIExtensions.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		90A9B43D1E2AC058004E97F5 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				2E05B47B1E2B07D0009817A6 /* ImageCarousel.xib */,
+				90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */,
+				2E05B47D1E2B07DA009817A6 /* InfoCell.xib */,
+				2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */,
+			);
+			name = XIB;
 			sourceTree = "<group>";
 		};
 		C1F1E4402EC4FB07BBD6319B /* Frameworks */ = {
@@ -339,6 +396,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */,
+				2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */,
+				2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */,
+				90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */,
+				2E05B47C1E2B07D0009817A6 /* ImageCarousel.xib in Resources */,
+				9052B43C1E2B330700DBCF98 /* YoutubeCell.xib in Resources */,
 				900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */,
 				900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */,
 			);
@@ -415,14 +477,23 @@
 			files = (
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
+				2E80A5E31E2B10A10029FB4D /* Animations.swift in Sources */,
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
+				9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */,
+				2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
+				9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */,
+				2E80A5E11E2B10590029FB4D /* ReviewTableViewCell.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
-				90101BA51E2AAD3A00037B3F /* BusinessTableViewCell.swift in Sources */,
+				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
+				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
+				2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
+				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
+				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +649,7 @@
 				DEVELOPMENT_TEAM = A59LRLC3N9;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamGo.Beacon;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -592,7 +663,7 @@
 				DEVELOPMENT_TEAM = A59LRLC3N9;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamGo.Beacon;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

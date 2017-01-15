@@ -25,9 +25,7 @@ class ListViewController: UIViewController {
     
     @IBOutlet var bannerView: UIView!
     @IBOutlet var bannerImageView: UIImageView!
-    @IBOutlet var listTypeLabel: UILabel!
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var numPlacesLabel: UILabel!
     @IBOutlet var citiesLabel: UILabel!
     
     @IBOutlet var mapView: MKMapView!
@@ -36,24 +34,26 @@ class ListViewController: UIViewController {
     
     @IBOutlet var addPlaceButton: UIButton!
     
-    @IBOutlet var bottomViewHeight: NSLayoutConstraint!
+    @IBAction func moreButtonPressed(_ sender: Any) {
+        self.showActionsMenu()
+        print("hi")
+    }
+    
+    // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
     
     
     let topMapProportion: CGFloat = 1/5
     let bottomMapProportion: CGFloat = 7/10
     
-//    var object: PFObject!
-    //var trip = [Business]()
-    
-//     var trip: [Place] = []
-    
     var itemReceived: Array<AnyObject> = []
     var sortMethod:String!
-//    var addToOwnPlaylists: [PFObject]!
+    
     var playlist_swiped: String!
     
-    var placeArray: [GooglePlaceDetail] = []
-    var placeIDs: [Int] = []
+    var gPlaceArray: [GooglePlaceDetail] = []
+    var placeArray: [Place] = []
+    
+    var placeIDs: [String] = []
     
     
     // Clients
@@ -64,6 +64,8 @@ class ListViewController: UIViewController {
     
     var mode: ListMode! = .view
     var mapScroll: Bool! = false
+    
+     var originalFrame: CGRect!
     
     
 //    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
@@ -101,10 +103,24 @@ class ListViewController: UIViewController {
 //        self.navigationController?.resetTopBars(0)
 //    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.listTableView.scrollEnabled = false
+        configureRecognizers()
+        
+        // Register Nibs
+        self.listTableView.register(UINib(nibName: "PlaceCell", bundle: .main), forCellReuseIdentifier: "placeCell")
+        
+        // CHANGE
+        let googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "33.672354,-117.798607", "rankby": "distance", "keyword": "food"]
+        apiClient.performAPISearch(googleParameters) { (results) in
+            self.placeIDs = results.map({$0.id})
+            self.loadData()
+        }
         
         self.mapView.delegate = self
         self.bannerView.addShadow()
@@ -114,8 +130,7 @@ class ListViewController: UIViewController {
         self.indicatorView.hideShadow()
         self.pullDownBar.layer.cornerRadius = 3
         self.pullDownBar.addShadow()
-        
-        // self.loadData()
+    
         
         self.listTableView.delegate = self
         self.listTableView.dataSource = self
@@ -128,48 +143,56 @@ class ListViewController: UIViewController {
         self.bottomView.translatesAutoresizingMaskIntoConstraints = true
     }
     
-    
     func loadData(){
-        
-        self.fbClient.getPlaceIDs(tripID: 000) { (placeIDs) in
-            self.placeIDs = placeIDs
-            self.listTableView.reloadData()
-        }
-        
         func getCities(){
-            let coordArray = self.placeArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
+            let coordArray = self.gPlaceArray.map({CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
             self.mapView.getCitiesFromCoordinates(coordArray) { (cities) in
                 let sortedCities = cities.sorted(by: {$0 < $1})
+                let numPlacesString = String(self.placeIDs.count) + " Places near "
                 let citiesString = sortedCities.map({$0.0}).joined(separator: ", ")
-                self.citiesLabel.fadeIn(citiesString, beginScale: 1)
+                
+                let resultString = numPlacesString + citiesString
+                self.citiesLabel.fadeIn(resultString, beginScale: 1)
             }
         }
         
-//        func updateBusinessesFromIDs(_ ids:[String], reloadIndex: Int = 0){
-//            if ids.count > 0{
-//                apiClient.performDetailedSearch(ids[0]) { (detailedGPlace) in
-//                    self.mapView.addMarker(detailedGPlace.latitude, long: detailedGPlace.longitude, title: detailedGPlace.name, row: reloadIndex)
-//                    
-//                    self.placeArray[reloadIndex] = detailedGPlace
-//                    self.trip[reloadIndex] = detailedGPlace.convertToBusiness()
-//                    
-//                    if reloadIndex == self.placeArray.count - 1 {
-//                        self.mapView.initializeMap()
-//                        getCities()
-//                    }
-//                    
-//                    let idsSlice = Array(ids[1..<ids.count])
-//                    let index = IndexPath(row: reloadIndex, section: 0)
-//                    self.listTableView.reloadRows(at: [index], with: .fade) // CHANGE
-//                    let newIndex = reloadIndex + 1
-//                    updateBusinessesFromIDs(idsSlice, reloadIndex: newIndex)
-//                }
-//            }
-//        }
+        func updateBusinessesFromIDs(_ ids: [String], reloadIndex: Int = 0){
+            if ids.count > 0{
+                apiClient.performDetailedSearch(ids[0]) { (detailedGPlace) in
+                    self.mapView.addMarker(detailedGPlace.latitude, long: detailedGPlace.longitude, title: detailedGPlace.name, row: reloadIndex)
+                    
+                    self.gPlaceArray[reloadIndex] = detailedGPlace
+                    self.placeArray[reloadIndex] = detailedGPlace.convertToPlace()
+                    
+                    if reloadIndex == self.placeArray.count - 1 {
+                        self.mapView.initializeMap()
+                        getCities()
+                    }
+                    
+                    let idsSlice = Array(ids[1..<ids.count])
+                    let index = IndexPath(row: reloadIndex, section: 0)
+                    self.listTableView.reloadRows(at: [index], with: .fade) // CHANGE
+                    let newIndex = reloadIndex + 1
+                    updateBusinessesFromIDs(idsSlice, reloadIndex: newIndex)
+                }
+            }
+        }
         
-        
-        // Register Nibs
-        self.listTableView.register(UINib(nibName: "BusinessCell", bundle: Bundle.main), forCellReuseIdentifier: "businessCell")
+        DispatchQueue.main.async{
+            self.configureHeader()
+            for _ in 0..<self.placeIDs.count{
+                self.gPlaceArray.append(GooglePlaceDetail())
+                self.placeArray.append(Place())
+            }
+            
+            DispatchQueue.main.async{
+                self.listTableView.reloadData()
+                
+                DispatchQueue.main.async{
+                    updateBusinessesFromIDs(self.placeIDs)
+                }
+            }
+        }
         
 //        Async.main{
 //            let placeIDs = self.object["place_id_list"] as! [String]
@@ -179,7 +202,7 @@ class ListViewController: UIViewController {
 //                // Get Array of IDs from Parse
 //                for _ in 0..<self.placeIDs.count{
 //                    self.placeArray.append(GooglePlaceDetail())
-//                    self.trip.append(Business())
+//                    self.playlistArray.append(Business())
 //                }
 //                self.listTableView.reloadData()
 //            }.main{
@@ -196,24 +219,12 @@ class ListViewController: UIViewController {
         let pushAllScale: CGFloat = 1.1
         
         // Set List Name
-//        if let name = object["playlistName"] as? String{
-//            self.titleTextField.fadeIn(name, duration: pushDuration, beginScale: pushBeginScale)
-//        }
+        //if let name = object["playlistName"] as? String{
+            self.titleTextField.fadeIn("SF Adventures", duration: pushDuration, beginScale: pushBeginScale)
+        // }
+    
+        self.bannerImageView.fadeIn(UIImage(named: "sf")!, endAlpha: 0.5, beginScale: 1.2)
         
-        // Set BG if custom BG exists in Parse
-//        if let bg = object["custom_bg"] as? PFFile{
-//            bg.getDataInBackground(block: { (data, error) in
-//                if error == nil{
-//                    let image = UIImage(data: data!)
-//                    self.bannerImageView.fadeIn(image!, endAlpha: 0.5, beginScale: 1.2)
-//                }
-//            })
-//        }else{
-//            self.bannerImageView.fadeIn(UIImage(named: "default_list_bg")!, endAlpha: 0.5, beginScale: 1.2)
-//        }
-        
-        // Set Number of Places
-        self.numPlacesLabel.text = String(self.placeIDs.count) + " Places"
     }
     
     //    func configureReorderControl(){
@@ -221,41 +232,41 @@ class ListViewController: UIViewController {
     //    }
     
     
-//    func activateEditMode() {
-//        
-//        //configureReorderControl()
-//        
-//        // Make Title Text Editable
-//        self.titleTextField.enable()
-//        self.titleTextField.delegate = self
-//        
-//        // Show Change BG Image Button
-//        //self.changePlaylistImageButton.hidden = false
-//        
-//        // Replace More Button With Cancel Button
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
-//        
-//        // Animate and Show Add Place Button
-//        self.addPlaceButton.isHidden = false
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState,animations: {
-//            self.addPlaceButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)},
-//                                   completion: { finish in
-//                                    UIView.animate(withDuration: 0.6){self.addPlaceButton.transform = CGAffineTransform.identity}
-//        })
-//        
-//        // Set Editing to True
-//        self.listTableView.setEditing(true, animated: true)
-//        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
-//        self.bottomView.removeGestureRecognizer(bottomPanGR)
-//        
-//        // Set Edit Mode
-//        self.mode = .edit
-//        
+    func activateEditMode() {
+        
+        //configureReorderControl()
+        
+        // Make Title Text Editable
+        self.titleTextField.enable()
+        self.titleTextField.delegate = self
+        
+        // Show Change BG Image Button
+        //self.changePlaylistImageButton.hidden = false
+        
+        // Replace More Button With Cancel Button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
+        
+        // Animate and Show Add Place Button
+        self.addPlaceButton.isHidden = false
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState,animations: {
+            self.addPlaceButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)},
+                                   completion: { finish in
+                                    UIView.animate(withDuration: 0.6){self.addPlaceButton.transform = CGAffineTransform.identity}
+        })
+        
+        // Set Editing to True
+        self.listTableView.setEditing(true, animated: true)
+        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
+        self.bottomView.removeGestureRecognizer(bottomPanGR)
+        
+        // Set Edit Mode
+        self.mode = .edit
+        
 //        // Replace Back Button with Done
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 //        let backButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.savePlaylistToParse(_:)))
 //        self.navigationItem.leftBarButtonItem = backButton
-//    }
+    }
     
     func deactivateEditMode() {
         
@@ -284,71 +295,72 @@ class ListViewController: UIViewController {
         self.mode = .view
     }
     
-//    func configureSwipeButtons(_ cell: MGSwipeTableCell, mode: ListMode){
-//        if mode == .view{
-//            let routeButton = MGSwipeButton(title: "ROUTE", icon: UIImage(named: "swipe_route")!.imageWithColor(appDefaults.color),backgroundColor: UIColor.clear, padding: 25)
-//            routeButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
-//            routeButton.centerIconOverText()
-//            routeButton.titleLabel?.font = appDefaults.font
-//            routeButton.titleLabel?.textColor = appDefaults.color
-//            
-//            let addButton = MGSwipeButton(title: "ADD", icon: UIImage(named: "swipe_add")!.imageWithColor(appDefaults.color) ,backgroundColor: UIColor.clear, padding: 25)
-//            addButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 15))
-//            addButton.centerIconOverText()
-//            addButton.titleLabel?.font = appDefaults.font
-//            addButton.titleLabel?.textColor = appDefaults.color
-//            
-//            cell.rightButtons = [addButton]
-//            cell.rightSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.rightExpansion.buttonIndex = 0
-//            cell.rightExpansion.fillOnTrigger = false
-//            cell.rightExpansion.threshold = 1
-//            
-//            cell.leftButtons = [routeButton]
-//            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.leftExpansion.buttonIndex = 0
-//            cell.leftExpansion.fillOnTrigger = true
-//            cell.leftExpansion.threshold = 1
-//            
-//        }else if mode == .edit{
-//            cell.rightButtons.removeAll()
-//            cell.leftButtons.removeAll()
-//            let deleteButton = MGSwipeButton(title: "Delete",icon: UIImage(named: "location_icon"),backgroundColor: UIColor.red,padding: 25)
-//            deleteButton.centerIconOverText()
-//            cell.leftButtons = [deleteButton]
-//            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
-//            cell.leftExpansion.buttonIndex = 0
-//            cell.leftExpansion.fillOnTrigger = true
-//            cell.leftExpansion.threshold = 1
-//        }
-//    }
+    func configureSwipeButtons(_ cell: MGSwipeTableCell, mode: ListMode){
+        if mode == .view{
+            let routeButton = MGSwipeButton(title: "ROUTE", icon: #imageLiteral(resourceName: "route"),backgroundColor: UIColor.clear, padding: 25)
+            routeButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
+            routeButton.centerIconOverText()
+            routeButton.titleLabel?.font = appDefaults.font
+            routeButton.titleLabel?.textColor = UIColor.black
+            routeButton.setTitleColor(UIColor.black, for: .normal)
+            //routeButton.tintColor = appDefaults.color
+            
+            let addButton = MGSwipeButton(title: "ADD", icon: #imageLiteral(resourceName: "add") ,backgroundColor: UIColor.clear, padding: 25)
+            addButton.setEdgeInsets(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 15))
+            addButton.centerIconOverText()
+            addButton.titleLabel?.font = appDefaults.font
+            addButton.titleLabel?.textColor = appDefaults.color
+            
+            cell.rightButtons = [addButton]
+            cell.rightSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.rightExpansion.buttonIndex = 0
+            cell.rightExpansion.fillOnTrigger = false
+            cell.rightExpansion.threshold = 1
+            
+            cell.leftButtons = [routeButton]
+            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.leftExpansion.buttonIndex = 0
+            cell.leftExpansion.fillOnTrigger = true
+            cell.leftExpansion.threshold = 1
+            
+        }else if mode == .edit{
+            cell.rightButtons.removeAll()
+            cell.leftButtons.removeAll()
+            let deleteButton = MGSwipeButton(title: "Delete",icon: UIImage(),backgroundColor: UIColor.red,padding: 25)
+            deleteButton.centerIconOverText()
+            cell.leftButtons = [deleteButton]
+            cell.leftSwipeSettings.transition = MGSwipeTransition.clipCenter
+            cell.leftExpansion.buttonIndex = 0
+            cell.leftExpansion.fillOnTrigger = true
+            cell.leftExpansion.threshold = 1
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "showBusinessDetail"){
-//            let upcoming: BusinessDetailViewController = segue.destination as! BusinessDetailViewController
-//            
-//            let index = (listTableView.indexPathForSelectedRow! as NSIndexPath).row
-//            print(index)
-//            
-//            // IF NO NEW PLACE IS ADDED
-//            if placeArray[index].name != ""{
-//                let gPlaceObject = placeArray[index]
-//                upcoming.gPlaceObject = gPlaceObject
-//                upcoming.index = index
-//            }else{
-//                // IF NEW PLACES ARE ADDED
-//                let businessObject = trip[index]
-//                upcoming.object = businessObject
-//                upcoming.index = index
-//            }
-//            
-//            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)
+        if (segue.identifier == "showBusinessDetail"){
+            let upcoming: BusinessDetailViewController = segue.destination as! BusinessDetailViewController
+            
+            let index = (listTableView.indexPathForSelectedRow! as NSIndexPath).row
+            print(index)
+            
+            // IF NO NEW PLACE IS ADDED
+            if placeArray[index].name != ""{
+                let gPlaceObject = gPlaceArray[index]
+                upcoming.gPlaceObject = gPlaceObject
+                upcoming.index = index
+            }else{
+                // IF NEW PLACES ARE ADDED
+                let businessObject = self.placeArray[index]
+                upcoming.object = businessObject
+                upcoming.index = index
+            }
+            
+            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)}
 //        }else if (segue.identifier == "tapImageButton"){
 //            let nav = segue.destination as! UINavigationController
 //            let upcoming = nav.childViewControllers[0] as! SearchBusinessViewController
 //            upcoming.currentView = .addPlace
-//            upcoming.searchTextField = upcoming.addPlaceSearchTextField
-//        }
+//            upcoming.searchTextField = upcoming.addPlaceSearchTextField        }
     }
 //    
 //    func getIDsFromArrayOfBusiness(_ business: [Place], completion: (_ result:[String])->Void){
@@ -380,98 +392,11 @@ class ListViewController: UIViewController {
 //        
 //    }
     
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
-extension ListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.placeIDs.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 128.5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
-        cell.selectionStyle = .none
-        
-        cell.loadData(id: self.placeIDs[indexPath.row])
-        //businessCell.delegate = self
-        // configureSwipeButtons(cell, mode: .view)
-        
-        
-//            businessCell.configure(with: self.trip[indexPath.row], mode: .more) {
-//                return businessCell
-//            }
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showBusinessDetail", sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell  = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
-        cell.mainView.backgroundColor = UIColor.selectedGray()
-        cell.businessBackgroundImage.alpha = 0.8
-        cell.ratingView.backgroundColor = UIColor.selectedGray()
-    }
-    
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! PlaceTableViewCell
-        cell.mainView.backgroundColor = UIColor.white
-        cell.businessBackgroundImage.alpha = 1
-        cell.ratingView.backgroundColor = UIColor.clear
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if self.mode == .edit{
-            return true
-        }else{
-            return false
-        }
-    }
-    
-//    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-//        let itemToMove = trip[(fromIndexPath as NSIndexPath).row]
-//        let placeItemToMove = placeArray[(fromIndexPath as NSIndexPath).row]
-//        let idOfItemToMove = placeIDs[(fromIndexPath as NSIndexPath).row]
-//        
-//        trip.remove(at: (fromIndexPath as NSIndexPath).row)
-//        placeArray.remove(at: (fromIndexPath as NSIndexPath).row)
-//        placeIDs.remove(at: (fromIndexPath as NSIndexPath).row)
-//        
-//        trip.insert(itemToMove, at: (toIndexPath as NSIndexPath).row)
-//        placeArray.insert(placeItemToMove, at: (toIndexPath as NSIndexPath).row)
-//        placeIDs.insert(idOfItemToMove, at: (toIndexPath as NSIndexPath).row)
-//    }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .delete
-    }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete{
-//            trip.remove(at: (indexPath as NSIndexPath).row)
-//            placeArray.remove(at: (indexPath as NSIndexPath).row)
-//            placeIDs.remove(at: (indexPath as NSIndexPath).row)
-//            self.listTableView.deleteRows(at: [indexPath], with: .fade)
-//            self.listTableView.reloadData()
-//        }
-//        
-//    }
-}
 
 extension ListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -543,13 +468,13 @@ extension ListViewController: MKMapViewDelegate{
 }
 
 extension ListViewController: UIGestureRecognizerDelegate{
-    //    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-    //        if gestureRecognizer is UITapGestureRecognizer {
-    //            let location = touch.locationInView(self.listTableView)
-    //            return (self.listTableView.indexPathForRowAtPoint(location) == nil)
-    //        }
-    //        return true
-    //    }
+//        func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+//            if gestureRecognizer is UITapGestureRecognizer {
+//                let location = touch.locationInView(self.listTableView)
+//                return (self.listTableView.indexPathForRowAtPoint(location) == nil)
+//            }
+//            return true
+//        }
 }
 
 extension ListViewController: UITextFieldDelegate {
@@ -560,8 +485,8 @@ extension ListViewController: UITextFieldDelegate {
     }
 }
 
-//extension ListViewController: ModalViewControllerDelegate{
-//    
+extension ListViewController {//: ModalViewControllerDelegate{
+    
 //    func sendValue(_ value: AnyObject){
 //        itemReceived.append(value as! NSObject)
 //        
@@ -603,35 +528,36 @@ extension ListViewController: UITextFieldDelegate {
 //        
 //        
 //    }
-//    
-//    func showActionsMenu(_ sender: AnyObject) {
-//        let actionController = YoutubeActionController()
-//        let pickerController = CZPickerViewController()
-//        //let randomController = RandomPlaceController()
-//        
-//        //        actionController.addAction(Action(ActionData(title: "Randomize", image: UIImage(named: "action_random")!), style: .Default, handler: { action in
-//        //            if self.trip.count != 0{
-//        //                self.performSegueWithIdentifier("randomPlace", sender: self)
-//        //            }
-//        //
-//        //        }))
-//        actionController.addAction(Action(ActionData(title: "Edit", image: UIImage(named: "action_edit")!), style: .default, handler: { action in
-//            print("Edit pressed")
-//            self.activateEditMode()
-//            self.listTableView.reloadData()
-//        }))
-//        //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
-//        //            self.makeCollaborative()
-//        //        }))
+    
+    func showActionsMenu() {
+        let actionController = YoutubeActionController()
+        // let pickerController = CZPickerViewController()
+        //let randomController = RandomPlaceController()
+        
+        //        actionController.addAction(Action(ActionData(title: "Randomize", image: UIImage(named: "action_random")!), style: .Default, handler: { action in
+        //            if self.trip.count != 0{
+        //                self.performSegueWithIdentifier("randomPlace", sender: self)
+        //            }
+        //
+        //        }))
+        actionController.addAction(Action(ActionData(title: "Edit", image: #imageLiteral(resourceName: "add")), style: .default, handler: { action in
+            print("Edit pressed")
+            self.activateEditMode()
+            self.listTableView.reloadData()
+        }))
+        //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
+        //            self.makeCollaborative()
+        //        }))
 //        actionController.addAction(Action(ActionData(title: "Sort", image: UIImage(named: "action_sort")!), style: .cancel, handler: { action in
 //            pickerController.headerTitle = "Sort Options"
 //            pickerController.fruits = ["Alphabetical","Rating"]
 //            pickerController.showWithFooter(UIViewController.self)
 //            pickerController.delegate = self
 //        }))
-//        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
-//        
-//        present(actionController, animated: true, completion: nil)
-//    }
-//}
+        //actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
+        actionController.addAction(Action(ActionData(title: "Cancel", image: #imageLiteral(resourceName: "add")), style: .cancel, handler: nil))
+        
+        present(actionController, animated: true, completion: nil)
+    }
+}
 
