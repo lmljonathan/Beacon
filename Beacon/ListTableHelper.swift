@@ -55,7 +55,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //self.performSegue(withIdentifier: "showBusinessDetail", sender: self)
+        self.performSegue(withIdentifier: "showBusinessDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

@@ -34,6 +34,10 @@ class ListViewController: UIViewController {
     
     @IBOutlet var addPlaceButton: UIButton!
     
+    @IBAction func moreButtonPressed(_ sender: Any) {
+        
+    }
+    
     // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
     
     
