@@ -11,10 +11,7 @@
 		2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47D1E2B07DA009817A6 /* InfoCell.xib */; };
 		2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */; };
 		2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */; };
-		2ED1A52E1E2B09B300227693 /* ImageCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */; };
 		2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */; };
-		2ED1A5321E2B09D700227693 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */; };
-		2ED1A5341E2B0B7700227693 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5331E2B0B7700227693 /* Animations.swift */; };
 		2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */; };
 		81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */; };
 		900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05151DCE8A0200605D0A /* AppDelegate.swift */; };
@@ -27,6 +24,7 @@
 		90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */; };
 		90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */; };
 		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
+		9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
@@ -83,6 +81,7 @@
 		90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAPIClient.swift; sourceTree = "<group>"; };
 		90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
+		9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGesturesHelper.swift; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
@@ -196,8 +195,8 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
+				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +210,16 @@
 				90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		9052B4351E2AE0C400DBCF98 /* List Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */,
+				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
+				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+			);
+			name = "List Helpers";
 			sourceTree = "<group>";
 		};
 		907670141DD11ECF003C3B89 /* CoreStructures */ = {
@@ -244,8 +253,7 @@
 		907670171DD11FB3003C3B89 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */,
-				90101BA71E2AB05200037B3F /* MapMethods.swift */,
+				9052B4351E2AE0C400DBCF98 /* List Helpers */,
 				90101BA21E2AAA8B00037B3F /* GooglePlacesAPIClient.swift */,
 				907670181DD1215A003C3B89 /* APIDataHandler.swift */,
 				90101B9D1E2AA91000037B3F /* FirebaseHandler.swift */,
@@ -352,7 +360,7 @@
 				TargetAttributes = {
 					900D05111DCE8A0200605D0A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 3K6Q37NEBQ;
+						DevelopmentTeam = CQD8Z7UVJ4;
 						ProvisioningStyle = Automatic;
 					};
 					900D05251DCE8A0300605D0A = {
@@ -569,8 +577,7 @@
 				2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
-				2ED1A52E1E2B09B300227693 /* ImageCarouselTableViewCell.swift in Sources */,
-				2ED1A5321E2B09D700227693 /* ReviewTableViewCell.swift in Sources */,
+				9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
 				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
 				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,
@@ -731,10 +738,10 @@
 			baseConfigurationReference = BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3K6Q37NEBQ;
+				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Beacon123;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -745,10 +752,10 @@
 			baseConfigurationReference = BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3K6Q37NEBQ;
+				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Beacon123;
+				PRODUCT_BUNDLE_IDENTIFIER = Beacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
