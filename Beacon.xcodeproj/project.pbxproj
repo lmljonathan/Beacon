@@ -61,6 +61,7 @@
 		2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		2ED1A5331E2B0B7700227693 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableHelper.swift; sourceTree = "<group>"; };
 		401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		900D05141DCE8A0200605D0A /* Beacon */ = {
 			isa = PBXGroup;
 			children = (
+				2ED1A5331E2B0B7700227693 /* Animations.swift */,
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
 				90A9B43D1E2AC058004E97F5 /* XIB */,
 				90101BA61E2AAD4000037B3F /* Cell */,
@@ -582,6 +584,7 @@
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
+				2ED1A5341E2B0B7700227693 /* Animations.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

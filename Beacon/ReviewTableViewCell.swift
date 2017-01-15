@@ -59,11 +59,11 @@ class ReviewTableViewCell: UITableViewCell {
         }
         
         // Set Review Author Profile Picture
-        if let profilePhotoURL = review["profile_photo_url"] as? String{
-            cache.fetch(URL: URL(string: profilePhotoURL)! as NSURL).onSuccess(onSuccess: { (data) in
-                self.reviewProfileImage.image = UIImage(data: data)
-            })
-        }
+//        if let profilePhotoURL = review["profile_photo_url"] as? String{
+//            cache.fetch(URL: URL(string: profilePhotoURL)! as NSURL).onSuccess(onSuccess: { (data) in
+//                self.reviewProfileImage.image = UIImage(data: data)
+//            })
+//        }
         
         if let unixTime = review["time"] as? Double{
             let date = Date(timeIntervalSince1970: unixTime)
