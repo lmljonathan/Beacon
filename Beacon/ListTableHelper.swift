@@ -34,24 +34,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         })
         return cell
         
-//        if indexPath.row < self.placesLoaded.count{
-//            cell.configure(with: self.placesLoaded[indexPath.row], mode: .more, completion: {
-//                
-//            })
-//        }else{
-//            cell.loadData(id: self.placeIDs[indexPath.row]) { (place) in
-//                self.placesLoaded.append(place)
-//            }
-//        }
-        //businessCell.delegate = self
-        // configureSwipeButtons(cell, mode: .view)
-        
-        
-        //            businessCell.configure(with: self.trip[indexPath.row], mode: .more) {
-        //                return businessCell
-        //            }
-        return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

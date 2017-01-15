@@ -104,7 +104,7 @@ class ListViewController: UIViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewDidLoad() {
@@ -389,6 +389,10 @@ class ListViewController: UIViewController {
 //        return sortedBusinesses
 //        
 //    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 
