@@ -14,6 +14,7 @@ target 'Beacon' do
   pod 'SwiftyJSON'
   pod 'Kingfisher'
   pod 'Cosmos'
+  pod 'BetterSegmentedControl'  
 
   # Pods for Beacon
 
