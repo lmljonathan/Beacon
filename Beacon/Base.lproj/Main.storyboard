@@ -74,20 +74,8 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 places " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5L-rx-dEh">
-                                        <rect key="frame" x="27" y="79" width="66.5" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXk-zM-p4w">
-                                        <rect key="frame" x="101.5" y="79" width="4" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="San Franscico &amp; Alameda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX6-ek-lvU">
-                                        <rect key="frame" x="114" y="80" width="241" height="18"/>
+                                        <rect key="frame" x="27" y="80" width="327" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -97,13 +85,8 @@
                                 <constraints>
                                     <constraint firstItem="42S-Yb-PMb" firstAttribute="top" secondItem="AhR-ID-qyr" secondAttribute="top" id="0tx-RQ-pY7"/>
                                     <constraint firstItem="r8f-7K-y9i" firstAttribute="leading" secondItem="AhR-ID-qyr" secondAttribute="leading" constant="27" id="6Q3-tk-YZq"/>
-                                    <constraint firstItem="DX6-ek-lvU" firstAttribute="leading" secondItem="qXk-zM-p4w" secondAttribute="trailing" constant="8" id="Ers-rM-aMg"/>
-                                    <constraint firstItem="qXk-zM-p4w" firstAttribute="centerY" secondItem="w5L-rx-dEh" secondAttribute="centerY" id="V60-5p-Pqb"/>
-                                    <constraint firstItem="w5L-rx-dEh" firstAttribute="leading" secondItem="AhR-ID-qyr" secondAttribute="leading" constant="27" id="W28-uU-Lxr"/>
-                                    <constraint firstItem="DX6-ek-lvU" firstAttribute="centerY" secondItem="qXk-zM-p4w" secondAttribute="centerY" id="Ztk-Nb-tRT"/>
-                                    <constraint firstItem="qXk-zM-p4w" firstAttribute="leading" secondItem="w5L-rx-dEh" secondAttribute="trailing" constant="8" id="lSE-TQ-Gfo"/>
-                                    <constraint firstItem="DX6-ek-lvU" firstAttribute="leading" secondItem="ejN-5a-h3I" secondAttribute="trailing" constant="-269" id="lXE-DV-Zvt"/>
-                                    <constraint firstItem="w5L-rx-dEh" firstAttribute="top" secondItem="r8f-7K-y9i" secondAttribute="bottom" constant="3" id="nqf-5u-8xP"/>
+                                    <constraint firstItem="DX6-ek-lvU" firstAttribute="leading" secondItem="AhR-ID-qyr" secondAttribute="leading" constant="27" id="ASM-V0-paC"/>
+                                    <constraint firstItem="DX6-ek-lvU" firstAttribute="top" secondItem="r8f-7K-y9i" secondAttribute="bottom" constant="4" id="n9O-qT-Rp3"/>
                                     <constraint firstItem="42S-Yb-PMb" firstAttribute="leading" secondItem="AhR-ID-qyr" secondAttribute="leading" id="q4w-ZG-Pxf"/>
                                     <constraint firstItem="ejN-5a-h3I" firstAttribute="leading" secondItem="r8f-7K-y9i" secondAttribute="trailing" constant="-354" id="sDH-0L-Wf5"/>
                                     <constraint firstAttribute="trailing" secondItem="42S-Yb-PMb" secondAttribute="trailing" id="ux7-vZ-p4a"/>
@@ -115,7 +98,6 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="6Q3-tk-YZq"/>
-                                        <exclude reference="nqf-5u-8xP"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -124,7 +106,6 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="6Q3-tk-YZq"/>
-                                        <include reference="nqf-5u-8xP"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -301,7 +282,6 @@
                         <outlet property="indicatorView" destination="Cb4-wz-1gm" id="UFz-Ng-cJU"/>
                         <outlet property="listTableView" destination="bqT-m7-RfP" id="7a3-IH-zvq"/>
                         <outlet property="mapView" destination="fdz-VW-BjX" id="I0q-kP-m0N"/>
-                        <outlet property="numPlacesLabel" destination="w5L-rx-dEh" id="8Mc-97-jac"/>
                         <outlet property="pullDownBar" destination="5YW-ZG-6qk" id="Zl5-bU-u7j"/>
                         <outlet property="titleTextField" destination="r8f-7K-y9i" id="gcv-TY-4Nq"/>
                         <outlet property="topView" destination="AhR-ID-qyr" id="Dtq-YH-kH7"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="129"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6ro-66-9Xw" id="xp5-Wz-efQ">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="128.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaJ-6M-PlA">
@@ -55,19 +55,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cup of Fruit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu2-eA-gBO">
-                                <rect key="frame" x="181" y="13" width="178" height="20"/>
+                                <rect key="frame" x="159" y="19" width="200" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPl-BP-Rgz">
-                                <rect key="frame" x="159" y="78" width="58.5" height="14"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <rect key="frame" x="159" y="84" width="60" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgm-SL-aq5" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="159" y="33" width="90" height="18"/>
+                                <rect key="frame" x="159" y="43" width="90" height="18"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
@@ -103,15 +103,15 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123 Health Street, Irvine CA 92134" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roP-Ec-1in">
-                                <rect key="frame" x="159" y="59" width="193" height="14"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <rect key="frame" x="159" y="65" width="193" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.2274509804" green="0.4823529412" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uu2-eA-gBO" firstAttribute="centerY" secondItem="PFR-j6-cgi" secondAttribute="centerY" id="36A-Jz-YKb"/>
+                            <constraint firstItem="uu2-eA-gBO" firstAttribute="centerY" secondItem="PFR-j6-cgi" secondAttribute="centerY" constant="6.5" id="36A-Jz-YKb"/>
                             <constraint firstAttribute="trailing" secondItem="uu2-eA-gBO" secondAttribute="trailing" constant="9" id="HVY-Zn-x8t"/>
                             <constraint firstItem="qPl-BP-Rgz" firstAttribute="top" secondItem="roP-Ec-1in" secondAttribute="bottom" constant="5" id="Ko1-OQ-PdD"/>
                             <constraint firstAttribute="bottom" secondItem="9FX-Rz-nD1" secondAttribute="bottom" id="Ngc-80-Vit"/>
@@ -123,15 +123,15 @@
                             <constraint firstItem="roP-Ec-1in" firstAttribute="leading" secondItem="mT1-mC-8Pn" secondAttribute="trailing" constant="12" id="dKJ-aQ-xRC"/>
                             <constraint firstItem="6tb-VY-uEj" firstAttribute="top" secondItem="XaJ-6M-PlA" secondAttribute="top" id="fA1-VW-DOk"/>
                             <constraint firstAttribute="trailing" secondItem="roP-Ec-1in" secondAttribute="trailing" constant="16" id="gQe-ts-ie9"/>
-                            <constraint firstItem="Fgm-SL-aq5" firstAttribute="top" secondItem="PFR-j6-cgi" secondAttribute="bottom" constant="2" id="gT5-lf-RXC"/>
-                            <constraint firstItem="roP-Ec-1in" firstAttribute="top" secondItem="Fgm-SL-aq5" secondAttribute="bottom" constant="8" id="hEm-z7-5kj"/>
+                            <constraint firstItem="Fgm-SL-aq5" firstAttribute="top" secondItem="PFR-j6-cgi" secondAttribute="bottom" constant="12" id="gT5-lf-RXC"/>
+                            <constraint firstItem="roP-Ec-1in" firstAttribute="top" secondItem="Fgm-SL-aq5" secondAttribute="bottom" constant="4" id="hEm-z7-5kj"/>
                             <constraint firstAttribute="trailing" secondItem="9FX-Rz-nD1" secondAttribute="trailing" id="iLI-zS-83j"/>
                             <constraint firstAttribute="bottom" secondItem="6tb-VY-uEj" secondAttribute="bottom" id="kcq-vn-sej"/>
                             <constraint firstItem="PFR-j6-cgi" firstAttribute="leading" secondItem="6tb-VY-uEj" secondAttribute="trailing" constant="12" id="lw7-ab-2if"/>
                             <constraint firstItem="9FX-Rz-nD1" firstAttribute="top" secondItem="XaJ-6M-PlA" secondAttribute="top" id="qU6-5Z-bYi"/>
                             <constraint firstItem="PFR-j6-cgi" firstAttribute="top" secondItem="XaJ-6M-PlA" secondAttribute="top" constant="14" id="qnR-82-UOO"/>
                             <constraint firstItem="Fgm-SL-aq5" firstAttribute="leading" secondItem="mT1-mC-8Pn" secondAttribute="trailing" constant="12" id="rr4-lJ-chF"/>
-                            <constraint firstItem="uu2-eA-gBO" firstAttribute="leading" secondItem="PFR-j6-cgi" secondAttribute="trailing" constant="5" id="saq-Rh-yq6"/>
+                            <constraint firstItem="uu2-eA-gBO" firstAttribute="leading" secondItem="PFR-j6-cgi" secondAttribute="trailing" constant="-17" id="saq-Rh-yq6"/>
                             <constraint firstItem="6tb-VY-uEj" firstAttribute="width" secondItem="XaJ-6M-PlA" secondAttribute="width" multiplier="2:5" id="u8Q-bJ-Ybl"/>
                         </constraints>
                         <variation key="default">

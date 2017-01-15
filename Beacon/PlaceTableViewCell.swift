@@ -135,34 +135,33 @@ class PlaceTableViewCell: MGSwipeTableCell {
         }
         
 //        // Set Background Image
-        self.businessBackgroundImage.backgroundColor = appDefaults.color
-        self.businessBackgroundImage.image = nil
         
-        func buildPlacePhotoURLString(_ photoReference: String) -> String{
-            let photoParameters = [
-                "key" : "AIzaSyDkxzICx5QqztP8ARvq9z0DxNOF_1Em8Qc",
-                "photoreference" : photoReference,
-                "maxheight" : "800"
-            ]
-            var result = "https://maps.googleapis.com/maps/api/place/photo?"
-            for (key, value) in photoParameters{
-                let addString = key + "=" + value + "&"
-                result += addString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        DispatchQueue.main.async {
+            self.businessBackgroundImage.backgroundColor = appDefaults.color
+            self.businessBackgroundImage.image = nil
+            func buildPlacePhotoURLString(_ photoReference: String) -> String{
+                let photoParameters = [
+                    "key" : "AIzaSyDkxzICx5QqztP8ARvq9z0DxNOF_1Em8Qc",
+                    "photoreference" : photoReference,
+                    "maxheight" : "800"
+                ]
+                var result = "https://maps.googleapis.com/maps/api/place/photo?"
+                for (key, value) in photoParameters{
+                    let addString = key + "=" + value + "&"
+                    result += addString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                }
+                return result
             }
-            return result
-        }
-        
-        if place.photoReference != ""{
-            let PhotoURL = buildPlacePhotoURLString(place.photoReference)
-            //let URLString = self.items[indexPath.row]
-            let URL = Foundation.URL(string:PhotoURL)!
-            //businessBackgroundImage.hnk_setImageFromURL(URL: URL as NSURL)
-            //let url = URL(string: "https://domain.com/image.jpg")!
-            businessBackgroundImage.kf.setImage(with: URL)
-        }
-        else{
-            businessBackgroundImage.image =  UIImage(named: "default_business_bg")
             
+            if place.photoReference != ""{
+                let PhotoURL = buildPlacePhotoURLString(place.photoReference)
+                let URL = Foundation.URL(string:PhotoURL)!
+                self.businessBackgroundImage.kf.setImage(with: URL)
+            }
+            else{
+                self.businessBackgroundImage.image =  UIImage(named: "default_business_bg")
+                
+            }
         }
     }
     

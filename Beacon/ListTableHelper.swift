@@ -26,21 +26,23 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
         cell.selectionStyle = .none
-        if indexPath.row < self.placesLoaded.count{
-            cell.configure(with: self.placesLoaded[indexPath.row], mode: .more, completion: {
-                
-            })
-        }else{
-            cell.loadData(id: self.placeIDs[indexPath.row]) { (place) in
-                self.placesLoaded.append(place)
+        //configureSwipeButtons(cell, mode: .view)
+        DispatchQueue.main.async(execute: {
+            cell.configure(with: self.placeArray[indexPath.row], mode: .more) {
+                return cell
             }
-        }
+        })
+        return cell
         
-      
-            
-        
-        
-
+//        if indexPath.row < self.placesLoaded.count{
+//            cell.configure(with: self.placesLoaded[indexPath.row], mode: .more, completion: {
+//                
+//            })
+//        }else{
+//            cell.loadData(id: self.placeIDs[indexPath.row]) { (place) in
+//                self.placesLoaded.append(place)
+//            }
+//        }
         //businessCell.delegate = self
         // configureSwipeButtons(cell, mode: .view)
         
@@ -53,7 +55,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showBusinessDetail", sender: self)
+        //self.performSegue(withIdentifier: "showBusinessDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
