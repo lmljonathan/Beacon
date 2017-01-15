@@ -13,6 +13,8 @@
 		2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */; };
 		2E80A5E11E2B10590029FB4D /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */; };
 		2E80A5E31E2B10A10029FB4D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5331E2B0B7700227693 /* Animations.swift */; };
+		2E9A03831E2B6D5500E82F8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */; };
+		2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */; };
 		2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */; };
 		2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */; };
 		81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */; };
@@ -69,6 +71,8 @@
 		2E05B47D1E2B07DA009817A6 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
+		2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
 				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 				90DBEE0F1E2B3C0400130C58 /* Search */,
@@ -280,6 +285,7 @@
 			children = (
 				900D05151DCE8A0200605D0A /* AppDelegate.swift */,
 				900D051C1DCE8A0200605D0A /* Assets.xcassets */,
+				2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */,
 				900D05211DCE8A0200605D0A /* Info.plist */,
 			);
 			name = Properties;
@@ -447,6 +453,7 @@
 			files = (
 				900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */,
 				2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */,
+				2E9A03831E2B6D5500E82F8D /* GoogleService-Info.plist in Resources */,
 				2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */,
 				90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */,
 				2E05B47C1E2B07D0009817A6 /* ImageCarousel.xib in Resources */,
@@ -639,6 +646,7 @@
 				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
+				2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,9 @@ target 'Beacon' do
   pod 'Cosmos'
   pod 'BetterSegmentedControl'
   pod 'SwiftLocation'
+  pod 'FirebaseAuth'
+  pod 'FirebaseDatabase'
+  pod 'Firebase'
 
   # Pods for Beacon
 
