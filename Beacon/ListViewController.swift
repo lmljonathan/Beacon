@@ -36,6 +36,7 @@ class ListViewController: UIViewController {
     
     @IBAction func moreButtonPressed(_ sender: Any) {
         self.showActionsMenu()
+        print("hi")
     }
     
     // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
@@ -101,6 +102,10 @@ class ListViewController: UIViewController {
 //    override func viewDidAppear(_ animated: Bool) {
 //        self.navigationController?.resetTopBars(0)
 //    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -543,7 +548,8 @@ extension ListViewController {//: ModalViewControllerDelegate{
 //            pickerController.showWithFooter(UIViewController.self)
 //            pickerController.delegate = self
 //        }))
-        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
+        //actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
+        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage()), style: .cancel, handler: nil))
         
         present(actionController, animated: true, completion: nil)
     }
