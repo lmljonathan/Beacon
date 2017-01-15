@@ -42,7 +42,7 @@ class ListViewController: UIViewController {
         self.deactivateEditMode()
     }
     
-    @IBOutlet var moreButton: MKMapView!
+    @IBOutlet var moreButton: UIButton!
     
     @IBAction func moreButtonPressed(_ sender: Any) {
         self.showActionsMenu()
@@ -232,8 +232,10 @@ class ListViewController: UIViewController {
         
         // Replace More Button With Cancel Button
         
-        
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
+        self.cancelButton.isHidden = false
+        self.moreButton.setImage(nil, for: .normal)
+        self.moreButton.setTitle("Done", for: .normal)
         
         // Animate and Show Add Place Button
         self.addPlaceButton.isHidden = false
@@ -251,8 +253,10 @@ class ListViewController: UIViewController {
             if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
                 self.bottomView.removeGestureRecognizer(bottomPanGR)
             }
-            
+        }else{
+            self.configureRecognizers()
         }
+        
         // Set Edit Mode
         self.mode = .edit
         
@@ -279,8 +283,11 @@ class ListViewController: UIViewController {
 //        navigationItem.rightBarButtonItem = rightButton
         
         // Restore Back Button
-        self.navigationItem.setHidesBackButton(false, animated: true)
-        self.navigationItem.leftBarButtonItem = nil
+        self.cancelButton.isHidden = true
+        self.moreButton.setImage(#imageLiteral(resourceName: "more"), for: .normal)
+        self.moreButton.setTitle("", for: .normal)
+        //self.navigationItem.setHidesBackButton(false, animated: true)
+        // self.navigationItem.leftBarButtonItem = nil
         
         // Set Editing to Fals
         self.listTableView.longPressReorderEnabled = false

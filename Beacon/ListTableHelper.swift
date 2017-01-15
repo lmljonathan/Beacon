@@ -54,20 +54,24 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.ratingView.backgroundColor = UIColor.clear
     }
     
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        if self.mode == .edit{
+//            return true
+//        }else{
+//            return false
+//        }
+//    }
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if self.mode == .edit{
-            return true
-        }else{
-            return false
-        }
+        // Change this logic to match your needs.
+        return (indexPath.section == 0)
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         // Modify this code as needed to support more advanced reordering, such as between sections.
-        let source = self.placeIDs[sourceIndexPath.row]
-        let destination = self.placeIDs[destinationIndexPath.row]
-        self.placeIDs[sourceIndexPath.row] = destination
-        self.placeIDs[destinationIndexPath.row] = source
+        let source = self.placeArray[sourceIndexPath.row]
+        let destination = self.placeArray[destinationIndexPath.row]
+        self.placeArray[sourceIndexPath.row] = destination
+        self.placeArray[destinationIndexPath.row] = source
     }
 
     

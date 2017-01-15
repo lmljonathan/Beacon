@@ -154,9 +154,9 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
         
         print("grabbing new data")
         dataHandler.performAPISearch(googleParameters) { (businessObjectArray) -> Void in
-            for _ in businessObjectArray{
-                self.businessShown.append(false)
-            }
+//            for _ in businessObjectArray{
+//                self.businessShown.append(false)
+//            }
             
             self.businessObjects = businessObjectArray
             self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
