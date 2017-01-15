@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E05B47C1E2B07D0009817A6 /* ImageCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47B1E2B07D0009817A6 /* ImageCarousel.xib */; };
-		2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47D1E2B07DA009817A6 /* InfoCell.xib */; };
-		2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */; };
-		2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */; };
-		2E80A5E11E2B10590029FB4D /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */; };
-		2E80A5E31E2B10A10029FB4D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5331E2B0B7700227693 /* Animations.swift */; };
-		2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */; };
-		2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */; };
-		81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */; };
 		900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05151DCE8A0200605D0A /* AppDelegate.swift */; };
 		900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900D05191DCE8A0200605D0A /* Main.storyboard */; };
 		900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D051C1DCE8A0200605D0A /* Assets.xcassets */; };
@@ -34,14 +25,22 @@
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
-		90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */; };
-		90DBEE0A1E2B3A7D00130C58 /* SearchBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */; };
-		90DBEE0E1E2B3BFE00130C58 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */; };
-		90DBEE111E2B3C7300130C58 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */; };
-		90DBEE151E2B3DFD00130C58 /* DataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */; };
-		90DBEE171E2B421800130C58 /* PlaceActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE161E2B421800130C58 /* PlaceActions.swift */; };
+		90A9B43C1E2AC055004E97F5 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		90DBEE0A1E2B3A7D00130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		90DBEE0E1E2B3BFE00130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		90DBEE111E2B3C7300130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		90DBEE151E2B3DFD00130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		90DBEE171E2B421800130C58 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		90DBEE191E2B599600130C58 /* SearchBusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE181E2B599600130C58 /* SearchBusinessViewController.swift */; };
+		90DBEE1B1E2B599E00130C58 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */; };
+		90DBEE1D1E2B59AD00130C58 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */; };
+		90DBEE1E1E2B59CD00130C58 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */; };
+		90DBEE1F1E2B5A4A00130C58 /* ListTableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */; };
+		90DBEE211E2B5A5B00130C58 /* DataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEE201E2B5A5B00130C58 /* DataFunctions.swift */; };
+		90DBEE221E2B5A7C00130C58 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */; };
+		90DBEE231E2B5A8000130C58 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */; };
+		90DBEE241E2B5AF400130C58 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5331E2B0B7700227693 /* Animations.swift */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
-		A3AC69985FD32CDBF9B42653 /* Pods_BeaconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */; };
 		ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11209D1DD10E7700B9E2A4 /* Place.swift */; };
 		EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7047A1DD11B7C005DC778 /* Trip.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +74,6 @@
 		2ED1A5331E2B0B7700227693 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		2EE19AB91E2ADAF2005F5BED /* ListTableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableHelper.swift; sourceTree = "<group>"; };
 		401AEE9F33EFD5E07FE16D4D /* Pods_BeaconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		900D05121DCE8A0200605D0A /* Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D05151DCE8A0200605D0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		900D051A1DCE8A0200605D0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,17 +97,12 @@
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
-		90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewController.swift; sourceTree = "<group>"; };
-		90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
-		90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
-		90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFunctions.swift; sourceTree = "<group>"; };
-		90DBEE161E2B421800130C58 /* PlaceActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceActions.swift; sourceTree = "<group>"; };
-		BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.release.xcconfig"; sourceTree = "<group>"; };
+		90DBEE181E2B599600130C58 /* SearchBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewController.swift; sourceTree = "<group>"; };
+		90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		90DBEE201E2B5A5B00130C58 /* DataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFunctions.swift; sourceTree = "<group>"; };
 		BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.release.xcconfig"; sourceTree = "<group>"; };
-		BBF502BBFC60F1B7AF5C3A6D /* Pods-BeaconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.debug.xcconfig"; sourceTree = "<group>"; };
-		E39D7E6C29F607DE7F161555 /* Pods-BeaconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED11209D1DD10E7700B9E2A4 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		EDE7047A1DD11B7C005DC778 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -128,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3AC69985FD32CDBF9B42653 /* Pods_BeaconTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81BDC8E943591CC38655EB9B /* Pods_BeaconUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,10 +139,6 @@
 			children = (
 				BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */,
 				BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */,
-				BBF502BBFC60F1B7AF5C3A6D /* Pods-BeaconTests.debug.xcconfig */,
-				BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */,
-				6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */,
-				E39D7E6C29F607DE7F161555 /* Pods-BeaconUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -183,9 +170,8 @@
 			children = (
 				2ED1A5331E2B0B7700227693 /* Animations.swift */,
 				90927E501DCE906E008726BB /* UIExtensions.swift */,
-				90DBEE101E2B3C7300130C58 /* ViewController+Extensions.swift */,
-				90DBEE141E2B3DFD00130C58 /* DataFunctions.swift */,
-				90DBEE161E2B421800130C58 /* PlaceActions.swift */,
+				90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */,
+				90DBEE201E2B5A5B00130C58 /* DataFunctions.swift */,
 				9052B43D1E2B330C00DBCF98 /* Modal */,
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
 				90A9B43D1E2AC058004E97F5 /* XIB */,
@@ -300,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				2E05B47B1E2B07D0009817A6 /* ImageCarousel.xib */,
-				90A9B43B1E2AC055004E97F5 /* PlaceCell.xib */,
 				2E05B47D1E2B07DA009817A6 /* InfoCell.xib */,
 				2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */,
 			);
@@ -310,8 +295,8 @@
 		90DBEE0F1E2B3C0400130C58 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				90DBEE091E2B3A7D00130C58 /* SearchBusinessViewController.swift */,
-				90DBEE0D1E2B3BFE00130C58 /* LocationSearchViewController.swift */,
+				90DBEE181E2B599600130C58 /* SearchBusinessViewController.swift */,
+				90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -353,12 +338,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 900D053D1DCE8A0300605D0A /* Build configuration list for PBXNativeTarget "BeaconTests" */;
 			buildPhases = (
-				83242476DFEB411AA429315E /* [CP] Check Pods Manifest.lock */,
 				900D05221DCE8A0300605D0A /* Sources */,
 				900D05231DCE8A0300605D0A /* Frameworks */,
 				900D05241DCE8A0300605D0A /* Resources */,
-				CFD7549BD75B3EAE7DF632CE /* [CP] Embed Pods Frameworks */,
-				39F53E841F59E6AD9742D812 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,12 +356,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 900D05401DCE8A0300605D0A /* Build configuration list for PBXNativeTarget "BeaconUITests" */;
 			buildPhases = (
-				82D6C0F2B67D0028F4F8B544 /* [CP] Check Pods Manifest.lock */,
 				900D052D1DCE8A0300605D0A /* Sources */,
 				900D052E1DCE8A0300605D0A /* Frameworks */,
 				900D052F1DCE8A0300605D0A /* Resources */,
-				E060831B5AD9CD0573FB06B0 /* [CP] Embed Pods Frameworks */,
-				EB2B694F6F03237DDD57058C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,10 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */,
-				2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */,
-				2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */,
-				90A9B43C1E2AC055004E97F5 /* PlaceCell.xib in Resources */,
-				2E05B47C1E2B07D0009817A6 /* ImageCarousel.xib in Resources */,
+				90A9B43C1E2AC055004E97F5 /* (null) in Resources */,
 				9052B43C1E2B330700DBCF98 /* YoutubeCell.xib in Resources */,
 				900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */,
 				900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */,
@@ -473,52 +449,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39F53E841F59E6AD9742D812 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3E0DA4D533563A21BE0739E4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		82D6C0F2B67D0028F4F8B544 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		83242476DFEB411AA429315E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,51 +494,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beacon/Pods-Beacon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFD7549BD75B3EAE7DF632CE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconTests/Pods-BeaconTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E060831B5AD9CD0573FB06B0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB2B694F6F03237DDD57058C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeaconUITests/Pods-BeaconUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -615,29 +501,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90DBEE151E2B3DFD00130C58 /* DataFunctions.swift in Sources */,
+				90DBEE211E2B5A5B00130C58 /* DataFunctions.swift in Sources */,
+				90DBEE151E2B3DFD00130C58 /* (null) in Sources */,
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
+				90DBEE1D1E2B59AD00130C58 /* ViewController+Extensions.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
-				2E80A5E31E2B10A10029FB4D /* Animations.swift in Sources */,
+				90DBEE1F1E2B5A4A00130C58 /* ListTableHelper.swift in Sources */,
+				90DBEE241E2B5AF400130C58 /* Animations.swift in Sources */,
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
 				9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */,
-				90DBEE111E2B3C7300130C58 /* ViewController+Extensions.swift in Sources */,
-				90DBEE0E1E2B3BFE00130C58 /* LocationSearchViewController.swift in Sources */,
-				2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */,
-				90DBEE0A1E2B3A7D00130C58 /* SearchBusinessViewController.swift in Sources */,
+				90DBEE111E2B3C7300130C58 /* (null) in Sources */,
+				90DBEE191E2B599600130C58 /* SearchBusinessViewController.swift in Sources */,
+				90DBEE0E1E2B3BFE00130C58 /* (null) in Sources */,
+				90DBEE0A1E2B3A7D00130C58 /* (null) in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
+				90DBEE221E2B5A7C00130C58 /* InfoTableViewCell.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
 				9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */,
-				2E80A5E11E2B10590029FB4D /* ReviewTableViewCell.swift in Sources */,
+				90DBEE231E2B5A8000130C58 /* ReviewTableViewCell.swift in Sources */,
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
 				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
-				2EE19ABA1E2ADAF2005F5BED /* ListTableHelper.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
-				2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */,
-				90DBEE171E2B421800130C58 /* PlaceActions.swift in Sources */,
+				90DBEE171E2B421800130C58 /* (null) in Sources */,
+				90DBEE1B1E2B599E00130C58 /* LocationSearchViewController.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
+				90DBEE1E1E2B59CD00130C58 /* BusinessDetailViewController.swift in Sources */,
 				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,7 +681,6 @@
 			baseConfigurationReference = BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -806,7 +695,6 @@
 			baseConfigurationReference = BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -818,7 +706,6 @@
 		};
 		900D053E1DCE8A0300605D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBF502BBFC60F1B7AF5C3A6D /* Pods-BeaconTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -834,7 +721,6 @@
 		};
 		900D053F1DCE8A0300605D0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB03239B70C12BCAE432562E /* Pods-BeaconTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -850,7 +736,6 @@
 		};
 		900D05411DCE8A0300605D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A3191F09FEBA4D78E8C6B34 /* Pods-BeaconUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
@@ -865,7 +750,6 @@
 		};
 		900D05421DCE8A0300605D0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E39D7E6C29F607DE7F161555 /* Pods-BeaconUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = CQD8Z7UVJ4;
