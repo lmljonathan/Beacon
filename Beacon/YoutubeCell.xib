@@ -19,13 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="500" height="46"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVP-K2-xfz">
-                        <rect key="frame" x="10" y="3" width="40" height="40"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVP-K2-xfz">
+                        <rect key="frame" x="10" y="8" width="30" height="30"/>
+                        <color key="tintColor" red="0.0" green="0.13725000000000001" blue="0.18038999999999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="FhR-W3-1Bu"/>
                             <constraint firstAttribute="width" secondItem="aVP-K2-xfz" secondAttribute="height" multiplier="1:1" id="aTy-zU-kfl"/>
-                            <constraint firstAttribute="width" constant="40" id="lwu-fc-evQ"/>
-                            <constraint firstAttribute="height" constant="40" id="o7S-aU-N1A"/>
+                            <constraint firstAttribute="width" constant="30" id="lwu-fc-evQ"/>
+                            <constraint firstAttribute="height" constant="30" id="o7S-aU-N1A"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -35,7 +36,7 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Action title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="amS-Rr-sbk">
-                        <rect key="frame" x="60" y="13" width="415" height="20"/>
+                        <rect key="frame" x="50" y="13" width="425" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.32156862749999998" green="0.6705882353" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

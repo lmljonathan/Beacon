@@ -16,6 +16,8 @@ class FirebaseHandler: NSObject {
         // completion()
         
     }
+ 
+    */
     
     func saveToFirebase(id: Int){
         let ref = FIRDatabase.database().reference(fromURL: "https://beacon-80d39.firebaseio.com/")
@@ -24,5 +26,12 @@ class FirebaseHandler: NSObject {
         placeRef.setValue(id)
     }
     
+    func saveTripToFirebase(id: String, username: String, trip: Trip){
+        let placeIDList: [String] = trip.placeIDs // This needs to be saved within a trip
+    }
+    
+    func registerUser(username: String, password: String){
+        
+    }
     
 }

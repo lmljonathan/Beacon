@@ -34,13 +34,21 @@ class ListViewController: UIViewController {
     
     @IBOutlet var addPlaceButton: UIButton!
     
+    @IBOutlet var cancelButton: UIButton!
+    
+    
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.deactivateEditMode()
+    }
+    
+    @IBOutlet var moreButton: MKMapView!
+    
     @IBAction func moreButtonPressed(_ sender: Any) {
         self.showActionsMenu()
-        print("hi")
     }
     
     // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
-    
     
     let topMapProportion: CGFloat = 1/5
     let bottomMapProportion: CGFloat = 7/10
@@ -68,48 +76,49 @@ class ListViewController: UIViewController {
      var originalFrame: CGRect!
     
     
-//    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
-//    {
-//        print(segue.identifier)
-//        if(segue.identifier != nil) {
-//            if(segue.identifier == "unwindToPlaylist") {
-//                if let sourceVC = segue.source as? SearchBusinessViewController
-//                {
-//                    playlistArray.append(contentsOf: sourceVC.businessArray)
-//                    placeIDs.append(contentsOf: sourceVC.placeIDs)
-//                    
-//                    // Appends empty GooglePlaceDetail Objects to make list parallel to placeIDs and playlistArray
-//                    for _ in 0..<(placeIDs.count - placeArray.count){
-//                        placeArray.append(GooglePlaceDetail())
-//                    }
-//                    
-//                    // Update Info
-//                    //                    self.numOfPlacesLabel.text = "\(placeIDs.count)"
-//                    //                    self.getAveragePrice({ (avg) in
-//                    //                        self.setPriceRating(avg)
-//                    //                    })
-//                    self.listTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
+    @IBAction func unwindToSinglePlaylist(_ segue: UIStoryboardSegue)
+    {
+        print(segue.identifier)
+        if(segue.identifier != nil) {
+            if(segue.identifier == "unwindToPlaylist") {
+                if let sourceVC = segue.source as? SearchBusinessViewController
+                {
+                    placeArray.append(contentsOf: sourceVC.businessArray)
+                    placeIDs.append(contentsOf: sourceVC.placeIDs)
+                    
+                    // Appends empty GooglePlaceDetail Objects to make list parallel to placeIDs and playlistArray
+                    for _ in 0..<(placeIDs.count - gPlaceArray.count){
+                        gPlaceArray.append(GooglePlaceDetail())
+                    }
+                    
+                    // Update Info
+                    //                    self.numOfPlacesLabel.text = "\(placeIDs.count)"
+                    //                    self.getAveragePrice({ (avg) in
+                    //                        self.setPriceRating(avg)
+                    //                    })
+                    self.listTableView.reloadData()
+                }
+            }
+        }
+    }
     
     
-//    @IBAction func pressedAddPlacesButton(_ sender: AnyObject) {
-//        performSegue(withIdentifier: "tapImageButton", sender: self)
-//    }
+    @IBAction func pressedAddPlacesButton(_ sender: AnyObject) {
+        performSegue(withIdentifier: "showAddPlaces", sender: self)
+    }
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        self.navigationController?.resetTopBars(0)
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.cancelButton.isHidden = true
         configureRecognizers()
         
         // Register Nibs
@@ -193,21 +202,6 @@ class ListViewController: UIViewController {
                 }
             }
         }
-        
-//        Async.main{
-//            let placeIDs = self.object["place_id_list"] as! [String]
-//            self.placeIDs = placeIDs
-//            self.configureHeader()
-//            }.main{
-//                // Get Array of IDs from Parse
-//                for _ in 0..<self.placeIDs.count{
-//                    self.placeArray.append(GooglePlaceDetail())
-//                    self.playlistArray.append(Business())
-//                }
-//                self.listTableView.reloadData()
-//            }.main{
-//                updateBusinessesFromIDs(self.placeIDs)
-//        }
     }
     
     // MARK: - Set Up Header View With Info
@@ -227,14 +221,7 @@ class ListViewController: UIViewController {
         
     }
     
-    //    func configureReorderControl(){
-    //        self.reorderControlHandler = ReorderControl(tableView: self.listTableView, arrayToReorder: self.trip, outerView: self.view)
-    //    }
-    
-    
     func activateEditMode() {
-        
-        //configureReorderControl()
         
         // Make Title Text Editable
         self.titleTextField.enable()
@@ -244,7 +231,9 @@ class ListViewController: UIViewController {
         //self.changePlaylistImageButton.hidden = false
         
         // Replace More Button With Cancel Button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
+        
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.deactivateEditMode))
         
         // Animate and Show Add Place Button
         self.addPlaceButton.isHidden = false
@@ -256,19 +245,25 @@ class ListViewController: UIViewController {
         
         // Set Editing to True
         self.listTableView.setEditing(true, animated: true)
-        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
-        self.bottomView.removeGestureRecognizer(bottomPanGR)
-        
+        if (self.bottomView.gestureRecognizers != nil && self.bottomView.gestureRecognizers?.count != 0){
+            if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
+                self.bottomView.removeGestureRecognizer(bottomPanGR)
+            }
+            
+        }
         // Set Edit Mode
         self.mode = .edit
         
 //        // Replace Back Button with Done
+        
 //        self.navigationItem.setHidesBackButton(true, animated: true)
 //        let backButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.savePlaylistToParse(_:)))
 //        self.navigationItem.leftBarButtonItem = backButton
     }
     
     func deactivateEditMode() {
+        
+        self.cancelButton.isHidden = true
         
         // Make Title Text Editable
         self.titleTextField.disable()
@@ -355,22 +350,23 @@ class ListViewController: UIViewController {
                 upcoming.index = index
             }
             
-            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)}
-//        }else if (segue.identifier == "tapImageButton"){
-//            let nav = segue.destination as! UINavigationController
-//            let upcoming = nav.childViewControllers[0] as! SearchBusinessViewController
-//            upcoming.currentView = .addPlace
-//            upcoming.searchTextField = upcoming.addPlaceSearchTextField        }
+            self.listTableView.deselectRow(at: listTableView.indexPathForSelectedRow!, animated: true)
+        }else if (segue.identifier == "tapImageButton"){
+            let nav = segue.destination as! UINavigationController
+            let upcoming = nav.childViewControllers[0] as! SearchBusinessViewController
+            upcoming.currentView = .addPlace
+            upcoming.searchTextField = upcoming.addPlaceSearchTextField
+        }
     }
-//    
-//    func getIDsFromArrayOfBusiness(_ business: [Place], completion: (_ result:[String])->Void){
-//        var result:[String] = []
-//        for b in business{
-//            result.append(b.gPlaceID)
-//        }
-//        completion(result)
-//    }
-//    
+
+    func getIDsFromArrayOfBusiness(_ business: [Place], completion: (_ result:[String])->Void){
+        var result:[String] = []
+        for b in business{
+            result.append(b.id)
+        }
+        completion(result)
+    }
+    
 //    func sortMethods(_ businesses: Array<Business>, type: String)->[Business]{
 //        var sortedBusinesses: Array<Business> = []
 //        if type == "name"{
@@ -540,10 +536,10 @@ extension ListViewController {//: ModalViewControllerDelegate{
         //            }
         //
         //        }))
-        actionController.addAction(Action(ActionData(title: "Edit", image: #imageLiteral(resourceName: "add")), style: .default, handler: { action in
+        actionController.addAction(Action(ActionData(title: "Edit", image: #imageLiteral(resourceName: "edit")), style: .default, handler: { action in
             print("Edit pressed")
             self.activateEditMode()
-            self.listTableView.reloadData()
+            // self.listTableView.reloadData()
         }))
         //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
         //            self.makeCollaborative()
@@ -555,7 +551,7 @@ extension ListViewController {//: ModalViewControllerDelegate{
 //            pickerController.delegate = self
 //        }))
         //actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
-        actionController.addAction(Action(ActionData(title: "Cancel", image: #imageLiteral(resourceName: "add")), style: .cancel, handler: nil))
+        actionController.addAction(Action(ActionData(title: "Cancel", image: #imageLiteral(resourceName: "cancel")), style: .cancel, handler: nil))
         
         present(actionController, animated: true, completion: nil)
     }
