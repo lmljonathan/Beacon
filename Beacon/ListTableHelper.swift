@@ -26,7 +26,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceTableViewCell
         cell.selectionStyle = .none
-        //configureSwipeButtons(cell, mode: .view)
+        configureSwipeButtons(cell, mode: .view)
         DispatchQueue.main.async(execute: {
             cell.configure(with: self.placeArray[indexPath.row], mode: .more) {
                 return cell
