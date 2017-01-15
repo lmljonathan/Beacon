@@ -9,14 +9,40 @@
 import Foundation
 
 class FirebaseHandler: NSObject {
-    func getPlaceIDs(tripID: Int, completion: ([Int]) -> Void){
-        // completion()
+    
+    /*
+     JSON
+    
+    {users:
+        {username: 
+            {password: ...(STRING),
+             trips: 
+                {tripID: ...(STRING),
+                    {   name: ... (STRING),
+                        placeIDs: ... [array of STRING]
+                    }
+                }
+                ... more trips
+     
+     
+            }
+        }
+    }
+ 
+    */
+    
+    func getUserTrips(username: String, completion: (_: [Trip]) -> Void){
+        var trip: [Trip]! = []
         
+        completion(trip)
     }
     
-    func saveToFirebase(id: Int, trip: Trip){
-        
+    func saveTripToFirebase(id: String, username: String, trip: Trip){
+        let placeIDList: [String] = trip.placeIDs // This needs to be saved within a trip
     }
     
+    func registerUser(username: String, password: String){
+        
+    }
     
 }

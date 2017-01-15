@@ -264,7 +264,7 @@ extension UINavigationController{
         self.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         self.navigationBar.backgroundColor = color
         self.navigationBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 12)!,
+            //NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 12)!,
             NSForegroundColorAttributeName: UIColor.white     ]
     }
     

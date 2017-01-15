@@ -219,9 +219,9 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				90DBEE0F1E2B3C0400130C58 /* Search */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
 				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
+				90DBEE0F1E2B3C0400130C58 /* Search */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

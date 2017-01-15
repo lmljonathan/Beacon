@@ -104,7 +104,7 @@ class ListViewController: UIViewController {
     
     
     @IBAction func pressedAddPlacesButton(_ sender: AnyObject) {
-        performSegue(withIdentifier: "tapImageButton", sender: self)
+        performSegue(withIdentifier: "showAddPlaces", sender: self)
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
