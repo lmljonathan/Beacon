@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.2.0)
   - Async (0.2.0)
-  - Bolts/Tasks (1.8.4)
+  - BetterSegmentedControl (0.7)
   - Cosmos (7.0.0)
   - CZPicker (0.4.3)
   - Firebase/Auth (3.11.0):
@@ -36,6 +36,8 @@ PODS:
   - GoogleMaps/Base (2.1.1)
   - GoogleMaps/Maps (2.1.1):
     - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -60,6 +62,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Async
+  - BetterSegmentedControl
   - Cosmos
   - CZPicker
   - Firebase/Auth
@@ -77,7 +80,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Async: d80205f1a1b4eea24de8ddc62cf5197ff3025330
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -88,6 +91,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
@@ -98,6 +102,6 @@ SPEC CHECKSUMS:
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: ad6290199d079c4565827662b202f554c4b9f915
+PODFILE CHECKSUM: 420aa119b3121ec0908cd38aec90544230dd2264
 
 COCOAPODS: 1.2.0.beta.1

@@ -32,7 +32,7 @@ class FirebaseHandler: NSObject {
     
     func getUserTrips(username: String, completion: (_: [Trip]) -> Void){
         
-        completion()
+        completion([])
     }
     
     func saveTripToFirebase(id: String, username: String, trip: Trip){

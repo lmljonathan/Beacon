@@ -13,12 +13,14 @@ target 'Beacon' do
   pod 'XLPagerTabStrip'
   pod 'CZPicker'
   pod ‘SwiftyJSON’
+  pod 'BetterSegmentedControl'
   pod 'Cosmos'
   pod ‘Kingfisher’
   pod ‘Firebase/Core’
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-
+  pod 'SwiftLocation'
+  
   # Pods for Beacon
 
 end
