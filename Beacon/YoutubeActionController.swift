@@ -21,13 +21,8 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
 import Foundation
-import UIKit
 import XLActionController
-#if XLACTIONCONTROLLER_EXAMPLE
-    import XLActionController
-#endif
 
 open class YoutubeCell: ActionCell {
     
@@ -83,26 +78,30 @@ open class YoutubeCell: ActionCell {
 
 open class YoutubeActionController: ActionController<YoutubeCell, ActionData, UICollectionReusableView, Void, UICollectionReusableView, Void> {
     
-//    public init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle = nil) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        
-//        collectionViewLayout.minimumLineSpacing = -0.5
-//        
-//        settings.behavior.hideOnScrollDown = false
-//        settings.animation.scale = nil
-//        settings.animation.present.duration = 0.6
-//        settings.animation.dismiss.duration = 0.6
-//        settings.animation.dismiss.offset = 30
-//        settings.animation.dismiss.options = .curveLinear
-//        
-//        cellSpec = .nibFile(nibName: "YoutubeCell", bundle: Bundle(for: YoutubeCell.self), height: { _  in 46 })
-//        
-//        onConfigureCellForAction = { cell, action, indexPath in
-//            cell.setup(action.data?.title, detail: action.data?.subtitle, image: action.data?.image)
-//            cell.alpha = action.enabled ? 1.0 : 0.5
-//            
-//            UIView.animate(withDuration: 0.30) {
-//            }
-//        }
-//    }
+    public override init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        collectionViewLayout.minimumLineSpacing = -0.5
+        
+        settings.behavior.hideOnScrollDown = false
+        settings.animation.scale = nil
+        settings.animation.present.duration = 0.6
+        settings.animation.dismiss.duration = 0.6
+        settings.animation.dismiss.offset = 30
+        settings.animation.dismiss.options = .curveLinear
+        
+        cellSpec = .nibFile(nibName: "YoutubeCell", bundle: Bundle(for: YoutubeCell.self), height: { _  in 46 })
+        
+        onConfigureCellForAction = { cell, action, indexPath in
+            cell.setup(action.data?.title, detail: action.data?.subtitle, image: action.data?.image)
+            cell.alpha = action.enabled ? 1.0 : 0.5
+            
+            UIView.animate(withDuration: 0.30) {
+            }
+        }
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

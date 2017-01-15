@@ -61,19 +61,23 @@ extension ListViewController {
             if finalY < topBound || velocity.y < -1500{
                 finalY = topBound
                 finalAlpha = 1
+                self.mapView.isUserInteractionEnabled = false
             }
             
             if finalY > bottomBound || velocity.y > 1500{
                 finalY = bottomBound
                 finalAlpha = 0
+                self.mapView.isUserInteractionEnabled = true
             }
             
             if finalY < topBound + 0.25 * self.mapView.height {
                 finalY = topBound
                 finalAlpha = 1
+                self.mapView.isUserInteractionEnabled = false
             }else if finalY > bottomBound - 0.25 * self.mapView.height {
                 finalY = bottomBound
                 finalAlpha = 0
+                self.mapView.isUserInteractionEnabled = true
             }
             
             UIView.animate(withDuration: Double(slideFactor/10), delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 4, options: .curveEaseOut, animations: {
