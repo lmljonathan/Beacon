@@ -76,15 +76,32 @@ struct FirebaseHandler{
         tripDict[trip.id] = trip.name
         ref.childByAutoId().setValue(tripDict)
     }
-    func retrieveTripDetails(ref: FIRDatabaseReference){
-        //let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            
-            
-        })}
-
     
+    func retrieveTripDetails(completion: @escaping (_: [Trip]) -> Void){
+        let ref = FIRDatabase.database().reference()
+        let userID = "userID"//FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (users) in
+            // Get user value
+            let userDict = users.value as! NSDictionary
+            let tripKeys: [String] = (userDict[userID] as! [String: [String]])["trips"]!
+            
+            
+            ref.child("trips").observeSingleEvent(of: .value, with: { (trips) in
+                var result: [Trip]! = []
+                
+                let trips = trips.value as! NSDictionary
+                
+                for key in tripKeys{
+                    let tripDict = trips[key] as! [String: AnyObject]
+                    let trip = Trip(id: key, name: tripDict["name"] as! String!, placeIDs: tripDict["ids"] as! [String])
+                    result.append(trip)
+                }
+                
+                completion(result)
+                
+            })
+        })
+    }
     
 }
