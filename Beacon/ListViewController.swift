@@ -466,13 +466,13 @@ extension ListViewController: MKMapViewDelegate{
 }
 
 extension ListViewController: UIGestureRecognizerDelegate{
-    //    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-    //        if gestureRecognizer is UITapGestureRecognizer {
-    //            let location = touch.locationInView(self.listTableView)
-    //            return (self.listTableView.indexPathForRowAtPoint(location) == nil)
-    //        }
-    //        return true
-    //    }
+//        func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+//            if gestureRecognizer is UITapGestureRecognizer {
+//                let location = touch.locationInView(self.listTableView)
+//                return (self.listTableView.indexPathForRowAtPoint(location) == nil)
+//            }
+//            return true
+//        }
 }
 
 extension ListViewController: UITextFieldDelegate {
@@ -538,7 +538,7 @@ extension ListViewController {//: ModalViewControllerDelegate{
         //            }
         //
         //        }))
-        actionController.addAction(Action(ActionData(title: "Edit", image: UIImage()), style: .default, handler: { action in
+        actionController.addAction(Action(ActionData(title: "Edit", image: #imageLiteral(resourceName: "add")), style: .default, handler: { action in
             print("Edit pressed")
             self.activateEditMode()
             self.listTableView.reloadData()
@@ -553,7 +553,7 @@ extension ListViewController {//: ModalViewControllerDelegate{
 //            pickerController.delegate = self
 //        }))
         //actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
-        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage()), style: .cancel, handler: nil))
+        actionController.addAction(Action(ActionData(title: "Cancel", image: #imageLiteral(resourceName: "add")), style: .cancel, handler: nil))
         
         present(actionController, animated: true, completion: nil)
     }
