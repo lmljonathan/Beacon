@@ -25,6 +25,8 @@
 		90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */; };
 		90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90101BA71E2AB05200037B3F /* MapMethods.swift */; };
 		9052B4341E2ADE8400DBCF98 /* ListGesturesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */; };
+		9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */; };
+		9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9052B4381E2B113600DBCF98 /* ActionData.swift */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
@@ -82,6 +84,8 @@
 		90101BA41E2AAD3A00037B3F /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		90101BA71E2AB05200037B3F /* MapMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMethods.swift; sourceTree = "<group>"; };
 		9052B4331E2ADE8400DBCF98 /* ListGesturesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGesturesHelper.swift; sourceTree = "<group>"; };
+		9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeActionController.swift; sourceTree = "<group>"; };
+		9052B4381E2B113600DBCF98 /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				2ED1A5331E2B0B7700227693 /* Animations.swift */,
+				9052B4361E2B10F900DBCF98 /* YoutubeActionController.swift */,
+				9052B4381E2B113600DBCF98 /* ActionData.swift */,
 				90101B9F1E2AA93100037B3F /* ViewControllers */,
 				90A9B43D1E2AC058004E97F5 /* XIB */,
 				90101BA61E2AAD4000037B3F /* Cell */,
@@ -574,6 +580,7 @@
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
 				900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */,
 				90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */,
+				9052B4391E2B113600DBCF98 /* ActionData.swift in Sources */,
 				2E05B4821E2B0806009817A6 /* BusinessDetailViewController.swift in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90101BA31E2AAA8B00037B3F /* GooglePlacesAPIClient.swift in Sources */,
@@ -584,7 +591,7 @@
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
 				2ED1A5301E2B09C300227693 /* InfoTableViewCell.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
-				2ED1A5341E2B0B7700227693 /* Animations.swift in Sources */,
+				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

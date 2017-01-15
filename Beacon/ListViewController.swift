@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
     @IBOutlet var addPlaceButton: UIButton!
     
     @IBAction func moreButtonPressed(_ sender: Any) {
-        
+        self.showActionsMenu()
     }
     
     // @IBOutlet var bottomViewHeight: NSLayoutConstraint!
@@ -44,12 +44,9 @@ class ListViewController: UIViewController {
     let topMapProportion: CGFloat = 1/5
     let bottomMapProportion: CGFloat = 7/10
     
-//    var object: PFObject!
-    //var trip = [Business]()
-    
     var itemReceived: Array<AnyObject> = []
     var sortMethod:String!
-//    var addToOwnPlaylists: [PFObject]!
+    
     var playlist_swiped: String!
     
     var gPlaceArray: [GooglePlaceDetail] = []
@@ -478,8 +475,8 @@ extension ListViewController: UITextFieldDelegate {
     }
 }
 
-//extension ListViewController: ModalViewControllerDelegate{
-//    
+extension ListViewController {//: ModalViewControllerDelegate{
+    
 //    func sendValue(_ value: AnyObject){
 //        itemReceived.append(value as! NSObject)
 //        
@@ -521,35 +518,35 @@ extension ListViewController: UITextFieldDelegate {
 //        
 //        
 //    }
-//    
-//    func showActionsMenu(_ sender: AnyObject) {
-//        let actionController = YoutubeActionController()
-//        let pickerController = CZPickerViewController()
-//        //let randomController = RandomPlaceController()
-//        
-//        //        actionController.addAction(Action(ActionData(title: "Randomize", image: UIImage(named: "action_random")!), style: .Default, handler: { action in
-//        //            if self.trip.count != 0{
-//        //                self.performSegueWithIdentifier("randomPlace", sender: self)
-//        //            }
-//        //
-//        //        }))
-//        actionController.addAction(Action(ActionData(title: "Edit", image: UIImage(named: "action_edit")!), style: .default, handler: { action in
-//            print("Edit pressed")
-//            self.activateEditMode()
-//            self.listTableView.reloadData()
-//        }))
-//        //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
-//        //            self.makeCollaborative()
-//        //        }))
+    
+    func showActionsMenu() {
+        let actionController = YoutubeActionController()
+        // let pickerController = CZPickerViewController()
+        //let randomController = RandomPlaceController()
+        
+        //        actionController.addAction(Action(ActionData(title: "Randomize", image: UIImage(named: "action_random")!), style: .Default, handler: { action in
+        //            if self.trip.count != 0{
+        //                self.performSegueWithIdentifier("randomPlace", sender: self)
+        //            }
+        //
+        //        }))
+        actionController.addAction(Action(ActionData(title: "Edit", image: UIImage()), style: .default, handler: { action in
+            print("Edit pressed")
+            self.activateEditMode()
+            self.listTableView.reloadData()
+        }))
+        //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
+        //            self.makeCollaborative()
+        //        }))
 //        actionController.addAction(Action(ActionData(title: "Sort", image: UIImage(named: "action_sort")!), style: .cancel, handler: { action in
 //            pickerController.headerTitle = "Sort Options"
 //            pickerController.fruits = ["Alphabetical","Rating"]
 //            pickerController.showWithFooter(UIViewController.self)
 //            pickerController.delegate = self
 //        }))
-//        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
-//        
-//        present(actionController, animated: true, completion: nil)
-//    }
-//}
+        actionController.addAction(Action(ActionData(title: "Cancel", image: UIImage(named: "yt-cancel-icon")!), style: .cancel, handler: nil))
+        
+        present(actionController, animated: true, completion: nil)
+    }
+}
 
