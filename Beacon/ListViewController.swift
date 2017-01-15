@@ -34,6 +34,16 @@ class ListViewController: UIViewController {
     
     @IBOutlet var addPlaceButton: UIButton!
     
+    @IBOutlet var cancelButton: UIButton!
+    
+    
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.deactivateEditMode()
+    }
+    
+    @IBOutlet var moreButton: MKMapView!
+    
     @IBAction func moreButtonPressed(_ sender: Any) {
         self.showActionsMenu()
     }
@@ -102,12 +112,13 @@ class ListViewController: UIViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         UIApplication.shared.statusBarStyle = .default
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.cancelButton.isHidden = true
         configureRecognizers()
         
         // Register Nibs
@@ -234,9 +245,12 @@ class ListViewController: UIViewController {
         
         // Set Editing to True
         self.listTableView.setEditing(true, animated: true)
-        let bottomPanGR = self.bottomView.gestureRecognizers![1] as! UIPanGestureRecognizer
-        self.bottomView.removeGestureRecognizer(bottomPanGR)
-        
+        if (self.bottomView.gestureRecognizers != nil && self.bottomView.gestureRecognizers?.count != 0){
+            if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
+                self.bottomView.removeGestureRecognizer(bottomPanGR)
+            }
+            
+        }
         // Set Edit Mode
         self.mode = .edit
         
@@ -248,6 +262,8 @@ class ListViewController: UIViewController {
     }
     
     func deactivateEditMode() {
+        
+        self.cancelButton.isHidden = true
         
         // Make Title Text Editable
         self.titleTextField.disable()
@@ -523,7 +539,7 @@ extension ListViewController {//: ModalViewControllerDelegate{
         actionController.addAction(Action(ActionData(title: "Edit", image: #imageLiteral(resourceName: "edit")), style: .default, handler: { action in
             print("Edit pressed")
             self.activateEditMode()
-            self.listTableView.reloadData()
+            // self.listTableView.reloadData()
         }))
         //        actionController.addAction(Action(ActionData(title: "Make Collaborative", image: UIImage(named: "action_collab")!), style: .Default, handler: { action in
         //            self.makeCollaborative()
