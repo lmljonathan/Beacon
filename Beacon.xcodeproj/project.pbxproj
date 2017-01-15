@@ -23,6 +23,8 @@
 		9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */; };
 		9052B43C1E2B330700DBCF98 /* YoutubeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9052B43B1E2B330700DBCF98 /* YoutubeCell.xib */; };
 		907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907670181DD1215A003C3B89 /* APIDataHandler.swift */; };
+		9079674D1E2B8BC3002B8617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9079674C1E2B8BC3002B8617 /* GoogleService-Info.plist */; };
+		9079674F1E2B8C06002B8617 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9079674E1E2B8C06002B8617 /* PlaceCell.xib */; };
 		90927E4F1DCE8FFA008726BB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E4E1DCE8FFA008726BB /* ListViewController.swift */; };
 		90927E511DCE906E008726BB /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90927E501DCE906E008726BB /* UIExtensions.swift */; };
 		90A9B43C1E2AC055004E97F5 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -95,6 +97,8 @@
 		9052B4381E2B113600DBCF98 /* ActionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionData.swift; sourceTree = "<group>"; };
 		9052B43B1E2B330700DBCF98 /* YoutubeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubeCell.xib; sourceTree = "<group>"; };
 		907670181DD1215A003C3B89 /* APIDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataHandler.swift; sourceTree = "<group>"; };
+		9079674C1E2B8BC3002B8617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9079674E1E2B8C06002B8617 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		90927E4E1DCE8FFA008726BB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		90927E501DCE906E008726BB /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		90DBEE181E2B599600130C58 /* SearchBusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBusinessViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		907670161DD11F93003C3B89 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
+				9079674C1E2B8BC3002B8617 /* GoogleService-Info.plist */,
 				900D05151DCE8A0200605D0A /* AppDelegate.swift */,
 				900D051C1DCE8A0200605D0A /* Assets.xcassets */,
 				900D05211DCE8A0200605D0A /* Info.plist */,
@@ -286,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				2E05B47B1E2B07D0009817A6 /* ImageCarousel.xib */,
+				9079674E1E2B8C06002B8617 /* PlaceCell.xib */,
 				2E05B47D1E2B07DA009817A6 /* InfoCell.xib */,
 				2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */,
 			);
@@ -425,8 +431,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D05201DCE8A0200605D0A /* LaunchScreen.storyboard in Resources */,
+				9079674D1E2B8BC3002B8617 /* GoogleService-Info.plist in Resources */,
 				90A9B43C1E2AC055004E97F5 /* (null) in Resources */,
 				9052B43C1E2B330700DBCF98 /* YoutubeCell.xib in Resources */,
+				9079674F1E2B8C06002B8617 /* PlaceCell.xib in Resources */,
 				900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */,
 				900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */,
 			);
