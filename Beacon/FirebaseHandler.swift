@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 struct FirebaseHandler{
     let ref = FIRDatabase.database().reference().child("places")

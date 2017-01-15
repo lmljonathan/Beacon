@@ -20,7 +20,10 @@ target 'Beacon' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SwiftLocation'
-  
+  pod 'FirebaseAuth'
+  pod 'FirebaseDatabase'
+  pod 'Firebase'
+
   # Pods for Beacon
 
 end

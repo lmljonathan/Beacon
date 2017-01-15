@@ -331,10 +331,10 @@ class SearchBusinessViewController: UIViewController, CLLocationManagerDelegate,
         // Get Location and Perform Search
         self.getLocationAndSearch()
         
-        if self.navigationController?.navigationBar.backgroundColor != appDefaults.color{
-            // Configure Functions
-           self.navigationController!.configureTopBar()
-        }
+//        if self.navigationController?.navigationBar.backgroundColor != appDefaults.color{
+//            // Configure Functions
+//           self.navigationController!.configureTopBar()
+//        }
 
         self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         // Register Nibs
