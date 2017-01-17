@@ -11,7 +11,8 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - Layout (IBOutlets)
-    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: - IBActions
     

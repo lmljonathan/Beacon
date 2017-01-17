@@ -20,15 +20,21 @@ class LoginDataClient {
     // have a completion handler that returns nil if it is successful
     // and an NSError detailing the error if it fails.
     
+    // -> RYAN
     public func performLogin(completion: (_ error: NSError?) -> Void){
         completion(nil)
     }
     
-    public func performSignUp(completion: (_ error: NSError?) -> Void){
+    public func performSignUp(username: String, password: String, completion: (_ error: NSError?) -> Void){
+        completion(nil)
+    }
+    
+    // -> KENNY
+    public func performLoginWithFB(completion: (_ error: NSError?) -> Void){
         completion(nil)
     }
     
     // MARK: - Helper Functions
-
+    
     
 }

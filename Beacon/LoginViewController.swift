@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     
     // MARK: - Private Variables
     private let client = LoginDataClient() // The first variable in the private variables should always be the client
@@ -36,7 +37,7 @@ class LoginViewController: UIViewController {
                 // Do something if perform login is successful (like segueing to next VC)
                 
             }else{
-                print(error)
+                print(error!)
             }
         }
     }
@@ -44,6 +45,12 @@ class LoginViewController: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: AnyObject) {
         // segue to signUpVC
         performSegue(withIdentifier: signUpIdentifier, sender: nil)
+    }
+    
+    @IBAction func facebookButtonPressed(_ sender: AnyObject) {
+        client.performLoginWithFB { (error) in
+            
+        }
     }
     
     
@@ -62,6 +69,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Do something when user presses return
+        return true
     }
     
 }
