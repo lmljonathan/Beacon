@@ -11,7 +11,7 @@
 		2E05B47E1E2B07DA009817A6 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47D1E2B07DA009817A6 /* InfoCell.xib */; };
 		2E05B4801E2B07E9009817A6 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */; };
 		2E9A03831E2B6D5500E82F8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */; };
-		2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */; };
+		2EBBFBB41E2B613E0085B142 /* LoginViewController-old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBBFBB31E2B613E0085B142 /* LoginViewController-old.swift */; };
 		900D05161DCE8A0200605D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D05151DCE8A0200605D0A /* AppDelegate.swift */; };
 		900D051B1DCE8A0200605D0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900D05191DCE8A0200605D0A /* Main.storyboard */; };
 		900D051D1DCE8A0200605D0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D051C1DCE8A0200605D0A /* Assets.xcassets */; };
@@ -47,6 +47,10 @@
 		90DBEE221E2B5A7C00130C58 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */; };
 		90DBEE231E2B5A8000130C58 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */; };
 		90DBEE241E2B5AF400130C58 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1A5331E2B0B7700227693 /* Animations.swift */; };
+		90DC0DF51E2D923A0043B839 /* LoginDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC0DF41E2D923A0043B839 /* LoginDataClient.swift */; };
+		90DC0DF71E2D93F20043B839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC0DF61E2D93F20043B839 /* LoginViewController.swift */; };
+		90DC0DF91E2D9B5F0043B839 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC0DF81E2D9B5F0043B839 /* SignUpViewController.swift */; };
+		90DC0DFB1E2D9B790043B839 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC0DFA1E2D9B790043B839 /* TemplateViewController.swift */; };
 		95ED0D044CA2E76D34D25898 /* Pods_Beacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08706E1BE9C797AEA4B88EDC /* Pods_Beacon.framework */; };
 		ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11209D1DD10E7700B9E2A4 /* Place.swift */; };
 		EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE7047A1DD11B7C005DC778 /* Trip.swift */; };
@@ -76,7 +80,7 @@
 		2E05B47F1E2B07E9009817A6 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
 		2E9A03821E2B6D5500E82F8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2EBBFBB31E2B613E0085B142 /* LoginViewController-old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginViewController-old.swift"; sourceTree = "<group>"; };
 		2ED1A52D1E2B09B300227693 /* ImageCarouselTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A52F1E2B09C300227693 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		2ED1A5311E2B09D700227693 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +116,10 @@
 		90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		90DBEE201E2B5A5B00130C58 /* DataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFunctions.swift; sourceTree = "<group>"; };
+		90DC0DF41E2D923A0043B839 /* LoginDataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataClient.swift; sourceTree = "<group>"; };
+		90DC0DF61E2D93F20043B839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		90DC0DF81E2D9B5F0043B839 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		90DC0DFA1E2D9B790043B839 /* TemplateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		BBA18EBAE521090D59515B55 /* Pods-Beacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.release.xcconfig"; sourceTree = "<group>"; };
 		BCDBD6E9B3B999D00FDF3A55 /* Pods-Beacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beacon/Pods-Beacon.debug.xcconfig"; sourceTree = "<group>"; };
 		E4A7F1257A369453B36FDF62 /* Pods_BeaconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeaconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +187,8 @@
 		900D05141DCE8A0200605D0A /* Beacon */ = {
 			isa = PBXGroup;
 			children = (
+				90DC0DFA1E2D9B790043B839 /* TemplateViewController.swift */,
+				90DC0DF31E2D8FCB0043B839 /* Login */,
 				2ED1A5331E2B0B7700227693 /* Animations.swift */,
 				90927E501DCE906E008726BB /* UIExtensions.swift */,
 				90DBEE1C1E2B59AD00130C58 /* ViewController+Extensions.swift */,
@@ -216,7 +226,6 @@
 		90101B9F1E2AA93100037B3F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EBBFBB31E2B613E0085B142 /* LoginViewController.swift */,
 				90927E4E1DCE8FFA008726BB /* ListViewController.swift */,
 				2E05B4811E2B0806009817A6 /* BusinessDetailViewController.swift */,
 				90DBEE0F1E2B3C0400130C58 /* Search */,
@@ -314,6 +323,17 @@
 				90DBEE1A1E2B599E00130C58 /* LocationSearchViewController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		90DC0DF31E2D8FCB0043B839 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90DC0DF61E2D93F20043B839 /* LoginViewController.swift */,
+				90DC0DF81E2D9B5F0043B839 /* SignUpViewController.swift */,
+				90DC0DF41E2D923A0043B839 /* LoginDataClient.swift */,
+				2EBBFBB31E2B613E0085B142 /* LoginViewController-old.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		C1F1E4402EC4FB07BBD6319B /* Frameworks */ = {
@@ -521,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DC0DF91E2D9B5F0043B839 /* SignUpViewController.swift in Sources */,
 				90DBEE211E2B5A5B00130C58 /* DataFunctions.swift in Sources */,
 				90DBEE151E2B3DFD00130C58 /* (null) in Sources */,
 				EDE7047B1DD11B7C005DC778 /* Trip.swift in Sources */,
@@ -533,6 +554,7 @@
 				90DBEE111E2B3C7300130C58 /* (null) in Sources */,
 				90DBEE191E2B599600130C58 /* SearchBusinessViewController.swift in Sources */,
 				90DBEE0E1E2B3BFE00130C58 /* (null) in Sources */,
+				90DC0DF71E2D93F20043B839 /* LoginViewController.swift in Sources */,
 				90DBEE0A1E2B3A7D00130C58 /* (null) in Sources */,
 				907670191DD1215A003C3B89 /* APIDataHandler.swift in Sources */,
 				90DBEE221E2B5A7C00130C58 /* InfoTableViewCell.swift in Sources */,
@@ -542,15 +564,17 @@
 				90101BA81E2AB05200037B3F /* MapMethods.swift in Sources */,
 				90101BA51E2AAD3A00037B3F /* PlaceTableViewCell.swift in Sources */,
 				90927E511DCE906E008726BB /* UIExtensions.swift in Sources */,
+				90DC0DF51E2D923A0043B839 /* LoginDataClient.swift in Sources */,
 				90DBEE171E2B421800130C58 /* (null) in Sources */,
 				90DBEE1B1E2B599E00130C58 /* LocationSearchViewController.swift in Sources */,
+				90DC0DFB1E2D9B790043B839 /* TemplateViewController.swift in Sources */,
 				ED11209E1DD10E7700B9E2A4 /* Place.swift in Sources */,
 				9052B4371E2B10F900DBCF98 /* YoutubeActionController.swift in Sources */,
 				90101B9E1E2AA91000037B3F /* FirebaseHandler.swift in Sources */,
 				90BBB7D71E2B981500F7E193 /* LPRTableView.swift in Sources */,
 				90DBEE1E1E2B59CD00130C58 /* BusinessDetailViewController.swift in Sources */,
 				9052B43A1E2B1C4000DBCF98 /* ImageCarouselTableViewCell.swift in Sources */,
-				2EBBFBB41E2B613E0085B142 /* LoginViewController.swift in Sources */,
+				2EBBFBB41E2B613E0085B142 /* LoginViewController-old.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
