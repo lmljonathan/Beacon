@@ -36,7 +36,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITex
     var searchType: SearchType = .address
     
     var currentLocation: String! = "Current Location"
-    var currentLocationCoordinates: String! = "-33.0,180.0"
+    var currentLocationCoordinates: String! = "37.7749,-122.4194"
     var currentCity: String! = ""
     
     var searchQuery: String! = ""

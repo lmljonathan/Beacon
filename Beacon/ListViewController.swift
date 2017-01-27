@@ -125,7 +125,7 @@ class ListViewController: UIViewController {
         self.listTableView.register(UINib(nibName: "PlaceCell", bundle: .main), forCellReuseIdentifier: "placeCell")
         
         // CHANGE
-        let googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "33.672354,-117.798607", "rankby": "distance", "keyword": "food"]
+        let googleParameters = ["key": "AIzaSyCwz0NEe0TCqASETjbnWQNqbdQkwMIbmFo", "location": "37.7749,-122.4194", "rankby": "distance", "keyword": "food"]
         apiClient.performAPISearch(googleParameters) { (results) in
             self.placeIDs = results.map({$0.id})
             self.loadData()
@@ -249,13 +249,13 @@ class ListViewController: UIViewController {
         // self.listTableView.setEditing(true, animated: true)
         self.listTableView.longPressReorderEnabled = true
         
-        if (self.bottomView.gestureRecognizers != nil && self.bottomView.gestureRecognizers?.count != 0){
-            if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
-                self.bottomView.removeGestureRecognizer(bottomPanGR)
-            }
-        }else{
-            self.configureRecognizers()
-        }
+//        if (self.bottomView.gestureRecognizers != nil && self.bottomView.gestureRecognizers?.count != 0){
+//            if let bottomPanGR = self.bottomView.gestureRecognizers![0] as? UIPanGestureRecognizer{
+//                self.bottomView.removeGestureRecognizer(bottomPanGR)
+//            }
+//        }else{
+//            self.configureRecognizers()
+//        }
         
         // Set Edit Mode
         self.mode = .edit

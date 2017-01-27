@@ -37,6 +37,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let exTrip = Trip(id: "adsfs", name: "sdfd", placeIDs: ["sdfa","safe", "sdafds"])
                 let test = FirebaseHandler()
                 test.saveTripToDataBase(trip: exTrip)
+                test.retrieveTripDetails(completion: { (tripArray) in
+                    for trip in tripArray {
+                        print("->", trip.name)
+                    }
+                })
                 ref.child("places").observeSingleEvent(of: .value, with: { (snapshot) in
                     let value = snapshot.value as? NSDictionary
                     print("GGGGGGGG",value)
