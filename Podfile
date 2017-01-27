@@ -23,6 +23,9 @@ target 'Beacon' do
   pod 'FirebaseAuth'
   pod 'FirebaseDatabase'
   pod 'Firebase'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 
   # Pods for Beacon
 

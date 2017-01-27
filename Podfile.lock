@@ -2,8 +2,20 @@ PODS:
   - Alamofire (4.2.0)
   - Async (0.2.0)
   - BetterSegmentedControl (0.7)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - Cosmos (7.0.0)
   - CZPicker (0.4.3)
+  - FBSDKCoreKit (4.18.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.18.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.18.0):
+    - FBSDKCoreKit
   - Firebase (3.11.0):
     - Firebase/Core (= 3.11.0)
   - Firebase/Auth (3.11.0):
@@ -67,6 +79,9 @@ DEPENDENCIES:
   - BetterSegmentedControl
   - Cosmos
   - CZPicker
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -86,8 +101,12 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Async: d80205f1a1b4eea24de8ddc62cf5197ff3025330
   BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
+  FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAuth: b436e4ecebe068bf8e8c6e4e29de5756ffe7ee24
@@ -107,6 +126,6 @@ SPEC CHECKSUMS:
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: ffb0c6468ba3b71238de787991019b6aeceb84a7
+PODFILE CHECKSUM: 98af6c9d5e9a6d82e431c0ecfd4d87a1da7076c2
 
 COCOAPODS: 1.1.1
