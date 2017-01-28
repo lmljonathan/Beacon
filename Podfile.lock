@@ -66,6 +66,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.8)
   - Kingfisher (3.2.4)
   - MGSwipeTableCell (1.5.6)
+  - OAuthSwift (1.1.0)
   - SwiftLocation (1.1.1)
   - SwiftyJSON (3.1.4)
   - XLActionController (3.0.1):
@@ -92,6 +93,7 @@ DEPENDENCIES:
   - GooglePlaces
   - Kingfisher
   - MGSwipeTableCell
+  - OAuthSwift
   - SwiftLocation
   - SwiftyJSON
   - XLActionController
@@ -121,11 +123,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+  OAuthSwift: 7ec2c62274f6bdc30b1ba3b799c39a6fdcaea0e5
   SwiftLocation: aac16955b508c46b82bf07fcceb7e2a3b382b8d5
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 98af6c9d5e9a6d82e431c0ecfd4d87a1da7076c2
+PODFILE CHECKSUM: 5c7c3f7f13278bf22a4c68240445d97b31a776e0
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.1.1

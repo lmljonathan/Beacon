@@ -26,7 +26,7 @@ target 'Beacon' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-
+  pod 'OAuthSwift'
   # Pods for Beacon
 
 end

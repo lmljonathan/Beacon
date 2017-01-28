@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FBSDKLoginKit
+//import FBSDKCoreKit
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate{
     
     //    let loginButton: FBSDKLoginButton = {
     //        let button = FBSDKLoginButton()
@@ -27,13 +29,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let loginButton = FBSDKLoginButton()
+        view.addSubview(loginButton)
+        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        loginButton.delegate = self
+
         //self.usernameField.delegate = self
         //self.passwordField.delegate = self
         // let ref = FIRDatabase.database().reference(fromURL: "https://beacon-80d39.firebaseio.com/")
         let ref = FIRDatabase.database().reference(withPath: "trips")
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "loginSuccess", sender: nil)
+                //self.performSegue(withIdentifier: "loginSuccess", sender: nil)
                 let exTrip = Trip(id: "adsfs", name: "sdfd", placeIDs: ["sdfa","safe", "sdafds"])
                 let test = FirebaseHandler()
                 test.saveTripToDataBase(trip: exTrip)
@@ -54,6 +62,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Logged out of Facebook")
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil{
+            print(error)
+            return
+        }
+        print("Successfully logged into Facebook!!!")
+        self.performSegue(withIdentifier: "loginSuccess", sender: nil)
+    }
+
     
     @IBAction func login(_ sender: Any){
         FIRAuth.auth()!.signIn(withEmail: usernameField.text!,
